@@ -1,0 +1,71 @@
+.logo {
+    width: 70%;
+    margin: 8%;
+}
+
+.iconheader {
+    width: 70%;
+    margin-left: 15%;
+    margin-top: 20%;
+    margin-bottom: 20%;
+    color: #4d4d4d;
+}
+
+.square {
+    background-color: #e6e6e6;
+    border-radius: 10px 10px 10px 10px;
+    -moz-border-radius: 10px 10px 10px 10px;
+    -webkit-border-radius: 10px 10px 10px 10px;
+}
+
+.squareselected {
+    background-color: #29abe2;
+    border-radius: 10px 10px 10px 10px;
+    -moz-border-radius: 10px 10px 10px 10px;
+    -webkit-border-radius: 10px 10px 10px 10px;
+}
+
+@media screen and (min-width: 761px) and (max-width: 1200px) {
+    
+        .logo {
+    width: 100%;
+    margin: 0%;
+    margin-top: 10%;
+    margin-bottom: 10%;
+}
+}
+
+@media screen and (min-width: 1px) and (max-width:760px ) {
+   
+    .logo {
+    width: 50%;
+    margin: 0%;
+    margin-top: 10%;
+    margin-bottom: 10%;
+}
+    
+    .iconheader {
+    width: 100%;
+    margin-left: 0%;
+    margin-top: 20%;
+    margin-bottom: 20%;
+    color: #4d4d4d;
+        
+}
+    
+    .square {
+    -webkit-box-shadow: 10px 10px 9px -7px rgba(0,0,0,0.24);
+    -moz-box-shadow: 10px 10px 9px -7px rgba(0,0,0,0.24);
+    box-shadow: 10px 10px 9px -7px rgba(0,0,0,0.24);
+}
+
+.squareselected {
+    -webkit-box-shadow: 10px 10px 9px -7px rgba(0,0,0,0.24);
+    -moz-box-shadow: 10px 10px 9px -7px rgba(0,0,0,0.24);
+    box-shadow: 10px 10px 9px -7px rgba(0,0,0,0.24);
+
+}
+    
+}
+
+

@@ -1,0 +1,33 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap');
+
+.design {
+    font-family: 'Roboto', sans-serif;
+    font-size: 80%;
+    font-weight: 500;
+    margin-top: 5%;
+    text-align: center;
+}
+
+.designshort {
+     font-family: 'Roboto', sans-serif;
+    font-size: 80%;
+    font-weight: 500;
+    margin-top: 20%;
+    text-align: center;
+}
+
+@media screen and (min-width: 761px) and (max-width: 1200px) {
+         .design {
+    margin-top: 35%;
+} 
+  
+}
+
+@media screen and (min-width: 1px) and (max-width:760px ) {
+    
+    
+    .design {
+    margin-top: 20%;
+}
+    
+}

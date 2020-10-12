@@ -1,0 +1,463 @@
+{% load static %}
+<!DOCTYPE HTML>
+<html LANG="en">
+
+<head>
+
+
+    <meta charset="UFT-8">
+    <title>Boleta El Electricista</title>
+    <meta name="description" content="Servicios Electricos"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="{% static 'img/' %}"/>
+
+
+    <link rel="stylesheet" href="{% static 'css/header.css' %}">
+    <link rel="stylesheet" href="{% static 'css/form.css' %}">
+    <link rel="stylesheet" href="{% static 'css/footer.css' %}">
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+
+    <!-- CSS only -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+          integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+
+
+</head>
+
+<body>
+
+<header>
+
+    <div class="container-fluid">
+
+        <div class="row">
+            <div class="col-12 col-md-3">
+                <img class="logo" src="{% static 'img/LogoAzul.png' %}">
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="container">
+
+        <div class="row">
+
+            <div class="col-0 col-md-1 m-auto"></div>
+
+
+            <div class="col-2 col-md-1 col-md-1 m-auto square">
+                <svg class="iconheader" viewBox="0 0 16 16" class="bi bi-file-person" fill="currentColor"
+                     xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd"
+                          d="M12 1H4a1 1 0 0 0-1 1v10.755S4 11 8 11s5 1.755 5 1.755V2a1 1 0 0 0-1-1zM4 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H4z"/>
+                    <path fill-rule="evenodd" d="M8 10a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/>
+                </svg>
+            </div>
+
+            <div class="col-2 col-md-1 m-auto square">
+                <svg class="iconheader" viewBox="0 0 16 16" class="bi bi-card-checklist" fill="currentColor"
+                     xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd"
+                          d="M14.5 3h-13a.5.5 0 0 0-.5.5v9a.5.5 0 0 0 .5.5h13a.5.5 0 0 0 .5-.5v-9a.5.5 0 0 0-.5-.5zm-13-1A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h13a1.5 1.5 0 0 0 1.5-1.5v-9A1.5 1.5 0 0 0 14.5 2h-13z"/>
+                    <path fill-rule="evenodd"
+                          d="M7 5.5a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5zm-1.496-.854a.5.5 0 0 1 0 .708l-1.5 1.5a.5.5 0 0 1-.708 0l-.5-.5a.5.5 0 1 1 .708-.708l.146.147 1.146-1.147a.5.5 0 0 1 .708 0zM7 9.5a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5zm-1.496-.854a.5.5 0 0 1 0 .708l-1.5 1.5a.5.5 0 0 1-.708 0l-.5-.5a.5.5 0 0 1 .708-.708l.146.147 1.146-1.147a.5.5 0 0 1 .708 0z"/>
+                </svg>
+            </div>
+
+            <div class="col-2 col-md-1 m-auto square">
+                <svg class="iconheader" viewBox="0 0 16 16" class="bi bi-clipboard-plus" fill="currentColor"
+                     xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd"
+                          d="M4 1.5H3a2 2 0 0 0-2 2V14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V3.5a2 2 0 0 0-2-2h-1v1h1a1 1 0 0 1 1 1V14a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V3.5a1 1 0 0 1 1-1h1v-1z"/>
+                    <path fill-rule="evenodd"
+                          d="M9.5 1h-3a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5zm-3-1A1.5 1.5 0 0 0 5 1.5v1A1.5 1.5 0 0 0 6.5 4h3A1.5 1.5 0 0 0 11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3zM8 7a.5.5 0 0 1 .5.5V9H10a.5.5 0 0 1 0 1H8.5v1.5a.5.5 0 0 1-1 0V10H6a.5.5 0 0 1 0-1h1.5V7.5A.5.5 0 0 1 8 7z"/>
+                </svg>
+            </div>
+
+            <div class="col-2 col-md-1 m-auto squareselected">
+                <svg class="iconheader" viewBox="0 0 16 16" class="bi bi-file-diff" fill="currentColor"
+                     xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd"
+                          d="M4 0h8a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2zm0 1a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H4z"/>
+                    <path fill-rule="evenodd"
+                          d="M5.5 10.5A.5.5 0 0 1 6 10h4a.5.5 0 0 1 0 1H6a.5.5 0 0 1-.5-.5zM8 4a.5.5 0 0 1 .5.5V6H10a.5.5 0 0 1 0 1H8.5v1.5a.5.5 0 0 1-1 0V7H6a.5.5 0 0 1 0-1h1.5V4.5A.5.5 0 0 1 8 4z"/>
+                </svg>
+            </div>
+
+            <div class="col-2 col-md-1 m-auto square">
+                <svg class="iconheader" viewBox="0 0 16 16" class="bi bi-bezier" fill="currentColor"
+                     xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd"
+                          d="M0 10.5A1.5 1.5 0 0 1 1.5 9h1A1.5 1.5 0 0 1 4 10.5v1A1.5 1.5 0 0 1 2.5 13h-1A1.5 1.5 0 0 1 0 11.5v-1zm1.5-.5a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5h-1zm10.5.5A1.5 1.5 0 0 1 13.5 9h1a1.5 1.5 0 0 1 1.5 1.5v1a1.5 1.5 0 0 1-1.5 1.5h-1a1.5 1.5 0 0 1-1.5-1.5v-1zm1.5-.5a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5h-1zM6 4.5A1.5 1.5 0 0 1 7.5 3h1A1.5 1.5 0 0 1 10 4.5v1A1.5 1.5 0 0 1 8.5 7h-1A1.5 1.5 0 0 1 6 5.5v-1zM7.5 4a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5h-1z"/>
+                    <path d="M6 4.5H1.866a1 1 0 1 0 0 1h2.668A6.517 6.517 0 0 0 1.814 9H2.5c.123 0 .244.015.358.043a5.517 5.517 0 0 1 3.185-3.185A1.503 1.503 0 0 1 6 5.5v-1zm3.957 1.358A1.5 1.5 0 0 0 10 5.5v-1h4.134a1 1 0 1 1 0 1h-2.668a6.517 6.517 0 0 1 2.72 3.5H13.5c-.123 0-.243.015-.358.043a5.517 5.517 0 0 0-3.185-3.185z"/>
+                </svg>
+            </div>
+
+            <div class="col-2 col-md-1 m-auto square">
+                <svg class="iconheader" viewBox="0 0 16 16" class="bi bi-ui-checks" fill="currentColor"
+                     xmlns="http://www.w3.org/2000/svg">
+                    <path d="M7 2.5a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-7a.5.5 0 0 1-.5-.5v-1z"/>
+                    <path fill-rule="evenodd"
+                          d="M2 1a2 2 0 0 0-2 2v2a2 2 0 0 0 2 2h2a2 2 0 0 0 2-2V3a2 2 0 0 0-2-2H2zm0 8a2 2 0 0 0-2 2v2a2 2 0 0 0 2 2h2a2 2 0 0 0 2-2v-2a2 2 0 0 0-2-2H2zm.854-3.646l2-2a.5.5 0 1 0-.708-.708L2.5 4.293l-.646-.647a.5.5 0 1 0-.708.708l1 1a.5.5 0 0 0 .708 0zm0 8l2-2a.5.5 0 0 0-.708-.708L2.5 12.293l-.646-.647a.5.5 0 0 0-.708.708l1 1a.5.5 0 0 0 .708 0z"/>
+                    <path d="M7 10.5a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-7a.5.5 0 0 1-.5-.5v-1z"/>
+                    <path fill-rule="evenodd"
+                          d="M7 5.5a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5zm0 8a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5z"/>
+                </svg>
+            </div>
+
+            <div class="col-0 col-md-1 m-auto"></div>
+
+        </div>
+
+    </div>
+
+</header>
+
+
+<section>
+    <form method="POST">
+        {% csrf_token %}
+        <div class="container">
+            <div class="row">
+
+
+                <div class="col-12">
+                    <div class="row">
+
+
+                        <div class="col-12">
+
+                            <h1 class="title">Centro de Carga</h1>
+                        </div>
+
+
+                        <div class="col-12 col-sm-6 col-xl-4 borderdown">
+
+                            <div class="form-group">
+                                <label for="{{ form.marca_catalogo.id_for_label }}">Marca y No. Catalago:</label>
+                                <input type="text" class="form-control" id="{{ form.marca_catalogo.id_for_label }}" name="{{ form.marca_catalogo.html_name }}" maxlength="25"
+                                {% if form.marca_catalogo.value %}  value="{{ form.marca_catalogo.value }}" {% endif %}>
+                            </div>
+
+                        </div>
+
+                        <div class="col-12 col-sm-6 col-xl-4 borderdown">
+
+                            <div class="form-group">
+                                <label for="{{ form.espacios_ocupados.id_for_label }}">Espacios Ocupados:</label>
+                                <input type="text" class="form-control" id="{{ form.espacios_ocupados.id_for_label }}" name="{{ form.espacios_ocupados.html_name }}" maxlength="25"
+                                {% if form.espacios_ocupados.value %}  value="{{ form.espacios_ocupados.value }}" {% endif %}>
+                            </div>
+
+                        </div>
+
+
+                        <span class="bordertablet"></span>
+
+
+                        <div class="col-12 col-sm-6 col-xl-4 borderdown">
+                            <div class="row">
+
+                                <div class="col-12">
+                                    <div class="form-group">
+                                        <label for="{{ form.estado_tablero.id_for_label }}">Estado general del tablero:</label>
+                                        <select class="form-control" id="{{ form.estado_tablero.id_for_label }}"
+                                                name="{{ form.estado_tablero.html_name }}">
+                                            <option {% if form.estado_tablero.value == "b" %} selected {% endif %}  value="b">Bueno</option>
+                                            <option {% if form.estado_tablero.value == "r" %} selected {% endif %}  value="r">Regular</option>
+                                            <option {% if form.estado_tablero.value == "d" %} selected {% endif %}  value="d">Deficiente</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="col-1">
+                                </div>
+
+                                <div class="col-11">
+                                    <div class="form-group">
+                                        <label for="{{ form.estado_tablero_especifique.id_for_label }}">Especifique</label>
+                                        <input type="text" class="form-control" id="{{ form.estado_tablero_especifique.id_for_label }}"
+                                               name="{{ form.estado_tablero_especifique.html_name }}" maxlength="25"
+                                                {% if form.estado_tablero_especifique.value %}  value="{{ form.estado_tablero_especifique.value }}" {% endif %}>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                        </div>
+
+
+                        <span class="borderpc"></span>
+
+
+                        <div class="col-12 col-sm-6 col-xl-4 borderdown">
+
+                            <div class="form-group">
+                                <label for="{{ form.ubicacion.id_for_label }}">Ubicaci&oacute;n:</label>
+                                <select class="form-control" id="{{ form.ubicacion.id_for_label }}" name="{{ form.ubicacion.html_name }}">
+                                        <option {% if form.ubicacion.value == "a" %} selected {% endif %}  value="a">Accesible</option>
+                                        <option {% if form.ubicacion.value == "f" %} selected {% endif %}  value="f">Fácilmente accesible</option>
+                                        <option {% if form.ubicacion.value == "p" %} selected {% endif %}  value="p">Poco accesible</option>
+                                </select>
+                            </div>
+
+                        </div>
+
+                        <span class="bordertablet"></span>
+
+                        <div class="col-12 col-sm-6 col-xl-4 borderdown">
+                            <div class="row">
+
+                                <div class="col-12">
+                                    <div class="form-group">
+                                        <label for="{{ form.canalizacion.id_for_label }}">Canalizaci&oacute;n:</label>
+                                        <select class="form-control" id="{{ form.canalizacion.id_for_label }}"
+                                                name="{{ form.canalizacion.html_name }}">
+                                            <option {% if form.canalizacion.value == "b" %} selected {% endif %}  value="b">Bueno</option>
+                                            <option {% if form.canalizacion.value == "r" %} selected {% endif %}  value="r">Regular</option>
+                                            <option {% if form.canalizacion.value == "d" %} selected {% endif %}  value="d">Deficiente</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="col-1">
+                                </div>
+
+                                <div class="col-11">
+                                    <div class="form-group">
+                                        <label for="{{ form.canalizacion_especifique.id_for_label }}">Especifique</label>
+                                        <input type="text" class="form-control" id="{{ form.canalizacion_especifique.id_for_label }}"
+                                               name="{{ form.canalizacion_especifique.html_name }}" maxlength="25"
+                                                {% if form.canalizacion_especifique.value %}  value="{{ form.canalizacion_especifique.value }}" {% endif %}>
+                                    </div>
+                                </div>
+
+                                <div class="col-1">
+                                </div>
+
+                                <div class="col-11">
+                                    <div class="form-group">
+                                        <label for="{{ form.canalizacion_distancia.id_for_label }}">Distancia:</label>
+                                        <input type="text" class="form-control" id="{{ form.canalizacion_distancia.id_for_label }}"
+                                               name="{{ form.canalizacion_distancia.html_name }}" maxlength="25"
+                                                {% if form.canalizacion_distancia.value %}  value="{{ form.canalizacion_distancia.value }}" {% endif %}>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                        <div class="col-12 col-sm-6 col-xl-4 borderdown">
+                            <div class="row">
+
+                                <div class="col-12">
+                                    <div class="form-group">
+                                        <label for="{{ form.estado_alimentadores.id_for_label }}">Condici&oacute;n general de los
+                                            tableros:</label>
+                                        <select class="form-control" id="{{ form.estado_alimentadores.id_for_label }}"
+                                                name="{{ form.estado_alimentadores.html_name }}">
+                                            <option {% if form.estado_alimentadores.value == "b" %} selected {% endif %}  value="b">Bueno</option>
+                                            <option {% if form.estado_alimentadores.value == "r" %} selected {% endif %}  value="r">Regular</option>
+                                            <option {% if form.estado_alimentadores.value == "d" %} selected {% endif %}  value="d">Deficiente</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="col-1">
+                                </div>
+
+                                <div class="col-11">
+                                    <div class="form-group">
+                                        <label for="{{ form.estado_alimentadores_especifique.id_for_label }}">Especifique</label>
+                                        <input type="text" class="form-control" id="{{ form.estado_alimentadores_especifique.id_for_label }}"
+                                               name="{{ form.estado_alimentadores_especifique.html_name }}" maxlength="25"
+                                                {% if form.estado_alimentadores_especifique.value %}  value="{{ form.estado_alimentadores_especifique.value }}" {% endif %}>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                        <span class="bordertablet"></span>
+
+
+                        <span class="borderpc"></span>
+
+                        <div class="col-12 col-sm-6 col-xl-4 borderdown">
+                            <div class="row">
+
+                                <div class="col-12">
+                                    <div class="form-group">
+                                        <label for="{{ form.estado_puesta.id_for_label }}">Puesta a tierra:</label>
+                                        <select class="form-control" id="{{ form.estado_puesta.id_for_label }}"
+                                                name="{{ form.estado_puesta.html_name }}">
+                                            <option {% if form.estado_puesta.value == "b" %} selected {% endif %}  value="b">Bueno</option>
+                                            <option {% if form.estado_puesta.value == "r" %} selected {% endif %}  value="r">Regular</option>
+                                            <option {% if form.estado_puesta.value == "d" %} selected {% endif %}  value="d">Deficiente</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="col-1">
+                                </div>
+
+                                <div class="col-11">
+                                    <div class="form-group">
+                                        <label for="{{ form.estado_puesta_especifique.id_for_label }}">Especifique</label>
+                                        <input type="text" class="form-control" id="{{ form.estado_puesta_especifique.id_for_label }}"
+                                               name="{{ form.estado_puesta_especifique.html_name }}" maxlength="25"
+                                                {% if form.estado_puesta_especifique.value %}  value="{{ form.estado_puesta_especifique.value }}" {% endif %}>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="col-12 col-sm-6 col-xl-4 borderdown">
+                            <div class="row">
+
+                                <div class="col-12">
+                                    <div class="form-group">
+                                        <label for="exampleFormControlSelect1">Prueba de carga:<br>
+                                            (F1, F2, F3, N)</label>
+
+                                        <div class="row">
+                                            <div class="col-6">
+                                                <div class="input-group mb-2 mr-sm-2">
+                                                    <div class="input-group-prepend">
+                                                        <div class="input-group-text">F1</div>
+                                                    </div>
+                                                    <input type="text" class="form-control"
+                                                           id="{{ form.prueba_carga_f1_v.id_for_label }}"
+                                                               name="{{ form.prueba_carga_f1_v.html_name }}" maxlength="25"
+                                                                {% if form.prueba_carga_f1_v.value %}  value="{{ form.prueba_carga_f1_v.value }}" {% endif %}>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-6">
+                                                <div class="input-group mb-2 mr-sm-2">
+                                                    <div class="input-group-prepend">
+                                                        <div class="input-group-text">F2</div>
+                                                    </div>
+                                                    <input type="text" class="form-control"
+                                                           id="{{ form.prueba_carga_f2_v.id_for_label }}"
+                                                               name="{{ form.prueba_carga_f2_v.html_name }}" maxlength="25"
+                                                                {% if form.prueba_carga_f2_v.value %}  value="{{ form.prueba_carga_f2_v.value }}" {% endif %}>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-6">
+                                                <div class="input-group mb-2 mr-sm-2">
+                                                    <div class="input-group-prepend">
+                                                        <div class="input-group-text">F3</div>
+                                                    </div>
+                                                    <input type="text" class="form-control"
+                                                           id="{{ form.prueba_carga_f3_v.id_for_label }}"
+                                                               name="{{ form.prueba_carga_f3_v.html_name }}" maxlength="25"
+                                                                {% if form.prueba_carga_f3_v.value %}  value="{{ form.prueba_carga_f3_v.value }}" {% endif %}>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-6">
+                                                <div class="input-group mb-2 mr-sm-2">
+                                                    <div class="input-group-prepend">
+                                                        <div class="input-group-text">N</div>
+                                                    </div>
+                                                    <input type="text" class="form-control"
+                                                           id="{{ form.prueba_carga_n_a.id_for_label }}"
+                                                               name="{{ form.prueba_carga_n_a.html_name }}" maxlength="25"
+                                                                {% if form.prueba_carga_n_a.value %}  value="{{ form.prueba_carga_n_a.value }}" {% endif %}>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-1">
+                                            </div>
+
+                                            <div class="col-11">
+                                                <div class="form-group">
+                                                    <label for="{{ form.nota.id_for_label }}">Nota</label>
+                                                    <input type="text" class="form-control" id="{{ form.nota.id_for_label }}"
+                                                       name="{{ form.nota.html_name }}" maxlength="25"
+                                                        {% if form.nota.value %}  value="{{ form.nota.value }}" {% endif %}>
+                                                </div>
+                                            </div>
+
+                                        </div>
+
+
+                                    </div>
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                        <span class="bordertablet"></span>
+
+
+                        <div class="col-12 col-sm-6 col-xl-4">
+                            <div class="form-group">
+                                <label for="{{ form.resultado.id_for_label }}">Resultado centro de carga principal:</label>
+                                <textarea class="form-control" id="{{ form.resultado.id_for_label }}" name="{{ form.resultado.html_name }}" maxlength="500" required rows="3">{% if form.resultado.value %}{{ form.resultado.value }}{% endif %}</textarea>
+                            </div>
+                        </div>
+
+
+                    </div>
+                </div>
+
+
+            </div>
+
+        </div>
+        <div class="container">
+            <div class="row">
+
+                <div class="col-0 col-md-8 formline">
+
+                </div>
+
+                <div class="col-6 col-md-2 formline">
+                    <button type="submit" class="btn btn-secondary">Ir atr&aacute;s</button>
+                </div>
+
+                <div class="col-6 col-md-2 formline">
+                    <button type="submit" name="sigt" class="btn btn-warning">Siguiente</button>
+                </div>
+
+            </div>
+
+        </div>
+    </form>
+</section>
+
+
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <h2 class="design">Design by <strong>LINK DESIGN</strong></h2>
+            </div>
+        </div>
+    </div>
+
+</footer>
+
+
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+        integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+        crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+        integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>

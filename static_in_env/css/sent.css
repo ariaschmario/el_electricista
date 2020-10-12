@@ -1,0 +1,104 @@
+
+.bi-check2-circle {
+    color: white;
+    width: 70%;
+    margin-left: 15%;
+    margin-top: 10%;
+    margin-bottom: 10%;
+    background-color: #22b573;
+    border-radius: 10px 10px 10px 10px;
+    -moz-border-radius: 10px 10px 10px 10px;
+    -webkit-border-radius: 10px 10px 10px 10px;
+}
+
+.sentmessage {
+    font-family: 'Roboto', sans-serif;
+    font-size: 150%;
+    font-weight: 500;
+    text-align: center;
+    color: #22b573;
+    margin-bottom: 85%;
+}
+
+
+.graybtn {
+    background-color: #4d4d4d;
+    border-radius: 10px 10px 10px 10px;
+    -moz-border-radius: 10px 10px 10px 10px;
+    -webkit-border-radius: 10px 10px 10px 10px;
+    -webkit-box-shadow: 10px 10px 9px -7px rgba(0,0,0,0.24);
+    -moz-box-shadow: 10px 10px 9px -7px rgba(0,0,0,0.24);
+    box-shadow: 10px 10px 9px -7px rgba(0,0,0,0.24);
+}
+
+.bluebtn {
+    background-color: #29abe2;
+    border-radius: 10px 10px 10px 10px;
+    -moz-border-radius: 10px 10px 10px 10px;
+    -webkit-border-radius: 10px 10px 10px 10px;
+    -webkit-box-shadow: 10px 10px 9px -7px rgba(0,0,0,0.24);
+    -moz-box-shadow: 10px 10px 9px -7px rgba(0,0,0,0.24);
+    box-shadow: 10px 10px 9px -7px rgba(0,0,0,0.24);
+}
+
+.bi-plus-circle {
+    margin: 5%;
+    width: 40%;
+    margin-left: 30%;
+    color: white;
+    
+}
+
+
+.bi-file-earmark-check {
+   margin: 5%;
+    width: 40%;
+    margin-left: 30%;
+    color: white;
+}
+
+
+.btnend {
+    font-family: 'Roboto', sans-serif;
+    font-size: 120%;
+    font-weight: 500;
+    text-align: center;
+    color: white;
+}
+
+@media screen and (min-width: 761px) and (max-width: 1200px) {
+    
+    
+}
+
+@media screen and (min-width: 1px) and (max-width:760px ) {
+    
+    .sentmessage {
+    font-size: 120%;
+}
+    
+    
+    
+    .btnend {
+    font-size: 100%;
+}
+    
+    .bi-plus-circle {
+    margin: 15%;
+    width: 40%;
+    margin-left: 30%;
+    color: white;
+    
+}
+
+
+.bi-file-earmark-check {
+   margin: 15%;
+    width: 40%;
+    margin-left: 30%;
+    color: white;
+}
+    
+    
+    
+}

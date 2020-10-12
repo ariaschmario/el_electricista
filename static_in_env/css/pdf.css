@@ -1,0 +1,100 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap');
+
+
+
+
+
+.logoboleta {
+    width: 100%;
+    margin-top: 5%;
+}
+
+.numeroboleta {
+  font-family: 'Roboto', sans-serif;
+    font-size: 90%;
+    font-weight: 900;
+    color: red;
+}
+
+.ncodigo {
+    font-family: 'Roboto', sans-serif;
+    font-size: 110%;
+    font-weight: 900;
+    color: red;
+}
+
+.fecha {
+  font-family: 'Roboto', sans-serif;
+    font-size: 110%;
+    font-weight: 900;
+}
+
+
+
+.tecnico {
+   font-family: 'Roboto', sans-serif;
+    font-size: 150%;
+    font-weight: 500; 
+}
+
+.tecniconombre {
+   font-family: 'Roboto', sans-serif;
+    font-size: 130%;
+    font-weight: 400; 
+}
+
+
+
+
+
+
+
+
+
+
+
+.top {
+    margin-top: 5%;
+}
+
+.titleboleta {
+    font-family: 'Roboto', sans-serif;
+    font-size: 180%;
+    font-weight: 800;
+    color: #00ade5;
+}
+
+.subtitulo {
+    font-family: 'Roboto', sans-serif;
+    font-size: 150%;
+    font-weight: 700;
+}
+
+.cajatitulo {
+    border-radius: 11px 11px 11px 11px;
+    -moz-border-radius: 11px 11px 11px 11px;
+    -webkit-border-radius: 11px 11px 11px 11px;
+    border: 0.8px #cccccc solid;
+    background-color: #f2f2f2;
+}
+
+.caja {
+    border-radius: 5px 5px 5px 5px;
+    -moz-border-radius: 5px 5px 5px 5px;
+    -webkit-border-radius: 5px 5px 5px 5px;
+    border: 0.8px #999999 solid;
+}
+
+.titulocaja {
+  font-family: 'Roboto', sans-serif;
+    font-size: 140%;
+    font-weight: 500; 
+    margin-top: 2%;
+    text-align: center;
+}
+
+.cajacontenido {
+    font-family: 'Roboto', sans-serif;
+    font-size: 120%;
+    font-weight: 400;
+}

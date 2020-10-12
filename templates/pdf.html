@@ -1,0 +1,1134 @@
+{% load static %}
+<!DOCTYPE HTML>
+<html LANG="en">
+    
+    <head>
+
+
+        <meta charset="UFT-8">
+        <title>Boleta El Electricista</title>  
+        <meta name="description" content="Servicios Electricos"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="shortcut icon" href="..{% static 'img/'%}"/>
+
+
+        <link rel="stylesheet" href="..{% static 'css/header.css'%}">
+        <link rel="stylesheet" href="..{% static 'css/form.css'%}">
+        <link rel="stylesheet" href="..{% static 'css/pdf.css'%}">
+        <link rel="stylesheet" href="..{% static 'css/footer.css'%}">
+
+
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+
+
+
+
+        <!-- CSS only -->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+
+
+
+    </head>
+    
+    <body>
+    
+        <header>
+            
+           <div class="container">
+                <div class="row">
+                    <div class="col-4">
+                        <img class="logoboleta" src="..{% static 'img/LogoAzul.png'%}">
+                    </div>
+                    
+                    
+                    <div class="col-5"> 
+                    </div>
+                    
+                    
+                    <div class="col-3 top">
+                        <div class="row">
+                            <div class="col-5"> 
+                                <h1 class="numeroboleta">Boleta N. </h1>
+                            </div>
+                            <div class="col-7">
+                                <h2 class="ncodigo">00001</h2>
+                            </div>
+                            
+                            
+                            <div class="col-4"> 
+                                <h1 class="fecha">Fecha: </h1>
+                            </div>
+                            <div class="col-8">
+                                <h1 class="fecha">03-04-2020</h1>
+                            </div>
+                            
+                        </div>
+                    </div>
+                    
+                    
+                    
+                    
+                    
+                </div>
+            </div>
+            
+        </header>
+        
+        
+        
+        <section>
+        
+             <div class="container-fluid top"> 
+                
+                <div class="row">
+                    <div class="col-12">
+                       <h1 class="titleboleta">Informaci&oacute;n Cliente</h1>
+                    </div>
+                    
+                    
+                    <div class="col-4">
+                       <div class="row">
+                           
+                           
+                           
+                           <div class="col-12 cajatitulo">
+                                <h1 class="titulocaja">Tipo de identificaci&oacute;n</h1>
+                            </div> 
+                           <div class="col-12 caja">
+                                <h4 class="cajacontenido">{{ ticket.client.idType }}</h4>
+                            </div>
+                           
+                           
+                           
+                           
+                        </div>
+                    </div>
+                    
+                    <div class="col-4">
+                       <div class="row">
+                           
+                           
+                           
+                           <div class="col-12 cajatitulo">
+                                <h1 class="titulocaja">identificaci&oacute;n</h1>
+                            </div> 
+                           <div class="col-12 caja">
+                                <h4 class="cajacontenido">23488620</h4>
+                            </div>
+                           
+                           
+                           
+                           
+                        </div>
+                    </div>
+                    
+                    <div class="col-4">
+                       <div class="row">
+                           
+                           
+                           
+                           <div class="col-12 cajatitulo">
+                                <h1 class="titulocaja">Nombre y Apellido</h1>
+                            </div> 
+                           <div class="col-12 caja">
+                                <h4 class="cajacontenido">Carlos Jose hernandez casasola de la paz</h4>
+                            </div>
+                           
+                           
+                           
+                           
+                        </div>
+                    </div>
+               
+                </div>
+            
+            </div>
+            
+            
+            
+            
+             <div class="container-fluid top"> 
+                
+                <div class="row">
+                                       
+                    
+                    <div class="col-4">
+                       <div class="row">
+                           
+                           
+                           
+                           <div class="col-12 cajatitulo">
+                                <h1 class="titulocaja">Telefono</h1>
+                            </div> 
+                           <div class="col-12 caja">
+                                <h4 class="cajacontenido">60398858</h4>
+                            </div>
+                           
+                           
+                           
+                           
+                        </div>
+                    </div>
+                    
+                    <div class="col-4">
+                       <div class="row">
+                           
+                           
+                           
+                           <div class="col-12 cajatitulo">
+                                <h1 class="titulocaja">Correo Electrónico</h1>
+                            </div> 
+                           <div class="col-12 caja">
+                                <h4 class="cajacontenido">23488620</h4>
+                            </div>
+                           
+                           
+                           
+                           
+                        </div>
+                    </div>
+                    
+                    <div class="col-4">
+                       <div class="row">
+                           
+                           
+                           
+                           <div class="col-12 cajatitulo">
+                                <h1 class="titulocaja">Dirección</h1>
+                            </div> 
+                           <div class="col-12 caja">
+                                <h4 class="cajacontenido">Carlos Jose hernandez casasola de la paz</h4>
+                            </div>
+                           
+                           
+                           
+                           
+                        </div>
+                    </div>
+               
+                </div>
+            
+            </div>
+        
+            
+            
+            
+            
+            
+            
+            
+            
+        
+            
+            
+            
+            
+            <div class="container-fluid top"> 
+                
+                <div class="row">
+                    <div class="col-12">
+                       <h1 class="titleboleta">Informaci&oacute;n General</h1>
+                    </div>
+                    
+                    
+                    <div class="col-4">
+                       <div class="row">
+                           
+                           
+                           
+                           <div class="col-12 cajatitulo">
+                                <h1 class="titulocaja">Tipo de Aver&iacute;a</h1>
+                            </div> 
+                           <div class="col-12 caja">
+                                <h4 class="cajacontenido">Seleccion</h4>
+                            </div>
+                           
+                           
+                           
+                           
+                        </div>
+                    </div>
+                    
+                    <div class="col-4">
+                       <div class="row">
+                           
+                           
+                           
+                           <div class="col-12 cajatitulo">
+                                <h1 class="titulocaja">Tipo de inmueble</h1>
+                            </div> 
+                           <div class="col-12 caja">
+                                <h4 class="cajacontenido">seleccion</h4>
+                            </div>
+                           
+                           
+                           
+                           
+                        </div>
+                    </div>
+                    
+                    <div class="col-4">
+                       <div class="row">
+                           
+                           
+                           
+                           <div class="col-12 cajatitulo">
+                                <h1 class="titulocaja">Empresa sup. servicio eléctrico</h1>
+                            </div> 
+                           <div class="col-12 caja">
+                                <h4 class="cajacontenido">Seleccion</h4>
+                            </div>
+                           <div class="col-12 caja">
+                                <h4 class="cajacontenido">ESPECIFICACION</h4>
+                            </div>
+                           
+                           
+                           
+                           
+                        </div>
+                    </div>
+               
+                </div>
+            
+            </div>
+            
+            
+            
+            
+             <div class="container-fluid top"> 
+                
+                <div class="row">
+                          
+                    <div class="col-12">
+                       <h1 class="subtitulo">Generaci&oacute;n solar:</h1>
+                    </div>
+                    
+                    
+                    <div class="col-4">
+                       <div class="row">
+                           
+                           
+                           
+                           <div class="col-12 cajatitulo">
+                                <h1 class="titulocaja">Capacidad equipada</h1>
+                            </div> 
+                           <div class="col-12 caja">
+                                <h4 class="cajacontenido">Seleccion</h4>
+                            </div>
+                           
+                           
+                           
+                           
+                        </div>
+                    </div>
+                    
+                    <div class="col-4">
+                       <div class="row">
+                           
+                           
+                           
+                           <div class="col-12 cajatitulo">
+                                <h1 class="titulocaja">Tipo de tarifa</h1>
+                            </div> 
+                           <div class="col-12 caja">
+                                <h4 class="cajacontenido">Seleccion</h4>
+                            </div>
+                           <div class="col-12 caja">
+                                <h4 class="cajacontenido">ESPECIFICACION</h4>
+                            </div>
+                           
+                           
+                           
+                           
+                        </div>
+                    </div>
+                    
+                    <div class="col-4">
+                       <div class="row">
+                           
+                           
+                           
+                           <div class="col-12 cajatitulo">
+                                <h1 class="titulocaja">NISE/Localización</h1>
+                            </div> 
+                           <div class="col-12 caja">
+                                <h4 class="cajacontenido">seleccion</h4>
+                            </div>
+                           
+                           
+                           
+                           
+                        </div>
+                    </div>
+                    
+                    <div class="col-4 top">
+                       <div class="row">
+                           
+                           
+                           
+                           <div class="col-12 cajatitulo">
+                                <h1 class="titulocaja">N&uacute;mero de medido</h1>
+                            </div> 
+                           <div class="col-12 caja">
+                                <h4 class="cajacontenido">Seleecion</h4>
+                            </div>
+                           
+                           
+                           
+                           
+                        </div>
+                    </div>
+               
+                </div>
+            
+            </div>
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+              
+            <div class="container-fluid top"> 
+                
+                <div class="row">
+                    <div class="col-12">
+                       <h1 class="titleboleta">Equipo Acometida</h1>
+                    </div>
+                    
+                    
+                    <div class="col-4">
+                       <div class="row">
+                           
+                           
+                           
+                           <div class="col-12 cajatitulo">
+                                <h1 class="titulocaja">Bajante de acometída</h1>
+                            </div> 
+                           <div class="col-12 caja">
+                                <h4 class="cajacontenido">Seleccion</h4>
+                            </div>
+                           
+                           
+                           
+                           
+                        </div>
+                    </div>
+                    
+                    <div class="col-4">
+                       <div class="row">
+                           
+                           
+                           
+                           <div class="col-12 cajatitulo">
+                                <h1 class="titulocaja">Equipo de Medici&iacute;n</h1>
+                            </div> 
+                           <div class="col-12 caja">
+                                <h4 class="cajacontenido">seleccion</h4>
+                            </div>
+                            <div class="col-12 caja">
+                                <h4 class="cajacontenido">ESPECIFICACION</h4>
+                            </div>
+                           
+                           
+                           
+                        </div>
+                    </div>
+                    
+                    <div class="col-4">
+                       <div class="row">
+                           
+                           
+                           
+                           <div class="col-12 cajatitulo">
+                                <h1 class="titulocaja">Estado del interruptor principal:</h1>
+                            </div> 
+                           <div class="col-12 caja">
+                                <h4 class="cajacontenido">Seleccion</h4>
+                            </div>
+                           <div class="col-12 caja">
+                                <h4 class="cajacontenido">ESPECIFICACION</h4>
+                            </div>
+                           
+                           
+                           
+                           
+                        </div>
+                    </div>
+               
+                </div>
+            
+            </div>
+            
+            
+            
+            
+             <div class="container-fluid top"> 
+                
+                <div class="row">
+                          
+                    
+                    
+                    
+                    <div class="col-4">
+                       <div class="row">
+                           
+                           
+                           
+                           <div class="col-12 cajatitulo">
+                                <h1 class="titulocaja">Estado de los alimentadores principales:</h1>
+                            </div> 
+                           <div class="col-12 caja">
+                                <h4 class="cajacontenido">Seleccion</h4>
+                            </div>
+                           <div class="col-12 caja">
+                                <h4 class="cajacontenido">ESPECIFICACION</h4>
+                            </div>
+                           
+                           
+                           
+                           
+                        </div>
+                    </div>
+                    
+                    <div class="col-4">
+                       <div class="row">
+                           
+                           
+                           
+                           <div class="col-12 cajatitulo">
+                                <h1 class="titulocaja">Calibre conductores:
+                                    <br>(F1, F2, F3, N, T)</h1>
+                            </div> 
+                           
+                           <div class="col-12 caja">
+                               <div class="form-group top">
+                                                
+                                                <div class="row">
+                                                    <div class="col-6">
+                                                        <div class="input-group mb-2 mr-sm-2">
+                                                            <div class="input-group-prepend">
+                                                              <div class="input-group-text">F1</div>
+                                                            </div>
+                                                            <input type="text" class="form-control" id="inlineFormInputGroupUsername2" placeholder="">
+                                                          </div>
+                                                    </div>
+                                                    
+                                                    <div class="col-6">
+                                                        <div class="input-group mb-2 mr-sm-2">
+                                                            <div class="input-group-prepend">
+                                                              <div class="input-group-text">F2</div>
+                                                            </div>
+                                                            <input type="text" class="form-control" id="inlineFormInputGroupUsername2" placeholder="">
+                                                          </div>
+                                                    </div>
+                                                    
+                                                    <div class="col-6">
+                                                        <div class="input-group mb-2 mr-sm-2">
+                                                            <div class="input-group-prepend">
+                                                              <div class="input-group-text">F3</div>
+                                                            </div>
+                                                            <input type="text" class="form-control" id="inlineFormInputGroupUsername2" placeholder="">
+                                                          </div>
+                                                    </div>
+                                                    
+                                                    <div class="col-6">
+                                                        <div class="input-group mb-2 mr-sm-2">
+                                                            <div class="input-group-prepend">
+                                                              <div class="input-group-text">N</div>
+                                                            </div>
+                                                            <input type="text" class="form-control" id="inlineFormInputGroupUsername2" placeholder="">
+                                                          </div>
+                                                    </div>
+                                                    
+                                                    <div class="col-6">
+                                                        <div class="input-group mb-2 mr-sm-2">
+                                                            <div class="input-group-prepend">
+                                                              <div class="input-group-text">T</div>
+                                                            </div>
+                                                            <input type="text" class="form-control" id="inlineFormInputGroupUsername2" placeholder="">
+                                                          </div>
+                                                    </div>
+                                                
+                                                </div>
+                                                 
+                                                
+                                            </div>
+                               
+                            </div>
+                            
+                           
+                           
+                           
+                        </div>
+                    </div>
+                    
+                    <div class="col-4">
+                       <div class="row">
+                           
+                           
+                           
+                           <div class="col-12 cajatitulo">
+                                <h1 class="titulocaja">Voltajes entrada:
+                                    <br>(F1, F2, F3, F1+F2, F2+F3, F1+F3)</h1>
+                            </div> 
+                           <div class="col-12 caja">
+                               <div class="form-group top">
+                                                
+                                                <div class="row">
+                                                    <div class="col-6">
+                                                        <div class="input-group mb-2 mr-sm-2">
+                                                            <div class="input-group-prepend">
+                                                              <div class="input-group-text">F1</div>
+                                                            </div>
+                                                            <input type="text" class="form-control" id="inlineFormInputGroupUsername2" placeholder="">
+                                                          </div>
+                                                    </div>
+                                                    
+                                                    <div class="col-6">
+                                                        <div class="input-group mb-2 mr-sm-2">
+                                                            <div class="input-group-prepend">
+                                                              <div class="input-group-text">F2</div>
+                                                            </div>
+                                                            <input type="text" class="form-control" id="inlineFormInputGroupUsername2" placeholder="">
+                                                          </div>
+                                                    </div>
+                                                    
+                                                    <div class="col-6">
+                                                        <div class="input-group mb-2 mr-sm-2">
+                                                            <div class="input-group-prepend">
+                                                              <div class="input-group-text">F3</div>
+                                                            </div>
+                                                            <input type="text" class="form-control" id="inlineFormInputGroupUsername2" placeholder="">
+                                                          </div>
+                                                    </div>
+                                                    
+                                                    <div class="col-6">
+                                                        <div class="input-group mb-2 mr-sm-2">
+                                                            <div class="input-group-prepend">
+                                                              <div class="input-group-text">F1+F2</div>
+                                                            </div>
+                                                            <input type="text" class="form-control" id="inlineFormInputGroupUsername2" placeholder="">
+                                                          </div>
+                                                    </div>
+                                                    
+                                                    <div class="col-6">
+                                                        <div class="input-group mb-2 mr-sm-2">
+                                                            <div class="input-group-prepend">
+                                                              <div class="input-group-text">F2+F3</div>
+                                                            </div>
+                                                            <input type="text" class="form-control" id="inlineFormInputGroupUsername2" placeholder="">
+                                                          </div>
+                                                    </div>
+                                                    
+                                                    <div class="col-6">
+                                                        <div class="input-group mb-2 mr-sm-2">
+                                                            <div class="input-group-prepend">
+                                                              <div class="input-group-text">F1+F3</div>
+                                                            </div>
+                                                            <input type="text" class="form-control" id="inlineFormInputGroupUsername2" placeholder="">
+                                                          </div>
+                                                    </div>
+                                                
+                                                </div>
+                                                 
+                                                
+                                            </div>
+                               
+                            </div>
+                           
+                           
+                           
+                           
+                        </div>
+                    </div>
+                    
+                    <div class="col-4 top">
+                       <div class="row">
+                           
+                           
+                           
+                           <div class="col-12 cajatitulo">
+                                <h1 class="titulocaja">Corriente entrada: (F1, F2, F3,)</h1>
+                            </div> 
+                           <div class="col-12 caja">
+                               <div class="form-group top">
+                                                
+                                                <div class="row">
+                                                    <div class="col-6">
+                                                        <div class="input-group mb-2 mr-sm-2">
+                                                            <div class="input-group-prepend">
+                                                              <div class="input-group-text">F1</div>
+                                                            </div>
+                                                            <input type="text" class="form-control" id="inlineFormInputGroupUsername2" placeholder="">
+                                                          </div>
+                                                    </div>
+                                                    
+                                                    <div class="col-6">
+                                                        <div class="input-group mb-2 mr-sm-2">
+                                                            <div class="input-group-prepend">
+                                                              <div class="input-group-text">F2</div>
+                                                            </div>
+                                                            <input type="text" class="form-control" id="inlineFormInputGroupUsername2" placeholder="">
+                                                          </div>
+                                                    </div>
+                                                    
+                                                    <div class="col-6">
+                                                        <div class="input-group mb-2 mr-sm-2">
+                                                            <div class="input-group-prepend">
+                                                              <div class="input-group-text">F3</div>
+                                                            </div>
+                                                            <input type="text" class="form-control" id="inlineFormInputGroupUsername2" placeholder="">
+                                                          </div>
+                                                    </div>
+                                               
+                                                </div>
+                                                 
+                                                
+                                            </div>
+                               
+                            </div>
+                            
+                           
+                           
+                           
+                           
+                        </div>
+                    </div>
+                    
+                    <div class="col-4 top">
+                       <div class="row">
+                           
+                           
+                           
+                           <div class="col-12 cajatitulo">
+                                <h1 class="titulocaja">Estado de puesta a tierra:</h1>
+                            </div> 
+                           <div class="col-12 caja">
+                                <h4 class="cajacontenido">Seleccion</h4>
+                            </div>
+                           <div class="col-12 caja">
+                                <h4 class="cajacontenido">ESPECIFICACION</h4>
+                            </div>
+                           
+                           
+                            
+                           
+                           
+                           
+                           
+                        </div>
+                    </div>
+                    
+                    <div class="col-4 top">
+                       <div class="row">
+                           
+                           
+                           
+                           <div class="col-12 cajatitulo">
+                                <h1 class="titulocaja">Estado neutro:</h1>
+                            </div> 
+                           <div class="col-12 caja">
+                                <h4 class="cajacontenido">Seleccion</h4>
+                            </div>
+                           <div class="col-12 caja">
+                                <h4 class="cajacontenido">ESPECIFICACION</h4>
+                            </div>
+                           
+                           
+                            
+                           
+                           
+                           
+                           
+                        </div>
+                    </div>
+                    
+                    <div class="col-4 top">
+                       <div class="row">
+                           
+                           
+                           
+                           <div class="col-12 cajatitulo">
+                                <h1 class="titulocaja">Resultado equipo acometida:</h1>
+                            </div> 
+                           <div class="col-12 caja">
+                                <h4 class="cajacontenido">Cuadro de mensaje</h4>
+                            </div>
+                           
+                           
+                            
+                           
+                           
+                           
+                           
+                        </div>
+                    </div>
+                    
+               
+                </div>
+            
+            </div>
+            
+            
+            
+            
+            
+            
+           <div class="container-fluid top"> 
+                
+                <div class="row">
+                    <div class="col-12">
+                       <h1 class="titleboleta">Centro de Carga</h1>
+                    </div>
+                    
+                    
+                    <div class="col-4">
+                       <div class="row">
+                           
+                           
+                           
+                           <div class="col-12 cajatitulo">
+                                <h1 class="titulocaja">Marca y No. Catalago:</h1>
+                            </div> 
+                           <div class="col-12 caja">
+                                <h4 class="cajacontenido">Seleccion</h4>
+                            </div>
+                           
+                           
+                           
+                           
+                        </div>
+                    </div>
+                    
+                    <div class="col-4">
+                       <div class="row">
+                           
+                           
+                           
+                           <div class="col-12 cajatitulo">
+                                <h1 class="titulocaja">Marca y No. Catalago:</h1>
+                            </div> 
+                           <div class="col-12 caja">
+                                <h4 class="cajacontenido">Seleccion</h4>
+                            </div>
+                           
+                           
+                           
+                           
+                        </div>
+                    </div>
+                    
+                    <div class="col-4">
+                       <div class="row">
+                           
+                           
+                           
+                           <div class="col-12 cajatitulo">
+                                <h1 class="titulocaja">Estado general del tablero:</h1>
+                            </div> 
+                           <div class="col-12 caja">
+                                <h4 class="cajacontenido">Seleccion</h4>
+                            </div>
+                           <div class="col-12 caja">
+                                <h4 class="cajacontenido">ESPECIFICACION</h4>
+                            </div>
+                           
+                           
+                           
+                           
+                        </div>
+                    </div>
+               
+                </div>
+            
+            </div>  
+            
+            
+             <div class="container-fluid top"> 
+                
+                <div class="row">
+                               
+                    
+                    <div class="col-4">
+                       <div class="row">
+                           
+                           
+                           
+                           <div class="col-12 cajatitulo">
+                                <h1 class="titulocaja">Ubicación:</h1>
+                            </div> 
+                           <div class="col-12 caja">
+                                <h4 class="cajacontenido">Seleccion</h4>
+                            </div>
+                           
+                           
+                           
+                           
+                        </div>
+                    </div>
+                    
+                    <div class="col-4">
+                       <div class="row">
+                           
+                           
+                           
+                           <div class="col-12 cajatitulo">
+                                <h1 class="titulocaja">Canalización:</h1>
+                            </div> 
+                           <div class="col-12 caja">
+                                <h4 class="cajacontenido">Seleccion</h4>
+                            </div>
+                           <div class="col-12 caja">
+                                <h4 class="cajacontenido">ESPECIFICACION</h4>
+                            </div>
+                           <div class="col-12 caja">
+                                <h4 class="cajacontenido">DISTANCIA</h4>
+                            </div>
+                           
+                           
+                           
+                        </div>
+                    </div>
+                    
+                    <div class="col-4">
+                       <div class="row">
+                           
+                           
+                           
+                           <div class="col-12 cajatitulo">
+                                <h1 class="titulocaja">Condición general de los tableros:</h1>
+                            </div> 
+                           <div class="col-12 caja">
+                                <h4 class="cajacontenido">Seleccion</h4>
+                            </div>
+                           <div class="col-12 caja">
+                                <h4 class="cajacontenido">ESPECIFICACION</h4>
+                            </div>
+                           
+                           
+                           
+                           
+                        </div>
+                    </div>
+               
+                </div>
+            
+            </div>  
+            
+            
+             <div class="container-fluid top"> 
+                
+                <div class="row">
+                               
+                    
+                    <div class="col-4">
+                       <div class="row">
+                           
+                           
+                           
+                           <div class="col-12 cajatitulo">
+                                <h1 class="titulocaja">Puesta a tierra:</h1>
+                            </div> 
+                           <div class="col-12 caja">
+                                <h4 class="cajacontenido">Seleccion</h4>
+                            </div>
+                           <div class="col-12 caja">
+                                <h4 class="cajacontenido">ESPECIFICACION</h4>
+                            </div>
+                           
+                           
+                           
+                        </div>
+                    </div>
+                    
+                    <div class="col-4">
+                       <div class="row">
+                           
+                           
+                           
+                           <div class="col-12 cajatitulo">
+                                <h1 class="titulocaja">Prueba de carga:
+                                    (F1, F2, F3, N)</h1>
+                            </div> 
+                           <div class="col-12 caja">
+                               <div class="form-group top">
+                                                
+                                                <div class="row">
+                                                    <div class="col-6">
+                                                        <div class="input-group mb-2 mr-sm-2">
+                                                            <div class="input-group-prepend">
+                                                              <div class="input-group-text">F1</div>
+                                                            </div>
+                                                            <input type="text" class="form-control" id="inlineFormInputGroupUsername2" placeholder="">
+                                                          </div>
+                                                    </div>
+                                                    
+                                                    <div class="col-6">
+                                                        <div class="input-group mb-2 mr-sm-2">
+                                                            <div class="input-group-prepend">
+                                                              <div class="input-group-text">F2</div>
+                                                            </div>
+                                                            <input type="text" class="form-control" id="inlineFormInputGroupUsername2" placeholder="">
+                                                          </div>
+                                                    </div>
+                                                    
+                                                    <div class="col-6">
+                                                        <div class="input-group mb-2 mr-sm-2">
+                                                            <div class="input-group-prepend">
+                                                              <div class="input-group-text">F3</div>
+                                                            </div>
+                                                            <input type="text" class="form-control" id="inlineFormInputGroupUsername2" placeholder="">
+                                                          </div>
+                                                    </div>
+                                                    
+                                                    <div class="col-6">
+                                                        <div class="input-group mb-2 mr-sm-2">
+                                                            <div class="input-group-prepend">
+                                                              <div class="input-group-text">N</div>
+                                                            </div>
+                                                            <input type="text" class="form-control" id="inlineFormInputGroupUsername2" placeholder="">
+                                                          </div>
+                                                    </div>
+                                               
+                                                </div>
+                                                 
+                                                
+                                            </div>
+                               
+                            </div>
+                           <div class="col-12 caja">
+                                <h4 class="cajacontenido">NOTA</h4>
+                            </div>
+                            
+                           
+                           
+                           
+                           
+                        </div>
+                    </div>
+                    
+                    <div class="col-4">
+                       <div class="row">
+                           
+                           
+                           
+                           <div class="col-12 cajatitulo">
+                                <h1 class="titulocaja">Resultado centro de carga principal:</h1>
+                            </div> 
+                           <div class="col-12 caja">
+                                <h4 class="cajacontenido">TEXTO</h4>
+                            </div>
+                           
+                           
+                           
+                           
+                        </div>
+                    </div>
+               
+                </div>
+            
+            </div>
+            
+            
+            
+            <div class="container-fluid top"> 
+                
+                <div class="row">
+                    <div class="col-12">
+                       <h1 class="titleboleta">Circuitos Remanentes</h1>
+                    </div>
+                    
+                    
+                    <div class="col-4">
+                       <div class="row">
+                           
+                           
+                           
+                           <div class="col-12 cajatitulo">
+                                <h1 class="titulocaja">Resultado circutos remanentes:</h1>
+                            </div> 
+                           <div class="col-12 caja">
+                                <h4 class="cajacontenido">Texto</h4>
+                            </div>
+                           
+                           
+                           
+                           
+                        </div>
+                    </div>
+                    
+                    
+               
+                </div>
+            
+            </div>
+            
+            <div class="container-fluid top"> 
+                
+                <div class="row">
+                    <div class="col-12">
+                       <h1 class="titleboleta">Circuitos Remanentes</h1>
+                    </div>
+                    
+                    
+                    <div class="col-4">
+                       <div class="row">
+                           
+                           
+                           
+                           <div class="col-12 cajatitulo">
+                                <h1 class="titulocaja">Recomendaciones Generales</h1>
+                            </div> 
+                           <div class="col-12 caja">
+                                <h4 class="cajacontenido">Texto</h4>
+                            </div>
+                           
+                           
+                           
+                           
+                        </div>
+                    </div>
+                    
+                    
+               
+                </div>
+            
+            </div>
+            
+            
+            
+        
+        </section>
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        <footer>
+          
+        </footer>
+    
+        
+         <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+    </body>
+    
+</html>

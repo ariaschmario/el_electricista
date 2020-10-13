@@ -31,7 +31,7 @@ ELECTRIC_COMPANY = (
 )
 
 YES_NO = (
-    ('s', 'Sí'),
+    ('a', 'Sí'),
     ('n', 'No')
 )
 

@@ -16,6 +16,7 @@
     <link rel="stylesheet" href="{% static 'css/form.css' %}">
     <link rel="stylesheet" href="{% static 'css/footer.css' %}">
 
+    <script type="text/javascript" src="{% static 'js/HideShowFunctions.js' %}"></script>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
@@ -168,7 +169,7 @@
                                     <div class="form-group">
                                         <label for="{{ form.company.id_for_label }}">Empresa sup. servicio
                                             el&eacute;ctrico</label>
-                                        <select required class="form-control" id="{{ form.company.id_for_label }}"
+                                        <select onchange="yesnoCheck(this, 'anotherCompany');" required class="form-control" id="{{ form.company.id_for_label }}"
                                                 placeholder="Seleccionar" name="{{ form.company.html_name }}">
                                             <option {% if form.company.value == "c" %} selected {% endif %} value="c">CNFL</option>
                                             <option {% if form.company.value == "i" %} selected {% endif %} value="i">ICE</option>
@@ -177,18 +178,17 @@
                                         </select>
                                     </div>
                                 </div>
-
-                                <div class="col-1">
-                                </div>
-
-                                <div class="col-11">
-                                    <div class="form-group">
-                                        <label for="{{ form.another_company.id_for_label }}">Especifique</label>
-                                        <input type="text" class="form-control" id="{{ form.another_company.id_for_label }}"
-                                               name="{{ form.another_company.html_name }}" {% if form.another_company.value %} maxlength="25" value="{{ form.another_company.value }}" {% endif %}>
+                                <div id="anotherCompany" style="display:none">
+                                    <div class="col-1">
+                                    </div>
+                                    <div class="col-11">
+                                        <div class="form-group">
+                                            <label for="{{ form.another_company.id_for_label }}">Especifique</label>
+                                            <input type="text" class="form-control" id="{{ form.another_company.id_for_label }}"
+                                                   name="{{ form.another_company.html_name }}" {% if form.another_company.value %} maxlength="25" value="{{ form.another_company.value }}" {% endif %}>
+                                        </div>
                                     </div>
                                 </div>
-
                             </div>
 
                         </div>
@@ -211,27 +211,27 @@
                             <div class="row">
 
                                 <div class="col-12">
-                                    <div class="form-group">
+                                    <div class="form-group"  >
                                         <label for="{{ form.rate_type.id_for_label }}">Tipo de tarifa</label>
-                                        <select required class="form-control" id="{{ form.rate_type.id_for_label }}" name="{{ form.rate_type.html_name }}">
+                                        <select onchange="yesnoCheck(this, 'anotherRateType');" required class="form-control" id="{{ form.rate_type.id_for_label }}" name="{{ form.rate_type.html_name }}">
                                             <option {% if form.rate_type.value == "c" %} selected {% endif %} value="c">Comercial</option>
                                             <option {% if form.rate_type.value == "r" %} selected {% endif %} value="r">Residencial</option>
                                             <option {% if form.rate_type.value == "a" %} selected {% endif %} value="a">Otro</option>
                                         </select>
                                     </div>
                                 </div>
+                                <div id="anotherRateType" style="display:none">
+                                    <div class="col-1">
+                                    </div>
 
-                                <div class="col-1">
-                                </div>
-
-                                <div class="col-11">
-                                    <div class="form-group">
-                                        <label for="{{ form.another_rate_type.id_for_label }}">Especifique</label>
-                                        <input type="text" class="form-control" id="{{ form.another_rate_type.id_for_label }}" maxlength="25" name="{{ form.another_rate_type.html_name }}"
-                                               {% if form.another_rate_type.value %} value="{{ form.another_rate_type.value }}" {% endif %}>
+                                    <div class="col-11">
+                                        <div class="form-group">
+                                            <label for="{{ form.another_rate_type.id_for_label }}">Especifique</label>
+                                            <input type="text" class="form-control" id="{{ form.another_rate_type.id_for_label }}" maxlength="25" name="{{ form.another_rate_type.html_name }}"
+                                                   {% if form.another_rate_type.value %} value="{{ form.another_rate_type.value }}" {% endif %}>
+                                        </div>
                                     </div>
                                 </div>
-
                             </div>
 
                         </div>
@@ -256,24 +256,25 @@
                                 <div class="col-12">
                                     <div class="form-group">
                                         <label for="{{ form.solar_generation.id_for_label }}">Generación solar</label>
-                                        <select required class="form-control" id="{{ form.solar_generation.id_for_label }}" name="{{ form.solar_generation.html_name }}"
+                                        <select onchange="yesnoCheck(this, 'solarCapacity');" required class="form-control" id="{{ form.solar_generation.id_for_label }}" name="{{ form.solar_generation.html_name }}"
                                                 placeholder="Seleccionar">
                                             <option {% if form.solar_generation.value == "n" %} selected {% endif %} value="n">No</option>
-                                            <option {% if form.solar_generation.value == "s" %} selected {% endif %} value="s">Sí</option>
+                                            <option {% if form.solar_generation.value == "a" %} selected {% endif %} value="a">Sí</option>
                                         </select>
                                     </div>
                                 </div>
-                                <div class="col-1">
-                                </div>
-                                <div class="col-11">
-                                    <div class="form-group">
-                                        <label for="{{ form.solar_generation_capacity.id_for_label }}">Capaciad equipada</label>
-                                        <input type="text" class="form-control" id="{{ form.solar_generation_capacity.id_for_label }}"
-                                               name="{{ form.solar_generation_capacity.html_name }}" maxlength="25"
-                                                {% if form.solar_generation_capacity.value %} value="{{ form.solar_generation_capacity.value }}" {% endif %}>
+                                <div id="solarCapacity" style="display:none">
+                                    <div class="col-1">
+                                    </div>
+                                    <div class="col-11">
+                                        <div class="form-group">
+                                            <label for="{{ form.solar_generation_capacity.id_for_label }}">Capaciad equipada</label>
+                                            <input type="text" class="form-control" id="{{ form.solar_generation_capacity.id_for_label }}"
+                                                   name="{{ form.solar_generation_capacity.html_name }}" maxlength="25"
+                                                    {% if form.solar_generation_capacity.value %} value="{{ form.solar_generation_capacity.value }}" {% endif %}>
+                                        </div>
                                     </div>
                                 </div>
-
                             </div>
 
                         </div>

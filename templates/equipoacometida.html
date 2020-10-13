@@ -16,6 +16,8 @@
     <link rel="stylesheet" href="{% static 'css/form.css' %}">
     <link rel="stylesheet" href="{% static 'css/footer.css' %}">
 
+    <script type="text/javascript" src="{% static 'js/HideShowFunctions.js' %}"></script>
+
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
@@ -154,7 +156,7 @@
                             <div class="col-12">
                                 <div class="form-group">
                                     <label for="{{ form.equipo_medicion.id_for_label }}">Equipo de Medici&oacute;n</label>
-                                    <select class="form-control" id="{{ form.equipo_medicion.id_for_label }}"
+                                    <select onchange="yesnoCheck(this, 'anotherEquipoMedicion');"  class="form-control" id="{{ form.equipo_medicion.id_for_label }}"
                                             name="{{ form.equipo_medicion.html_name }}">
                                         <option {% if form.equipo_medicion.value == "c" %} selected {% endif %}  value="c">Base Clase 100</option>
                                         <option {% if form.equipo_medicion.value == "d" %} selected {% endif %}  value="d">Base Clase 200</option>
@@ -165,19 +167,19 @@
                                     </select>
                                 </div>
                             </div>
+                            <div id="anotherEquipoMedicion" style="display:none">
+                                <div class="col-1">
+                                </div>
 
-                            <div class="col-1">
-                            </div>
-
-                            <div class="col-11">
-                                <div class="form-group">
-                                    <label for="{{ form.equipo_medicion_especifique.id_for_label }}">Especifique</label>
-                                    <input type="text" class="form-control" id="{{ form.equipo_medicion_especifique.id_for_label }}"
-                                          name="{{ form.equipo_medicion_especifique.html_name }}" maxlength="25"
-                                            {% if form.equipo_medicion_especifique.value %}  value="{{ form.equipo_medicion_especifique.value }}" {% endif %}>
+                                <div class="col-11">
+                                    <div class="form-group">
+                                        <label for="{{ form.equipo_medicion_especifique.id_for_label }}">Especifique</label>
+                                        <input type="text" class="form-control" id="{{ form.equipo_medicion_especifique.id_for_label }}"
+                                              name="{{ form.equipo_medicion_especifique.html_name }}" maxlength="25"
+                                                {% if form.equipo_medicion_especifique.value %}  value="{{ form.equipo_medicion_especifique.value }}" {% endif %}>
+                                    </div>
                                 </div>
                             </div>
-
                         </div>
 
                     </div>
@@ -192,7 +194,7 @@
                             <div class="col-12">
                                 <div class="form-group">
                                     <label for="{{ form.estado_interruptor.id_for_label }}">Estado del interruptor principal:</label>
-                                    <select class="form-control" id="{{ form.estado_interruptor.id_for_label }}"
+                                    <select onchange="brd(this, 'estadoInterruptorEspecifique');" class="form-control" id="{{ form.estado_interruptor.id_for_label }}"
                                             name="{{ form.estado_interruptor.html_name }}">
                                         <option {% if form.estado_interruptor.value == "b" %} selected {% endif %}  value="b">Bueno</option>
                                         <option {% if form.estado_interruptor.value == "r" %} selected {% endif %}  value="r">Regular</option>
@@ -200,19 +202,19 @@
                                     </select>
                                 </div>
                             </div>
+                            <div id="estadoInterruptorEspecifique" style="display:none">
+                                <div class="col-1">
+                                </div>
 
-                            <div class="col-1">
-                            </div>
-
-                            <div class="col-11">
-                                <div class="form-group">
-                                    <label for="{{ form.estado_interruptor_especifique.id_for_label }}">Especifique</label>
-                                    <input type="text" class="form-control" id="{{ form.estado_interruptor_especifique.id_for_label }}"
-                                            name="{{ form.estado_interruptor_especifique.html_name }}"  maxlength="25"
-                                            {% if form.estado_interruptor_especifique.value %} value="{{ form.estado_interruptor_especifique.value }}" {% endif %}>
+                                <div class="col-11">
+                                    <div class="form-group">
+                                        <label for="{{ form.estado_interruptor_especifique.id_for_label }}">Especifique</label>
+                                        <input type="text" class="form-control" id="{{ form.estado_interruptor_especifique.id_for_label }}"
+                                                name="{{ form.estado_interruptor_especifique.html_name }}"  maxlength="25"
+                                                {% if form.estado_interruptor_especifique.value %} value="{{ form.estado_interruptor_especifique.value }}" {% endif %}>
+                                    </div>
                                 </div>
                             </div>
-
                         </div>
 
                     </div>
@@ -228,7 +230,7 @@
                                 <div class="form-group">
                                     <label for="{{ form.estado_alimentadores.id_for_label }}">Estado de los alimentadores
                                         principales:</label>
-                                    <select class="form-control" id="{{ form.estado_alimentadores.id_for_label }}"
+                                    <select onchange="brd(this, 'estadoAlimentadoresEspecifique');" class="form-control" id="{{ form.estado_alimentadores.id_for_label }}"
                                             name="{{ form.estado_alimentadores.html_name }}">
                                         <option {% if form.estado_alimentadores.value == "b" %} selected {% endif %}  value="b">Bueno</option>
                                         <option {% if form.estado_alimentadores.value == "r" %} selected {% endif %}  value="r">Regular</option>
@@ -236,19 +238,19 @@
                                     </select>
                                 </div>
                             </div>
+                            <div id="estadoAlimentadoresEspecifique" style="display:none">
+                                <div class="col-1">
+                                </div>
 
-                            <div class="col-1">
-                            </div>
-
-                            <div class="col-11">
-                                <div class="form-group">
-                                    <label for="{{ form.estado_alimentadores_especifique.id_for_label }}">Especifique</label>
-                                    <input type="text" class="form-control" id="{{ form.estado_alimentadores_especifique.id_for_label }}"
-                                           name="{{ form.estado_alimentadores_especifique.html_name }}" maxlength="25"
-                                            {% if form.estado_alimentadores_especifique.value %}  value="{{ form.estado_alimentadores_especifique.value }}" {% endif %}>
+                                <div class="col-11">
+                                    <div class="form-group">
+                                        <label for="{{ form.estado_alimentadores_especifique.id_for_label }}">Especifique</label>
+                                        <input type="text" class="form-control" id="{{ form.estado_alimentadores_especifique.id_for_label }}"
+                                               name="{{ form.estado_alimentadores_especifique.html_name }}" maxlength="25"
+                                                {% if form.estado_alimentadores_especifique.value %}  value="{{ form.estado_alimentadores_especifique.value }}" {% endif %}>
+                                    </div>
                                 </div>
                             </div>
-
                         </div>
 
                     </div>
@@ -483,7 +485,7 @@
                             <div class="col-12">
                                 <div class="form-group">
                                     <label for="{{ form.estado_puesta.id_for_label }}">Estado de puesta a tierra:</label>
-                                    <select class="form-control" id="{{ form.estado_puesta.id_for_label }}"
+                                    <select onchange="brd(this, 'estadoPuestaEspecifique');" class="form-control" id="{{ form.estado_puesta.id_for_label }}"
                                             name="{{ form.estado_puesta.html_name }}" >
                                         <option {% if form.estado_puesta.value == "b" %} selected {% endif %}  value="b">Bueno</option>
                                         <option {% if form.estado_puesta.value == "r" %} selected {% endif %}  value="r">Regular</option>
@@ -491,19 +493,19 @@
                                     </select>
                                 </div>
                             </div>
+                            <div id="estadoPuestaEspecifique" style="display:none">
+                                <div class="col-1">
+                                </div>
 
-                            <div class="col-1">
-                            </div>
-
-                            <div class="col-11">
-                                <div class="form-group">
-                                    <label for="{{ form.estado_puesta_especifique.id_for_label }}">Especifique</label>
-                                    <input type="text" class="form-control" id="{{ form.estado_puesta_especifique.id_for_label }}"
-                                           name="{{ form.estado_puesta_especifique.html_name }}" maxlength="25"
-                                            {% if form.estado_puesta_especifique.value %}  value="{{ form.estado_puesta_especifique.value }}" {% endif %}>
+                                <div class="col-11">
+                                    <div class="form-group">
+                                        <label for="{{ form.estado_puesta_especifique.id_for_label }}">Especifique</label>
+                                        <input type="text" class="form-control" id="{{ form.estado_puesta_especifique.id_for_label }}"
+                                               name="{{ form.estado_puesta_especifique.html_name }}" maxlength="25"
+                                                {% if form.estado_puesta_especifique.value %}  value="{{ form.estado_puesta_especifique.value }}" {% endif %}>
+                                    </div>
                                 </div>
                             </div>
-
                         </div>
 
                     </div>
@@ -519,26 +521,26 @@
                                 <div class="form-group">
                                     <label for="{{ form.estado_neutro.id_for_label }}">Estado neutro:</label>
                                     <select class="form-control" id="{{ form.estado_neutro.id_for_label }}"
-                                            name="{{ form.estado_neutro.html_name }}">
+                                            onchange="brd(this, 'estadoNeutroEspecifique');"  name="{{ form.estado_neutro.html_name }}">
                                         <option {% if form.estado_neutro.value == "b" %} selected {% endif %}  value="b">Bueno</option>
                                         <option {% if form.estado_neutro.value == "r" %} selected {% endif %}  value="r">Regular</option>
                                         <option {% if form.estado_neutro.value == "d" %} selected {% endif %}  value="d">Deficiente</option>
                                     </select>
                                 </div>
                             </div>
+                            <div id="estadoNeutroEspecifique" style="display:none">
+                                <div class="col-1">
+                                </div>
 
-                            <div class="col-1">
-                            </div>
-
-                            <div class="col-11">
-                                <div class="form-group">
-                                    <label for="{{ form.estado_neutro_especifique.id_for_label }}">Especifique</label>
-                                    <input type="text" class="form-control" id="{{ form.estado_neutro_especifique.id_for_label }}"
-                                          name="{{ form.estado_neutro_especifique.html_name }}" maxlength="25"
-                                            {% if form.estado_neutro_especifique.value %} value="{{ form.estado_neutro_especifique.value }}" {% endif %}>
+                                <div class="col-11">
+                                    <div class="form-group">
+                                        <label for="{{ form.estado_neutro_especifique.id_for_label }}">Especifique</label>
+                                        <input type="text" class="form-control" id="{{ form.estado_neutro_especifique.id_for_label }}"
+                                              name="{{ form.estado_neutro_especifique.html_name }}" maxlength="25"
+                                                {% if form.estado_neutro_especifique.value %} value="{{ form.estado_neutro_especifique.value }}" {% endif %}>
+                                    </div>
                                 </div>
                             </div>
-
                         </div>
 
                     </div>

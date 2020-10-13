@@ -1,9 +1,6 @@
 # [START django_app]
 runtime: python38
 
-manual_scaling:
-  instances: 1
-
 inbound_services:
   - warmup
 

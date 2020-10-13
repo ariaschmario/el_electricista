@@ -202,7 +202,7 @@ class TicketCreateView(CreateView):
         email = form.cleaned_data['email']
         adress = form.cleaned_data['adress']
         if Client.objects.filter(legalId=client_id).exists():
-            Client.objects.update(idType=idType, legalId=client_id, name=name, phoneNumber=phoneNumber, email=email,
+            Client.objects.filter(legalId=client_id).update(idType=idType, legalId=client_id, name=name, phoneNumber=phoneNumber, email=email,
                                   adress=adress, slug =client_id)
         else:
             self.object = form.save(commit=False)

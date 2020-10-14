@@ -5,7 +5,7 @@ import sys
 from elElectricistaProject.wsgi import application
 
 
-def main():
+if __name__ == '__main__':
     """Run administrative tasks."""
     os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'elElectricistaProject.settings')
     try:
@@ -17,9 +17,5 @@ def main():
             "forget to activate a virtual environment?"
         ) from exc
     execute_from_command_line(sys.argv)
-
-
-if __name__ == '__main__':
-    main()
 
 app = application

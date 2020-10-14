@@ -1,6 +1,6 @@
 import os
 
-from django.http import HttpResponseRedirect, FileResponse
+from django.http import HttpResponseRedirect, FileResponse, JsonResponse
 from django.shortcuts import render
 from django.template.loader import render_to_string
 from django.urls import reverse
@@ -11,7 +11,7 @@ import sys
 
 from elElectricistaProject import settings
 from .models import Ticket, TicketCreateForm, Client, GeneralInfo, GeneralInfoUpdateForm, EquipoAcometidaUpdateForm, EquipoAcometida, CentroCarga, \
-    CentroCargaUpdateForm, CircuitosRamales, CircuitosRamalesUpdateForm, GeneralRecomendatios, GeneralRecomendationsUpdateForm
+    CentroCargaUpdateForm, CircuitosRamales, CircuitosRamalesUpdateForm, GeneralRecomendatios, GeneralRecomendationsUpdateForm, CentroCargaSecundario
 from django.views.generic.edit import CreateView, UpdateView
 from django.shortcuts import redirect
 
@@ -26,7 +26,11 @@ class PdfView(View):
 
 class PdfHtmlView(View):
     def get(self, *args, **kwargs):
-        context = {'ticket': Ticket.objects.get(superId=self.kwargs['slug'])}
+        tikect = Ticket.objects.get(superId=self.kwargs['slug'])
+        secundarios = tikect.centro_carga.secundarios.all()
+
+        context = {'ticket': tikect,
+                   'secundarios': secundarios}
         return render(self.request, "pdf.html", context)
 
 
@@ -230,9 +234,47 @@ class TicketCreateView(CreateView):
                                        general_recomendations=GeneralRecomendatios.objects.get(superId=superIdAux + str(x)))
         return redirect("core:generalInfo", slug=superIdAux + str(x))
 
+    def get_context_data(self, **kwargs):
+        ctx = super(TicketCreateView, self).get_context_data(**kwargs)
+        ctx['create'] = True
+        return ctx
+
     def get_form_kwargs(self, *args, **kwargs):
         kwargs = super(TicketCreateView, self).get_form_kwargs(*args, **kwargs)
         return kwargs
+
+
+class CentroCargaSecundarioView(View):
+    quantity = 0
+
+    def add_centro(request, slug):
+        if request.is_ajax() and request.method == "POST":
+            marca_catalogo = request.POST.get("marca_catalogo")
+            espacios_ocupados = request.POST.get("espacios_ocupados")
+            estado_tablero = request.POST.get("estado_tablero")
+            estado_tablero_especifique = request.POST.get("estado_tablero_especifique")
+            ubicacion = request.POST.get("ubicacion")
+            canalizacion = request.POST.get("canalizacion")
+            canalizacion_especifique = request.POST.get("canalizacion_especifique")
+            canalizacion_distancia = request.POST.get("canalizacion_distancia")
+            estado_alimentadores = request.POST.get("estado_alimentadores")
+            estado_alimentadores_especifique = request.POST.get("estado_alimentadores_especifique")
+            estado_puesta = request.POST.get("estado_puesta")
+            estado_puesta_especifique = request.POST.get("estado_puesta_especifique")
+            quantity = request.POST.get("quantity")
+
+
+            CentroCargaSecundario.objects.create(principal=CentroCarga.objects.get(superId=slug), local_id=slug + "-" + str(quantity), marca_catalogo=marca_catalogo,
+                                                 espacios_ocupados=espacios_ocupados, estado_tablero=estado_tablero, estado_tablero_especifique=estado_tablero_especifique,
+                                                 ubicacion=ubicacion, canalizacion=canalizacion, canalizacion_especifique= canalizacion_especifique,
+                                                 canalizacion_distancia=canalizacion_distancia, estado_alimentadores=estado_alimentadores,
+                                                 estado_alimentadores_especifique=estado_alimentadores_especifique, estado_puesta=estado_puesta,
+                                                 estado_puesta_especifique=estado_puesta_especifique)
+            return JsonResponse({"scc": "true"}, status=200)
+        else:
+            return JsonResponse({"scc": "false"}, status=400)
+
+
 
 
 # class HomeView(View):

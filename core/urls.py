@@ -9,7 +9,8 @@ from .views import (
     GeneralRecomendationsUpdateView,
     SendedView,
     PdfView,
-    PdfHtmlView
+    PdfHtmlView,
+    CentroCargaSecundarioView
 )
 
 app_name = 'core'
@@ -24,5 +25,6 @@ urlpatterns = [
     path('UpdateTicket/<superId>/<slug>', TicketUpdateView.as_view(), name='UpdateTicket'),
     path('sended/<link>', SendedView.as_view(), name='sended'),
     path('pdf/<link>', PdfView.as_view(), name='pdf'),
-    path('pdfhtml/<slug>', PdfHtmlView.as_view(), name='pdfhtml')
+    path('pdfhtml/<slug>', PdfHtmlView.as_view(), name='pdfhtml'),
+    path('centroCargaSecundario/<slug>', CentroCargaSecundarioView.add_centro, name='centroCargaSecundario')
 ]

@@ -167,6 +167,7 @@ class CentroCarga(models.Model):
     estado_alimentadores_especifique = models.CharField(max_length=25, default=None, blank=True, null=True)
     estado_puesta = models.CharField(choices=ESTADO, max_length=1)
     estado_puesta_especifique = models.CharField(max_length=25, default=None, blank=True, null=True)
+
     prueba_carga_f1_v = models.CharField(max_length=25, default=None, blank=True, null=True)
     prueba_carga_f1_a = models.CharField(max_length=25, default=None, blank=True, null=True)
     prueba_carga_f2_v = models.CharField(max_length=25, default=None, blank=True, null=True)
@@ -185,6 +186,40 @@ class CentroCarga(models.Model):
 
     def get_absolute_url(self):
         return reverse('core:createTicket')
+
+
+class CentroCargaSecundario(models.Model):
+    principal = models.ForeignKey(CentroCarga, on_delete=models.CASCADE, default=None, blank=True, null=True, related_name='secundarios')
+    local_id = models.CharField(max_length=25, default=None, blank=True, null=True)
+    marca_catalogo = models.CharField(max_length=25, default=None, blank=True, null=True)
+    espacios_ocupados = models.CharField(max_length=25, default=None, blank=True, null=True)
+    estado_tablero = models.CharField(choices=ESTADO, max_length=1)
+    estado_tablero_especifique = models.CharField(max_length=25, default=None, blank=True, null=True)
+    ubicacion = models.CharField(choices=UBICACION, max_length=1, default=None, blank=True, null=True)
+    canalizacion = models.CharField(choices=ESTADO, max_length=1, default=None, blank=True, null=True)
+    canalizacion_especifique = models.CharField(max_length=25, default=None, blank=True, null=True)
+    canalizacion_distancia = models.CharField(max_length=25, default=None, blank=True, null=True)
+    estado_alimentadores = models.CharField(choices=ESTADO, max_length=1)
+    estado_alimentadores_especifique = models.CharField(max_length=25, default=None, blank=True, null=True)
+    estado_puesta = models.CharField(choices=ESTADO, max_length=1)
+    estado_puesta_especifique = models.CharField(max_length=25, default=None, blank=True, null=True)
+
+    def __str__(self):
+        return self.local_id
+
+    def get_id(self):
+        return self.local_id
+
+    def get_add_centro(self):
+        return reverse("core:centroCargaSecundario", kwargs={
+            'slug': self.slug
+        })
+
+    def get_absolute_url(self):
+        return reverse("core:centroCargaSecundario", kwargs={
+            'slug': self.slug
+        })
+
 
 class EquipoAcometida(models.Model):
     superId = models.CharField(max_length=15)
@@ -212,11 +247,9 @@ class EquipoAcometida(models.Model):
     corriente_entrada_f3 = models.CharField(max_length=25, default=None, blank=True, null=True)
     estado_puesta = models.CharField(choices=ESTADO, max_length=1)
     estado_puesta_especifique = models.CharField(max_length=25, default=None, blank=True, null=True)
-    estado_neutro = models.CharField(max_length=25, default=None, blank=True, null=True)
+    estado_neutro = models.CharField(choices=ESTADO, max_length=1, default=None, blank=True, null=True)
     estado_neutro_especifique = models.CharField(max_length=25, default=None, blank=True, null=True)
     resultado = models.CharField(max_length=900, default=None, blank=True, null=True)
-
-
 
     def __str__(self):
         return self.superId
@@ -253,7 +286,7 @@ class GeneralInfo(models.Model):
 
 
 class Ticket(models.Model):
-    client = models.ForeignKey(Client, on_delete=models.CASCADE)
+    client = models.ForeignKey(Client, on_delete=models.CASCADE, related_name='tickets')
     equipo_acometida = models.ForeignKey(EquipoAcometida, on_delete=models.CASCADE, default=None, blank=True, null=True)
     circuitos_ramales = models.ForeignKey(CircuitosRamales, on_delete=models.CASCADE, default=None, blank=True, null=True)
     general_info = models.ForeignKey(GeneralInfo, on_delete=models.CASCADE, default=None, blank=True, null=True)
@@ -352,7 +385,7 @@ class EquipoAcometidaUpdateForm(forms.ModelForm):
 class CentroCargaUpdateForm(forms.ModelForm):
     class Meta:
         model = CentroCarga
-        exclude = ['superId']
+        exclude = []
 
     def __init__(self, *args, **kwargs):
         super(CentroCargaUpdateForm, self).__init__(*args, **kwargs)

@@ -16,18 +16,28 @@
     <link rel="stylesheet" href="{% static 'css/form.css' %}">
     <link rel="stylesheet" href="{% static 'css/footer.css' %}">
 
-
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-
-    <script type="text/javascript" src="{% static 'js/HideShowFunctions.js' %}"></script>
     <!-- CSS only -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
           integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
 
 
+    <!-- JS, Popper.js, and jQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+            integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+            crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+            integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+            crossorigin="anonymous"></script>
+
+
+    <script type="text/javascript" src="{% static 'js/HideShowFunctions.js' %}"></script>
+    <!-- CSS only -->
+
+
 </head>
 
-<body>
+<body onload="htmlTextModify()">
 
 <header>
 
@@ -134,13 +144,25 @@
                             <h1 class="title">Centro de Carga</h1>
                         </div>
 
+                        <div class="col-12 col-sm-6 col-xl-4 borderdown" style="display:none">
 
+                            <div class="form-group">
+                                <label for="{{ form.superId.id_for_label }}">SuperId:</label>
+                                <input type="text" class="form-control" id="{{ form.superId.id_for_label }}"
+                                       name="{{ form.superId.html_name }}" maxlength="25"
+                                        {% if form.superId.value %}
+                                       value="{{ form.superId.value }}" {% endif %}>
+                            </div>
+
+                        </div>
                         <div class="col-12 col-sm-6 col-xl-4 borderdown">
 
                             <div class="form-group">
                                 <label for="{{ form.marca_catalogo.id_for_label }}">Marca y No. Catalago:</label>
-                                <input type="text" class="form-control" id="{{ form.marca_catalogo.id_for_label }}" name="{{ form.marca_catalogo.html_name }}" maxlength="25"
-                                {% if form.marca_catalogo.value %}  value="{{ form.marca_catalogo.value }}" {% endif %}>
+                                <input type="text" class="form-control" id="{{ form.marca_catalogo.id_for_label }}"
+                                       name="{{ form.marca_catalogo.html_name }}" maxlength="25"
+                                        {% if form.marca_catalogo.value %}
+                                       value="{{ form.marca_catalogo.value }}" {% endif %}>
                             </div>
 
                         </div>
@@ -149,8 +171,10 @@
 
                             <div class="form-group">
                                 <label for="{{ form.espacios_ocupados.id_for_label }}">Espacios Ocupados:</label>
-                                <input type="text" class="form-control" id="{{ form.espacios_ocupados.id_for_label }}" name="{{ form.espacios_ocupados.html_name }}" maxlength="25"
-                                {% if form.espacios_ocupados.value %}  value="{{ form.espacios_ocupados.value }}" {% endif %}>
+                                <input type="text" class="form-control" id="{{ form.espacios_ocupados.id_for_label }}"
+                                       name="{{ form.espacios_ocupados.html_name }}" maxlength="25"
+                                        {% if form.espacios_ocupados.value %}
+                                       value="{{ form.espacios_ocupados.value }}" {% endif %}>
                             </div>
 
                         </div>
@@ -164,12 +188,20 @@
 
                                 <div class="col-12">
                                     <div class="form-group">
-                                        <label for="{{ form.estado_tablero.id_for_label }}">Estado general del tablero:</label>
-                                        <select onchange="brd(this, 'estadoTableroEspecifique');" class="form-control" id="{{ form.estado_tablero.id_for_label }}"
+                                        <label for="{{ form.estado_tablero.id_for_label }}">Estado general del
+                                            tablero:</label>
+                                        <select onchange="brd(this, 'estadoTableroEspecifique');" class="form-control"
+                                                id="{{ form.estado_tablero.id_for_label }}"
                                                 name="{{ form.estado_tablero.html_name }}">
-                                            <option {% if form.estado_tablero.value == "b" %} selected {% endif %}  value="b">Bueno</option>
-                                            <option {% if form.estado_tablero.value == "r" %} selected {% endif %}  value="r">Regular</option>
-                                            <option {% if form.estado_tablero.value == "d" %} selected {% endif %}  value="d">Deficiente</option>
+                                            <option {% if form.estado_tablero.value == "b" %} selected {% endif %}
+                                                                                              value="b">Bueno
+                                            </option>
+                                            <option {% if form.estado_tablero.value == "r" %} selected {% endif %}
+                                                                                              value="r">Regular
+                                            </option>
+                                            <option {% if form.estado_tablero.value == "d" %} selected {% endif %}
+                                                                                              value="d">Deficiente
+                                            </option>
                                         </select>
                                     </div>
                                 </div>
@@ -180,9 +212,11 @@
                                     <div class="col-11">
                                         <div class="form-group">
                                             <label for="{{ form.estado_tablero_especifique.id_for_label }}">Especifique</label>
-                                            <input type="text" class="form-control" id="{{ form.estado_tablero_especifique.id_for_label }}"
+                                            <input type="text" class="form-control"
+                                                   id="{{ form.estado_tablero_especifique.id_for_label }}"
                                                    name="{{ form.estado_tablero_especifique.html_name }}" maxlength="25"
-                                                    {% if form.estado_tablero_especifique.value %}  value="{{ form.estado_tablero_especifique.value }}" {% endif %}>
+                                                    {% if form.estado_tablero_especifique.value %}
+                                                   value="{{ form.estado_tablero_especifique.value }}" {% endif %}>
                                         </div>
                                     </div>
                                 </div>
@@ -198,10 +232,17 @@
 
                             <div class="form-group">
                                 <label for="{{ form.ubicacion.id_for_label }}">Ubicaci&oacute;n:</label>
-                                <select class="form-control" id="{{ form.ubicacion.id_for_label }}" name="{{ form.ubicacion.html_name }}">
-                                        <option {% if form.ubicacion.value == "a" %} selected {% endif %}  value="a">Accesible</option>
-                                        <option {% if form.ubicacion.value == "f" %} selected {% endif %}  value="f">Fácilmente accesible</option>
-                                        <option {% if form.ubicacion.value == "p" %} selected {% endif %}  value="p">Poco accesible</option>
+                                <select class="form-control" id="{{ form.ubicacion.id_for_label }}"
+                                        name="{{ form.ubicacion.html_name }}">
+                                    <option {% if form.ubicacion.value == "a" %} selected {% endif %}  value="a">
+                                        Accesible
+                                    </option>
+                                    <option {% if form.ubicacion.value == "f" %} selected {% endif %}  value="f">
+                                        Fácilmente accesible
+                                    </option>
+                                    <option {% if form.ubicacion.value == "p" %} selected {% endif %}  value="p">Poco
+                                        accesible
+                                    </option>
                                 </select>
                             </div>
 
@@ -215,11 +256,18 @@
                                 <div class="col-12">
                                     <div class="form-group">
                                         <label for="{{ form.canalizacion.id_for_label }}">Canalizaci&oacute;n:</label>
-                                        <select onchange="brd(this, 'canalizacionEspecifique');" class="form-control" id="{{ form.canalizacion.id_for_label }}"
+                                        <select onchange="brd(this, 'canalizacionEspecifique');" class="form-control"
+                                                id="{{ form.canalizacion.id_for_label }}"
                                                 name="{{ form.canalizacion.html_name }}">
-                                            <option {% if form.canalizacion.value == "b" %} selected {% endif %}  value="b">Bueno</option>
-                                            <option {% if form.canalizacion.value == "r" %} selected {% endif %}  value="r">Regular</option>
-                                            <option {% if form.canalizacion.value == "d" %} selected {% endif %}  value="d">Deficiente</option>
+                                            <option {% if form.canalizacion.value == "b" %} selected {% endif %}
+                                                                                            value="b">Bueno
+                                            </option>
+                                            <option {% if form.canalizacion.value == "r" %} selected {% endif %}
+                                                                                            value="r">Regular
+                                            </option>
+                                            <option {% if form.canalizacion.value == "d" %} selected {% endif %}
+                                                                                            value="d">Deficiente
+                                            </option>
                                         </select>
                                     </div>
                                 </div>
@@ -230,9 +278,11 @@
                                     <div class="col-11">
                                         <div class="form-group">
                                             <label for="{{ form.canalizacion_especifique.id_for_label }}">Especifique</label>
-                                            <input type="text" class="form-control" id="{{ form.canalizacion_especifique.id_for_label }}"
+                                            <input type="text" class="form-control"
+                                                   id="{{ form.canalizacion_especifique.id_for_label }}"
                                                    name="{{ form.canalizacion_especifique.html_name }}" maxlength="25"
-                                                    {% if form.canalizacion_especifique.value %}  value="{{ form.canalizacion_especifique.value }}" {% endif %}>
+                                                    {% if form.canalizacion_especifique.value %}
+                                                   value="{{ form.canalizacion_especifique.value }}" {% endif %}>
                                         </div>
                                     </div>
                                 </div>
@@ -242,9 +292,11 @@
                                 <div class="col-11">
                                     <div class="form-group">
                                         <label for="{{ form.canalizacion_distancia.id_for_label }}">Distancia:</label>
-                                        <input type="text" class="form-control" id="{{ form.canalizacion_distancia.id_for_label }}"
+                                        <input type="text" class="form-control"
+                                               id="{{ form.canalizacion_distancia.id_for_label }}"
                                                name="{{ form.canalizacion_distancia.html_name }}" maxlength="25"
-                                                {% if form.canalizacion_distancia.value %}  value="{{ form.canalizacion_distancia.value }}" {% endif %}>
+                                                {% if form.canalizacion_distancia.value %}
+                                               value="{{ form.canalizacion_distancia.value }}" {% endif %}>
                                     </div>
                                 </div>
 
@@ -257,13 +309,21 @@
 
                                 <div class="col-12">
                                     <div class="form-group">
-                                        <label for="{{ form.estado_alimentadores.id_for_label }}">Condici&oacute;n general de los
-                                            tableros:</label>
-                                        <select onchange="brd(this, 'estadoAlimentadoresEspecifique');" class="form-control" id="{{ form.estado_alimentadores.id_for_label }}"
+                                        <label for="{{ form.estado_alimentadores.id_for_label }}">Condici&oacute;n
+                                            general de los
+                                            alimentadores:</label>
+                                        <select onchange="brd(this, 'estadoAlimentadoresEspecifique');"
+                                                class="form-control" id="{{ form.estado_alimentadores.id_for_label }}"
                                                 name="{{ form.estado_alimentadores.html_name }}">
-                                            <option {% if form.estado_alimentadores.value == "b" %} selected {% endif %}  value="b">Bueno</option>
-                                            <option {% if form.estado_alimentadores.value == "r" %} selected {% endif %}  value="r">Regular</option>
-                                            <option {% if form.estado_alimentadores.value == "d" %} selected {% endif %}  value="d">Deficiente</option>
+                                            <option {% if form.estado_alimentadores.value == "b" %} selected {% endif %}
+                                                                                                    value="b">Bueno
+                                            </option>
+                                            <option {% if form.estado_alimentadores.value == "r" %} selected {% endif %}
+                                                                                                    value="r">Regular
+                                            </option>
+                                            <option {% if form.estado_alimentadores.value == "d" %} selected {% endif %}
+                                                                                                    value="d">Deficiente
+                                            </option>
                                         </select>
                                     </div>
                                 </div>
@@ -274,9 +334,12 @@
                                     <div class="col-11">
                                         <div class="form-group">
                                             <label for="{{ form.estado_alimentadores_especifique.id_for_label }}">Especifique</label>
-                                            <input type="text" class="form-control" id="{{ form.estado_alimentadores_especifique.id_for_label }}"
-                                                   name="{{ form.estado_alimentadores_especifique.html_name }}" maxlength="25"
-                                                    {% if form.estado_alimentadores_especifique.value %}  value="{{ form.estado_alimentadores_especifique.value }}" {% endif %}>
+                                            <input type="text" class="form-control"
+                                                   id="{{ form.estado_alimentadores_especifique.id_for_label }}"
+                                                   name="{{ form.estado_alimentadores_especifique.html_name }}"
+                                                   maxlength="25"
+                                                    {% if form.estado_alimentadores_especifique.value %}
+                                                   value="{{ form.estado_alimentadores_especifique.value }}" {% endif %}>
                                         </div>
                                     </div>
                                 </div>
@@ -284,22 +347,24 @@
 
                         </div>
 
-                        <span class="bordertablet"></span>
-
-
-                        <span class="borderpc"></span>
-
                         <div class="col-12 col-sm-6 col-xl-4 borderdown">
                             <div class="row">
 
                                 <div class="col-12">
                                     <div class="form-group">
                                         <label for="{{ form.estado_puesta.id_for_label }}">Puesta a tierra:</label>
-                                        <select onchange="brd(this, 'estadoPuestaEspecifique');" class="form-control" id="{{ form.estado_puesta.id_for_label }}"
+                                        <select onchange="brd(this, 'estadoPuestaEspecifique');" class="form-control"
+                                                id="{{ form.estado_puesta.id_for_label }}"
                                                 name="{{ form.estado_puesta.html_name }}">
-                                            <option {% if form.estado_puesta.value == "b" %} selected {% endif %}  value="b">Bueno</option>
-                                            <option {% if form.estado_puesta.value == "r" %} selected {% endif %}  value="r">Regular</option>
-                                            <option {% if form.estado_puesta.value == "d" %} selected {% endif %}  value="d">Deficiente</option>
+                                            <option {% if form.estado_puesta.value == "b" %} selected {% endif %}
+                                                                                             value="b">Bueno
+                                            </option>
+                                            <option {% if form.estado_puesta.value == "r" %} selected {% endif %}
+                                                                                             value="r">Regular
+                                            </option>
+                                            <option {% if form.estado_puesta.value == "d" %} selected {% endif %}
+                                                                                             value="d">Deficiente
+                                            </option>
                                         </select>
                                     </div>
                                 </div>
@@ -310,15 +375,30 @@
                                     <div class="col-11">
                                         <div class="form-group">
                                             <label for="{{ form.estado_puesta_especifique.id_for_label }}">Especifique</label>
-                                            <input type="text" class="form-control" id="{{ form.estado_puesta_especifique.id_for_label }}"
+                                            <input type="text" class="form-control"
+                                                   id="{{ form.estado_puesta_especifique.id_for_label }}"
                                                    name="{{ form.estado_puesta_especifique.html_name }}" maxlength="25"
-                                                    {% if form.estado_puesta_especifique.value %}  value="{{ form.estado_puesta_especifique.value }}" {% endif %}>
+                                                    {% if form.estado_puesta_especifique.value %}
+                                                   value="{{ form.estado_puesta_especifique.value }}" {% endif %}>
                                         </div>
                                     </div>
                                 </div>
                             </div>
 
                         </div>
+                        <div class="col-12 col-sm-6 col-xl-4 borderdown">
+
+                            <button type="button" class="btn btn-primary" data-toggle="modal"
+                                    data-target="#exampleModal">
+                                Agregar Centro de Carga
+                            </button>
+                            <div id="messages"></div>
+                        </div>
+
+                        <span class="bordertablet"></span>
+
+
+                        <span class="borderpc"></span>
 
 
                         <div class="col-12 col-sm-6 col-xl-4 borderdown">
@@ -333,48 +413,87 @@
                                             <div class="col-6">
                                                 <div class="input-group mb-2 mr-sm-2">
                                                     <div class="input-group-prepend">
-                                                        <div class="input-group-text">F1</div>
+                                                        <div class="input-group-text">F1-v</div>
                                                     </div>
                                                     <input type="text" class="form-control"
                                                            id="{{ form.prueba_carga_f1_v.id_for_label }}"
-                                                               name="{{ form.prueba_carga_f1_v.html_name }}" maxlength="25"
-                                                                {% if form.prueba_carga_f1_v.value %}  value="{{ form.prueba_carga_f1_v.value }}" {% endif %}>
+                                                           name="{{ form.prueba_carga_f1_v.html_name }}" maxlength="25"
+                                                            {% if form.prueba_carga_f1_v.value %}
+                                                           value="{{ form.prueba_carga_f1_v.value }}" {% endif %}>
                                                 </div>
                                             </div>
-
                                             <div class="col-6">
                                                 <div class="input-group mb-2 mr-sm-2">
                                                     <div class="input-group-prepend">
-                                                        <div class="input-group-text">F2</div>
+                                                        <div class="input-group-text">F1-A</div>
+                                                    </div>
+                                                    <input type="text" class="form-control"
+                                                           id="{{ form.prueba_carga_f1_a.id_for_label }}"
+                                                           name="{{ form.prueba_carga_f1_a.html_name }}" maxlength="25"
+                                                            {% if form.prueba_carga_f1_a.value %}
+                                                           value="{{ form.prueba_carga_f1_a.value }}" {% endif %}>
+                                                </div>
+                                            </div>
+                                            <div class="col-6">
+                                                <div class="input-group mb-2 mr-sm-2">
+                                                    <div class="input-group-prepend">
+                                                        <div class="input-group-text">F2-v</div>
                                                     </div>
                                                     <input type="text" class="form-control"
                                                            id="{{ form.prueba_carga_f2_v.id_for_label }}"
-                                                               name="{{ form.prueba_carga_f2_v.html_name }}" maxlength="25"
-                                                                {% if form.prueba_carga_f2_v.value %}  value="{{ form.prueba_carga_f2_v.value }}" {% endif %}>
+                                                           name="{{ form.prueba_carga_f2_v.html_name }}" maxlength="25"
+                                                            {% if form.prueba_carga_f2_v.value %}
+                                                           value="{{ form.prueba_carga_f2_v.value }}" {% endif %}>
                                                 </div>
                                             </div>
 
                                             <div class="col-6">
                                                 <div class="input-group mb-2 mr-sm-2">
                                                     <div class="input-group-prepend">
-                                                        <div class="input-group-text">F3</div>
+                                                        <div class="input-group-text">F2-A</div>
+                                                    </div>
+                                                    <input type="text" class="form-control"
+                                                           id="{{ form.prueba_carga_f2_a.id_for_label }}"
+                                                           name="{{ form.prueba_carga_f2_a.html_name }}" maxlength="25"
+                                                            {% if form.prueba_carga_f2_a.value %}
+                                                           value="{{ form.prueba_carga_f2_a.value }}" {% endif %}>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-6">
+                                                <div class="input-group mb-2 mr-sm-2">
+                                                    <div class="input-group-prepend">
+                                                        <div class="input-group-text">F3-v</div>
                                                     </div>
                                                     <input type="text" class="form-control"
                                                            id="{{ form.prueba_carga_f3_v.id_for_label }}"
-                                                               name="{{ form.prueba_carga_f3_v.html_name }}" maxlength="25"
-                                                                {% if form.prueba_carga_f3_v.value %}  value="{{ form.prueba_carga_f3_v.value }}" {% endif %}>
+                                                           name="{{ form.prueba_carga_f3_v.html_name }}" maxlength="25"
+                                                            {% if form.prueba_carga_f3_v.value %}
+                                                           value="{{ form.prueba_carga_f3_v.value }}" {% endif %}>
                                                 </div>
                                             </div>
-
                                             <div class="col-6">
                                                 <div class="input-group mb-2 mr-sm-2">
                                                     <div class="input-group-prepend">
-                                                        <div class="input-group-text">N</div>
+                                                        <div class="input-group-text">F3-A</div>
+                                                    </div>
+                                                    <input type="text" class="form-control"
+                                                           id="{{ form.prueba_carga_f3_a.id_for_label }}"
+                                                           name="{{ form.prueba_carga_f3_a.html_name }}" maxlength="25"
+                                                            {% if form.prueba_carga_f3_a.value %}
+                                                           value="{{ form.prueba_carga_f3_a.value }}" {% endif %}>
+                                                </div>
+                                            </div>
+                                            <div class="col-6">
+                                                <div class="input-group mb-2 mr-sm-2">
+                                                    <div class="input-group-prepend">
+                                                        <div class="input-group-text">N-A</div>
                                                     </div>
                                                     <input type="text" class="form-control"
                                                            id="{{ form.prueba_carga_n_a.id_for_label }}"
-                                                               name="{{ form.prueba_carga_n_a.html_name }}" maxlength="25"
-                                                                {% if form.prueba_carga_n_a.value %}  value="{{ form.prueba_carga_n_a.value }}" {% endif %}>
+                                                           name="{{ form.prueba_carga_n_a.html_name }}" maxlength="25"
+                                                            {% if form.prueba_carga_n_a.value %}
+                                                           value="{{ form.prueba_carga_n_a.value }}" {% endif %}>
                                                 </div>
                                             </div>
 
@@ -384,9 +503,11 @@
                                             <div class="col-11">
                                                 <div class="form-group">
                                                     <label for="{{ form.nota.id_for_label }}">Nota</label>
-                                                    <input type="text" class="form-control" id="{{ form.nota.id_for_label }}"
-                                                       name="{{ form.nota.html_name }}" maxlength="25"
-                                                        {% if form.nota.value %}  value="{{ form.nota.value }}" {% endif %}>
+                                                    <input type="text" class="form-control"
+                                                           id="{{ form.nota.id_for_label }}"
+                                                           name="{{ form.nota.html_name }}" maxlength="25"
+                                                            {% if form.nota.value %}
+                                                           value="{{ form.nota.value }}" {% endif %}>
                                                 </div>
                                             </div>
 
@@ -405,8 +526,12 @@
 
                         <div class="col-12 col-sm-6 col-xl-4">
                             <div class="form-group">
-                                <label for="{{ form.resultado.id_for_label }}">Resultado centro de carga principal:</label>
-                                <textarea class="form-control" id="{{ form.resultado.id_for_label }}" name="{{ form.resultado.html_name }}" maxlength="500" required rows="3">{% if form.resultado.value %}{{ form.resultado.value }}{% endif %}</textarea>
+                                <label for="{{ form.resultado.id_for_label }}">Resultado centro de carga
+                                    principal:</label>
+                                <textarea class="form-control" id="{{ form.resultado.id_for_label }}"
+                                          name="{{ form.resultado.html_name }}" maxlength="500" required
+                                          rows="3">{% if form.resultado.value %}
+                                    {{ form.resultado.value }}{% endif %}</textarea>
                             </div>
                         </div>
 
@@ -435,6 +560,221 @@
 
             </div>
 
+        </div>
+        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+             aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Centro de Carga Secundario</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-12">
+                                    <div class="row">
+                                        <div class="col-12 col-sm-6 col-xl-4 borderdown">
+                                            <div class="form-group">
+                                                <label for="marcaNumeroIdSec">Marca y No.
+                                                    Catalago:</label>
+                                                <input type="text" class="form-control"
+                                                       id="marcaNumeroIdsec"
+                                                       name="marcaNumeroNameSec" maxlength="25">
+                                            </div>
+                                        </div>
+                                        <div class="col-12 col-sm-6 col-xl-4 borderdown">
+
+                                            <div class="form-group">
+                                                <label for="espaciosOcupadosIdSec">Espacios
+                                                    Ocupados:</label>
+                                                <input type="text" class="form-control"
+                                                       id="espaciosOcupadosIdSec"
+                                                       name="espaciosOcupadosNameSec" maxlength="25">
+                                            </div>
+                                        </div>
+
+                                        <span class="bordertablet"></span>
+
+                                        <div class="col-12 col-sm-6 col-xl-4 borderdown">
+                                            <div class="row">
+                                                <div class="col-12">
+                                                    <div class="form-group">
+                                                        <label for="estadoTableroIdSec">Estado general del
+                                                            tablero:</label>
+                                                        <select onchange="brd(this, 'estadoTableroEspecifiqueDiv');"
+                                                                class="form-control"
+                                                                id="estadoTableroIdSec"
+                                                                name="estadoTableroNameSec">
+                                                            <option selected value="b">Bueno</option>
+                                                            <option value="r">Regular</option>
+                                                            <option value="d">Deficiente</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                <div id="estadoTableroEspecifiqueDiv" style="display:none">
+                                                    <div class="col-1">
+                                                    </div>
+
+                                                    <div class="col-11">
+                                                        <div class="form-group">
+                                                            <label for="estadoTableroEspecifiqueIdSec">Especifique</label>
+                                                            <input type="text" class="form-control"
+                                                                   id="estadoTableroEspecifiqueIdSec"
+                                                                   name="estadoTableroEspecifiqueNameSec"
+                                                                   maxlength="25">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                        </div>
+
+                                        <span class="borderpc"></span>
+
+                                        <div class="col-12 col-sm-6 col-xl-4 borderdown">
+
+                                            <div class="form-group">
+                                                <label for="ubicacionIdSec">Ubicaci&oacute;n:</label>
+                                                <select class="form-control" id="ubicacionIdSec"
+                                                        name="ubicacionNameSec">
+                                                    <option selected value="a">Accesible</option>
+                                                    <option value="f">Fácilmente accesible</option>
+                                                    <option value="p">Poco accesible</option>
+                                                </select>
+                                            </div>
+
+                                        </div>
+
+                                        <span class="bordertablet"></span>
+
+                                        <div class="col-12 col-sm-6 col-xl-4 borderdown">
+                                            <div class="row">
+
+                                                <div class="col-12">
+                                                    <div class="form-group">
+                                                        <label for="canalizacionIdSec">Canalizaci&oacute;n:</label>
+                                                        <select onchange="brd(this, 'canalizacionEspecifiqueDiv');"
+                                                                class="form-control"
+                                                                id="canalizacionIdSec"
+                                                                name="canalizacionNameSec">
+                                                            <option selected value="b">Bueno</option>
+                                                            <option value="r">Regular</option>
+                                                            <option value="d">Deficiente</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                <div id="canalizacionEspecifiqueDiv" style="display:none">
+                                                    <div class="col-1">
+                                                    </div>
+
+                                                    <div class="col-11">
+                                                        <div class="form-group">
+                                                            <label for="canalizacionEspecifiqueIdSec">Especifique</label>
+                                                            <input type="text" class="form-control"
+                                                                   id="canalizacionEspecifiqueIdSec"
+                                                                   name="canalizacionEspecifiqueNameSec"
+                                                                   maxlength="25">
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-1">
+                                                </div>
+                                                <div class="col-11">
+                                                    <div class="form-group">
+                                                        <label for="canalizacionDistanciaIdSec">Distancia:</label>
+                                                        <input type="text" class="form-control"
+                                                               id="canalizacionDistanciaIdSec"
+                                                               name="canalizacionDistanciaNmaeSec" maxlength="25">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-12 col-sm-6 col-xl-4 borderdown">
+                                            <div class="row">
+
+                                                <div class="col-12">
+                                                    <div class="form-group">
+                                                        <label for="estadoAlimentadoresIdSec">Condici&oacute;n
+                                                            general de los
+                                                            alimentadores:</label>
+                                                        <select onchange="brd(this, 'estadoAlimentadoresEspecifiqueDivSec');"
+                                                                class="form-control"
+                                                                id="estadoAlimentadoresIdSec"
+                                                                name="estadoAlimentadoresNameSec">
+                                                            <option selected value="b">Bueno</option>
+                                                            <option value="r">Regular</option>
+                                                            <option value="d">Deficiente</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                <div id="estadoAlimentadoresEspecifiqueDivSec" style="display:none">
+                                                    <div class="col-1">
+                                                    </div>
+
+                                                    <div class="col-11">
+                                                        <div class="form-group">
+                                                            <label for="estadoAlimentadoresEspecifiqueIdSec">Especifique</label>
+                                                            <input type="text" class="form-control"
+                                                                   id="estadoAlimentadoresEspecifiqueIdSec"
+                                                                   name="estadoAlimentadoresEspecifiqueNameSec"
+                                                                   maxlength="25">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <span class="bordertablet"></span>
+                                        <span class="borderpc"></span>
+                                        <div class="col-12 col-sm-6 col-xl-4 borderdown">
+                                            <div class="row">
+                                                <div class="col-12">
+                                                    <div class="form-group">
+                                                        <label for="estadoPuestaIdSec">Puesta a
+                                                            tierra:</label>
+                                                        <select onchange="brd(this, 'estadoPuestaEspecifiqueDivSec');"
+                                                                class="form-control"
+                                                                id="estadoPuestaIdSec"
+                                                                name="estadoPuestaNameSec">
+                                                            <option selected value="b">Bueno</option>
+                                                            <option value="r">Regular</option>
+                                                            <option value="d">Deficiente</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                <div id="estadoPuestaEspecifiqueDivSec" style="display:none">
+                                                    <div class="col-1">
+                                                    </div>
+
+                                                    <div class="col-11">
+                                                        <div class="form-group">
+                                                            <label for="estadoPuestaEspecifiqueIdSec">Especifique</label>
+                                                            <input type="text" class="form-control"
+                                                                   id="estadoPuestaEspecifiqueIdSec"
+                                                                   name="estadoPuestaEspecifiqueNameSec"
+                                                                   maxlength="25">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                        <button type="button"
+                                onclick="guardarCentroSecundario('{% url 'core:centroCargaSecundario' slug=form.superId.value %}')"
+                                class="btn btn-primary" data-dismiss="modal">Guardar
+                        </button>
+                    </div>
+                </div>
+            </div>
         </div>
     </form>
 </section>

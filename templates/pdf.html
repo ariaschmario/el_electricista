@@ -1,1134 +1,984 @@
 {% load static %}
 <!DOCTYPE HTML>
 <html LANG="en">
-    
-    <head>
+
+<head>
 
 
-        <meta charset="UFT-8">
-        <title>Boleta El Electricista</title>  
-        <meta name="description" content="Servicios Electricos"/>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="shortcut icon" href="..{% static 'img/'%}"/>
+    <meta charset="UFT-8">
+    <title>Boleta El Electricista</title>
+    <meta name="description" content="Servicios Electricos"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="..{% static 'img/' %}"/>
 
 
-        <link rel="stylesheet" href="..{% static 'css/header.css'%}">
-        <link rel="stylesheet" href="..{% static 'css/form.css'%}">
-        <link rel="stylesheet" href="..{% static 'css/pdf.css'%}">
-        <link rel="stylesheet" href="..{% static 'css/footer.css'%}">
+    <link rel="stylesheet" href="..{% static 'css/header.css' %}">
+    <link rel="stylesheet" href="..{% static 'css/form.css' %}">
+    <link rel="stylesheet" href="..{% static 'css/pdf.css' %}">
+    <link rel="stylesheet" href="..{% static 'css/footer.css' %}">
 
 
-
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
 
+    <!-- CSS only -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+          integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
 
 
-        <!-- CSS only -->
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+</head>
 
+<body>
+{% for item in secundarios %}
+    <p>1</p>
+{% endfor %}
 
+<header>
 
-    </head>
-    
-    <body>
-    
-        <header>
-            
-           <div class="container">
+    <div class="container">
+        <div class="row">
+            <div class="col-4">
+                <img class="logoboleta" src="..{% static 'img/LogoAzul.png' %}">
+            </div>
+            <div class="col-5">
+            </div>
+            <div class="col-3 top">
                 <div class="row">
+                    <div class="col-5">
+                        <h1 class="numeroboleta">Boleta N. </h1>
+                    </div>
+                    <div class="col-7">
+                        <h2 class="ncodigo">{{ ticket.superId }}</h2>
+                    </div>
                     <div class="col-4">
-                        <img class="logoboleta" src="..{% static 'img/LogoAzul.png'%}">
+                        <h1 class="fecha">Fecha: </h1>
                     </div>
-                    
-                    
-                    <div class="col-5"> 
+                    <div class="col-8">
+                        <h1 class="fecha">{% now "SHORT_DATE_FORMAT" %}</h1>
                     </div>
-                    
-                    
-                    <div class="col-3 top">
-                        <div class="row">
-                            <div class="col-5"> 
-                                <h1 class="numeroboleta">Boleta N. </h1>
-                            </div>
-                            <div class="col-7">
-                                <h2 class="ncodigo">00001</h2>
-                            </div>
-                            
-                            
-                            <div class="col-4"> 
-                                <h1 class="fecha">Fecha: </h1>
-                            </div>
-                            <div class="col-8">
-                                <h1 class="fecha">03-04-2020</h1>
-                            </div>
-                            
-                        </div>
-                    </div>
-                    
-                    
-                    
-                    
-                    
                 </div>
             </div>
-            
-        </header>
-        
-        
-        
-        <section>
-        
-             <div class="container-fluid top"> 
-                
-                <div class="row">
-                    <div class="col-12">
-                       <h1 class="titleboleta">Informaci&oacute;n Cliente</h1>
-                    </div>
-                    
-                    
-                    <div class="col-4">
-                       <div class="row">
-                           
-                           
-                           
-                           <div class="col-12 cajatitulo">
-                                <h1 class="titulocaja">Tipo de identificaci&oacute;n</h1>
-                            </div> 
-                           <div class="col-12 caja">
-                                <h4 class="cajacontenido">{{ ticket.client.idType }}</h4>
-                            </div>
-                           
-                           
-                           
-                           
-                        </div>
-                    </div>
-                    
-                    <div class="col-4">
-                       <div class="row">
-                           
-                           
-                           
-                           <div class="col-12 cajatitulo">
-                                <h1 class="titulocaja">identificaci&oacute;n</h1>
-                            </div> 
-                           <div class="col-12 caja">
-                                <h4 class="cajacontenido">23488620</h4>
-                            </div>
-                           
-                           
-                           
-                           
-                        </div>
-                    </div>
-                    
-                    <div class="col-4">
-                       <div class="row">
-                           
-                           
-                           
-                           <div class="col-12 cajatitulo">
-                                <h1 class="titulocaja">Nombre y Apellido</h1>
-                            </div> 
-                           <div class="col-12 caja">
-                                <h4 class="cajacontenido">Carlos Jose hernandez casasola de la paz</h4>
-                            </div>
-                           
-                           
-                           
-                           
-                        </div>
-                    </div>
-               
-                </div>
-            
+        </div>
+    </div>
+</header>
+
+
+<section>
+
+    <div class="container-fluid top">
+
+        <div class="row">
+            <div class="col-12">
+                <h1 class="titleboleta">Informaci&oacute;n Cliente</h1>
             </div>
-            
-            
-            
-            
-             <div class="container-fluid top"> 
-                
+            <div class="col-4">
                 <div class="row">
-                                       
-                    
-                    <div class="col-4">
-                       <div class="row">
-                           
-                           
-                           
-                           <div class="col-12 cajatitulo">
-                                <h1 class="titulocaja">Telefono</h1>
-                            </div> 
-                           <div class="col-12 caja">
-                                <h4 class="cajacontenido">60398858</h4>
-                            </div>
-                           
-                           
-                           
-                           
-                        </div>
+                    <div class="col-12 cajatitulo">
+                        <h1 class="titulocaja">Tipo de identificaci&oacute;n </h1>
                     </div>
-                    
-                    <div class="col-4">
-                       <div class="row">
-                           
-                           
-                           
-                           <div class="col-12 cajatitulo">
-                                <h1 class="titulocaja">Correo Electrónico</h1>
-                            </div> 
-                           <div class="col-12 caja">
-                                <h4 class="cajacontenido">23488620</h4>
-                            </div>
-                           
-                           
-                           
-                           
-                        </div>
+                    <div class="col-12 caja">
+                        <h4 class="cajacontenido">{{ ticket.client.get_idType_display }}</h4>
                     </div>
-                    
-                    <div class="col-4">
-                       <div class="row">
-                           
-                           
-                           
-                           <div class="col-12 cajatitulo">
-                                <h1 class="titulocaja">Dirección</h1>
-                            </div> 
-                           <div class="col-12 caja">
-                                <h4 class="cajacontenido">Carlos Jose hernandez casasola de la paz</h4>
-                            </div>
-                           
-                           
-                           
-                           
-                        </div>
-                    </div>
-               
                 </div>
-            
             </div>
-        
-            
-            
-            
-            
-            
-            
-            
-            
-        
-            
-            
-            
-            
-            <div class="container-fluid top"> 
-                
+            <div class="col-4">
                 <div class="row">
-                    <div class="col-12">
-                       <h1 class="titleboleta">Informaci&oacute;n General</h1>
+                    <div class="col-12 cajatitulo">
+                        <h1 class="titulocaja">identificaci&oacute;n</h1>
                     </div>
-                    
-                    
-                    <div class="col-4">
-                       <div class="row">
-                           
-                           
-                           
-                           <div class="col-12 cajatitulo">
-                                <h1 class="titulocaja">Tipo de Aver&iacute;a</h1>
-                            </div> 
-                           <div class="col-12 caja">
-                                <h4 class="cajacontenido">Seleccion</h4>
-                            </div>
-                           
-                           
-                           
-                           
-                        </div>
+                    <div class="col-12 caja">
+                        <h4 class="cajacontenido">{% if ticket.client.legalId %}{{ ticket.client.legalId }}{% endif %}</h4>
                     </div>
-                    
-                    <div class="col-4">
-                       <div class="row">
-                           
-                           
-                           
-                           <div class="col-12 cajatitulo">
-                                <h1 class="titulocaja">Tipo de inmueble</h1>
-                            </div> 
-                           <div class="col-12 caja">
-                                <h4 class="cajacontenido">seleccion</h4>
-                            </div>
-                           
-                           
-                           
-                           
-                        </div>
-                    </div>
-                    
-                    <div class="col-4">
-                       <div class="row">
-                           
-                           
-                           
-                           <div class="col-12 cajatitulo">
-                                <h1 class="titulocaja">Empresa sup. servicio eléctrico</h1>
-                            </div> 
-                           <div class="col-12 caja">
-                                <h4 class="cajacontenido">Seleccion</h4>
-                            </div>
-                           <div class="col-12 caja">
-                                <h4 class="cajacontenido">ESPECIFICACION</h4>
-                            </div>
-                           
-                           
-                           
-                           
-                        </div>
-                    </div>
-               
                 </div>
-            
             </div>
-            
-            
-            
-            
-             <div class="container-fluid top"> 
-                
+
+            <div class="col-4">
                 <div class="row">
-                          
-                    <div class="col-12">
-                       <h1 class="subtitulo">Generaci&oacute;n solar:</h1>
+
+
+                    <div class="col-12 cajatitulo">
+                        <h1 class="titulocaja">Nombre y Apellido</h1>
                     </div>
-                    
-                    
-                    <div class="col-4">
-                       <div class="row">
-                           
-                           
-                           
-                           <div class="col-12 cajatitulo">
-                                <h1 class="titulocaja">Capacidad equipada</h1>
-                            </div> 
-                           <div class="col-12 caja">
-                                <h4 class="cajacontenido">Seleccion</h4>
-                            </div>
-                           
-                           
-                           
-                           
-                        </div>
+                    <div class="col-12 caja">
+                        <h4 class="cajacontenido">{% if ticket.client.name %}{{ ticket.client.name }}{% endif %}</h4>
                     </div>
-                    
-                    <div class="col-4">
-                       <div class="row">
-                           
-                           
-                           
-                           <div class="col-12 cajatitulo">
-                                <h1 class="titulocaja">Tipo de tarifa</h1>
-                            </div> 
-                           <div class="col-12 caja">
-                                <h4 class="cajacontenido">Seleccion</h4>
-                            </div>
-                           <div class="col-12 caja">
-                                <h4 class="cajacontenido">ESPECIFICACION</h4>
-                            </div>
-                           
-                           
-                           
-                           
-                        </div>
-                    </div>
-                    
-                    <div class="col-4">
-                       <div class="row">
-                           
-                           
-                           
-                           <div class="col-12 cajatitulo">
-                                <h1 class="titulocaja">NISE/Localización</h1>
-                            </div> 
-                           <div class="col-12 caja">
-                                <h4 class="cajacontenido">seleccion</h4>
-                            </div>
-                           
-                           
-                           
-                           
-                        </div>
-                    </div>
-                    
-                    <div class="col-4 top">
-                       <div class="row">
-                           
-                           
-                           
-                           <div class="col-12 cajatitulo">
-                                <h1 class="titulocaja">N&uacute;mero de medido</h1>
-                            </div> 
-                           <div class="col-12 caja">
-                                <h4 class="cajacontenido">Seleecion</h4>
-                            </div>
-                           
-                           
-                           
-                           
-                        </div>
-                    </div>
-               
+
+
                 </div>
-            
             </div>
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-              
-            <div class="container-fluid top"> 
-                
+
+        </div>
+
+    </div>
+
+
+    <div class="container-fluid top">
+
+        <div class="row">
+
+
+            <div class="col-4">
                 <div class="row">
-                    <div class="col-12">
-                       <h1 class="titleboleta">Equipo Acometida</h1>
+
+
+                    <div class="col-12 cajatitulo">
+                        <h1 class="titulocaja">Telefono</h1>
                     </div>
-                    
-                    
-                    <div class="col-4">
-                       <div class="row">
-                           
-                           
-                           
-                           <div class="col-12 cajatitulo">
-                                <h1 class="titulocaja">Bajante de acometída</h1>
-                            </div> 
-                           <div class="col-12 caja">
-                                <h4 class="cajacontenido">Seleccion</h4>
-                            </div>
-                           
-                           
-                           
-                           
-                        </div>
+                    <div class="col-12 caja">
+                        <h4 class="cajacontenido">{% if ticket.client.phoneNumber %}{{ ticket.client.phoneNumber }}{% endif %}</h4>
                     </div>
-                    
-                    <div class="col-4">
-                       <div class="row">
-                           
-                           
-                           
-                           <div class="col-12 cajatitulo">
-                                <h1 class="titulocaja">Equipo de Medici&iacute;n</h1>
-                            </div> 
-                           <div class="col-12 caja">
-                                <h4 class="cajacontenido">seleccion</h4>
-                            </div>
-                            <div class="col-12 caja">
-                                <h4 class="cajacontenido">ESPECIFICACION</h4>
-                            </div>
-                           
-                           
-                           
-                        </div>
-                    </div>
-                    
-                    <div class="col-4">
-                       <div class="row">
-                           
-                           
-                           
-                           <div class="col-12 cajatitulo">
-                                <h1 class="titulocaja">Estado del interruptor principal:</h1>
-                            </div> 
-                           <div class="col-12 caja">
-                                <h4 class="cajacontenido">Seleccion</h4>
-                            </div>
-                           <div class="col-12 caja">
-                                <h4 class="cajacontenido">ESPECIFICACION</h4>
-                            </div>
-                           
-                           
-                           
-                           
-                        </div>
-                    </div>
-               
+
+
                 </div>
-            
             </div>
-            
-            
-            
-            
-             <div class="container-fluid top"> 
-                
+
+            <div class="col-4">
                 <div class="row">
-                          
-                    
-                    
-                    
-                    <div class="col-4">
-                       <div class="row">
-                           
-                           
-                           
-                           <div class="col-12 cajatitulo">
-                                <h1 class="titulocaja">Estado de los alimentadores principales:</h1>
-                            </div> 
-                           <div class="col-12 caja">
-                                <h4 class="cajacontenido">Seleccion</h4>
-                            </div>
-                           <div class="col-12 caja">
-                                <h4 class="cajacontenido">ESPECIFICACION</h4>
-                            </div>
-                           
-                           
-                           
-                           
-                        </div>
+
+
+                    <div class="col-12 cajatitulo">
+                        <h1 class="titulocaja">Correo Electrónico</h1>
                     </div>
-                    
-                    <div class="col-4">
-                       <div class="row">
-                           
-                           
-                           
-                           <div class="col-12 cajatitulo">
-                                <h1 class="titulocaja">Calibre conductores:
-                                    <br>(F1, F2, F3, N, T)</h1>
-                            </div> 
-                           
-                           <div class="col-12 caja">
-                               <div class="form-group top">
-                                                
-                                                <div class="row">
-                                                    <div class="col-6">
-                                                        <div class="input-group mb-2 mr-sm-2">
-                                                            <div class="input-group-prepend">
-                                                              <div class="input-group-text">F1</div>
-                                                            </div>
-                                                            <input type="text" class="form-control" id="inlineFormInputGroupUsername2" placeholder="">
-                                                          </div>
-                                                    </div>
-                                                    
-                                                    <div class="col-6">
-                                                        <div class="input-group mb-2 mr-sm-2">
-                                                            <div class="input-group-prepend">
-                                                              <div class="input-group-text">F2</div>
-                                                            </div>
-                                                            <input type="text" class="form-control" id="inlineFormInputGroupUsername2" placeholder="">
-                                                          </div>
-                                                    </div>
-                                                    
-                                                    <div class="col-6">
-                                                        <div class="input-group mb-2 mr-sm-2">
-                                                            <div class="input-group-prepend">
-                                                              <div class="input-group-text">F3</div>
-                                                            </div>
-                                                            <input type="text" class="form-control" id="inlineFormInputGroupUsername2" placeholder="">
-                                                          </div>
-                                                    </div>
-                                                    
-                                                    <div class="col-6">
-                                                        <div class="input-group mb-2 mr-sm-2">
-                                                            <div class="input-group-prepend">
-                                                              <div class="input-group-text">N</div>
-                                                            </div>
-                                                            <input type="text" class="form-control" id="inlineFormInputGroupUsername2" placeholder="">
-                                                          </div>
-                                                    </div>
-                                                    
-                                                    <div class="col-6">
-                                                        <div class="input-group mb-2 mr-sm-2">
-                                                            <div class="input-group-prepend">
-                                                              <div class="input-group-text">T</div>
-                                                            </div>
-                                                            <input type="text" class="form-control" id="inlineFormInputGroupUsername2" placeholder="">
-                                                          </div>
-                                                    </div>
-                                                
-                                                </div>
-                                                 
-                                                
-                                            </div>
-                               
-                            </div>
-                            
-                           
-                           
-                           
-                        </div>
+                    <div class="col-12 caja">
+                        <h4 class="cajacontenido">{% if ticket.client.email %}{{ ticket.client.email }}{% endif %}</h4>
                     </div>
-                    
-                    <div class="col-4">
-                       <div class="row">
-                           
-                           
-                           
-                           <div class="col-12 cajatitulo">
-                                <h1 class="titulocaja">Voltajes entrada:
-                                    <br>(F1, F2, F3, F1+F2, F2+F3, F1+F3)</h1>
-                            </div> 
-                           <div class="col-12 caja">
-                               <div class="form-group top">
-                                                
-                                                <div class="row">
-                                                    <div class="col-6">
-                                                        <div class="input-group mb-2 mr-sm-2">
-                                                            <div class="input-group-prepend">
-                                                              <div class="input-group-text">F1</div>
-                                                            </div>
-                                                            <input type="text" class="form-control" id="inlineFormInputGroupUsername2" placeholder="">
-                                                          </div>
-                                                    </div>
-                                                    
-                                                    <div class="col-6">
-                                                        <div class="input-group mb-2 mr-sm-2">
-                                                            <div class="input-group-prepend">
-                                                              <div class="input-group-text">F2</div>
-                                                            </div>
-                                                            <input type="text" class="form-control" id="inlineFormInputGroupUsername2" placeholder="">
-                                                          </div>
-                                                    </div>
-                                                    
-                                                    <div class="col-6">
-                                                        <div class="input-group mb-2 mr-sm-2">
-                                                            <div class="input-group-prepend">
-                                                              <div class="input-group-text">F3</div>
-                                                            </div>
-                                                            <input type="text" class="form-control" id="inlineFormInputGroupUsername2" placeholder="">
-                                                          </div>
-                                                    </div>
-                                                    
-                                                    <div class="col-6">
-                                                        <div class="input-group mb-2 mr-sm-2">
-                                                            <div class="input-group-prepend">
-                                                              <div class="input-group-text">F1+F2</div>
-                                                            </div>
-                                                            <input type="text" class="form-control" id="inlineFormInputGroupUsername2" placeholder="">
-                                                          </div>
-                                                    </div>
-                                                    
-                                                    <div class="col-6">
-                                                        <div class="input-group mb-2 mr-sm-2">
-                                                            <div class="input-group-prepend">
-                                                              <div class="input-group-text">F2+F3</div>
-                                                            </div>
-                                                            <input type="text" class="form-control" id="inlineFormInputGroupUsername2" placeholder="">
-                                                          </div>
-                                                    </div>
-                                                    
-                                                    <div class="col-6">
-                                                        <div class="input-group mb-2 mr-sm-2">
-                                                            <div class="input-group-prepend">
-                                                              <div class="input-group-text">F1+F3</div>
-                                                            </div>
-                                                            <input type="text" class="form-control" id="inlineFormInputGroupUsername2" placeholder="">
-                                                          </div>
-                                                    </div>
-                                                
-                                                </div>
-                                                 
-                                                
-                                            </div>
-                               
-                            </div>
-                           
-                           
-                           
-                           
-                        </div>
-                    </div>
-                    
-                    <div class="col-4 top">
-                       <div class="row">
-                           
-                           
-                           
-                           <div class="col-12 cajatitulo">
-                                <h1 class="titulocaja">Corriente entrada: (F1, F2, F3,)</h1>
-                            </div> 
-                           <div class="col-12 caja">
-                               <div class="form-group top">
-                                                
-                                                <div class="row">
-                                                    <div class="col-6">
-                                                        <div class="input-group mb-2 mr-sm-2">
-                                                            <div class="input-group-prepend">
-                                                              <div class="input-group-text">F1</div>
-                                                            </div>
-                                                            <input type="text" class="form-control" id="inlineFormInputGroupUsername2" placeholder="">
-                                                          </div>
-                                                    </div>
-                                                    
-                                                    <div class="col-6">
-                                                        <div class="input-group mb-2 mr-sm-2">
-                                                            <div class="input-group-prepend">
-                                                              <div class="input-group-text">F2</div>
-                                                            </div>
-                                                            <input type="text" class="form-control" id="inlineFormInputGroupUsername2" placeholder="">
-                                                          </div>
-                                                    </div>
-                                                    
-                                                    <div class="col-6">
-                                                        <div class="input-group mb-2 mr-sm-2">
-                                                            <div class="input-group-prepend">
-                                                              <div class="input-group-text">F3</div>
-                                                            </div>
-                                                            <input type="text" class="form-control" id="inlineFormInputGroupUsername2" placeholder="">
-                                                          </div>
-                                                    </div>
-                                               
-                                                </div>
-                                                 
-                                                
-                                            </div>
-                               
-                            </div>
-                            
-                           
-                           
-                           
-                           
-                        </div>
-                    </div>
-                    
-                    <div class="col-4 top">
-                       <div class="row">
-                           
-                           
-                           
-                           <div class="col-12 cajatitulo">
-                                <h1 class="titulocaja">Estado de puesta a tierra:</h1>
-                            </div> 
-                           <div class="col-12 caja">
-                                <h4 class="cajacontenido">Seleccion</h4>
-                            </div>
-                           <div class="col-12 caja">
-                                <h4 class="cajacontenido">ESPECIFICACION</h4>
-                            </div>
-                           
-                           
-                            
-                           
-                           
-                           
-                           
-                        </div>
-                    </div>
-                    
-                    <div class="col-4 top">
-                       <div class="row">
-                           
-                           
-                           
-                           <div class="col-12 cajatitulo">
-                                <h1 class="titulocaja">Estado neutro:</h1>
-                            </div> 
-                           <div class="col-12 caja">
-                                <h4 class="cajacontenido">Seleccion</h4>
-                            </div>
-                           <div class="col-12 caja">
-                                <h4 class="cajacontenido">ESPECIFICACION</h4>
-                            </div>
-                           
-                           
-                            
-                           
-                           
-                           
-                           
-                        </div>
-                    </div>
-                    
-                    <div class="col-4 top">
-                       <div class="row">
-                           
-                           
-                           
-                           <div class="col-12 cajatitulo">
-                                <h1 class="titulocaja">Resultado equipo acometida:</h1>
-                            </div> 
-                           <div class="col-12 caja">
-                                <h4 class="cajacontenido">Cuadro de mensaje</h4>
-                            </div>
-                           
-                           
-                            
-                           
-                           
-                           
-                           
-                        </div>
-                    </div>
-                    
-               
+
+
                 </div>
-            
             </div>
-            
-            
-            
-            
-            
-            
-           <div class="container-fluid top"> 
-                
+
+            <div class="col-4">
                 <div class="row">
-                    <div class="col-12">
-                       <h1 class="titleboleta">Centro de Carga</h1>
+
+
+                    <div class="col-12 cajatitulo">
+                        <h1 class="titulocaja">Dirección</h1>
                     </div>
-                    
-                    
-                    <div class="col-4">
-                       <div class="row">
-                           
-                           
-                           
-                           <div class="col-12 cajatitulo">
-                                <h1 class="titulocaja">Marca y No. Catalago:</h1>
-                            </div> 
-                           <div class="col-12 caja">
-                                <h4 class="cajacontenido">Seleccion</h4>
-                            </div>
-                           
-                           
-                           
-                           
-                        </div>
+                    <div class="col-12 caja">
+                        <h4 class="cajacontenido">{% if ticket.client.adress %}{{ ticket.client.adress }}{% endif %}</h4>
                     </div>
-                    
-                    <div class="col-4">
-                       <div class="row">
-                           
-                           
-                           
-                           <div class="col-12 cajatitulo">
-                                <h1 class="titulocaja">Marca y No. Catalago:</h1>
-                            </div> 
-                           <div class="col-12 caja">
-                                <h4 class="cajacontenido">Seleccion</h4>
-                            </div>
-                           
-                           
-                           
-                           
-                        </div>
-                    </div>
-                    
-                    <div class="col-4">
-                       <div class="row">
-                           
-                           
-                           
-                           <div class="col-12 cajatitulo">
-                                <h1 class="titulocaja">Estado general del tablero:</h1>
-                            </div> 
-                           <div class="col-12 caja">
-                                <h4 class="cajacontenido">Seleccion</h4>
-                            </div>
-                           <div class="col-12 caja">
-                                <h4 class="cajacontenido">ESPECIFICACION</h4>
-                            </div>
-                           
-                           
-                           
-                           
-                        </div>
-                    </div>
-               
+
+
                 </div>
-            
-            </div>  
-            
-            
-             <div class="container-fluid top"> 
-                
-                <div class="row">
-                               
-                    
-                    <div class="col-4">
-                       <div class="row">
-                           
-                           
-                           
-                           <div class="col-12 cajatitulo">
-                                <h1 class="titulocaja">Ubicación:</h1>
-                            </div> 
-                           <div class="col-12 caja">
-                                <h4 class="cajacontenido">Seleccion</h4>
-                            </div>
-                           
-                           
-                           
-                           
-                        </div>
-                    </div>
-                    
-                    <div class="col-4">
-                       <div class="row">
-                           
-                           
-                           
-                           <div class="col-12 cajatitulo">
-                                <h1 class="titulocaja">Canalización:</h1>
-                            </div> 
-                           <div class="col-12 caja">
-                                <h4 class="cajacontenido">Seleccion</h4>
-                            </div>
-                           <div class="col-12 caja">
-                                <h4 class="cajacontenido">ESPECIFICACION</h4>
-                            </div>
-                           <div class="col-12 caja">
-                                <h4 class="cajacontenido">DISTANCIA</h4>
-                            </div>
-                           
-                           
-                           
-                        </div>
-                    </div>
-                    
-                    <div class="col-4">
-                       <div class="row">
-                           
-                           
-                           
-                           <div class="col-12 cajatitulo">
-                                <h1 class="titulocaja">Condición general de los tableros:</h1>
-                            </div> 
-                           <div class="col-12 caja">
-                                <h4 class="cajacontenido">Seleccion</h4>
-                            </div>
-                           <div class="col-12 caja">
-                                <h4 class="cajacontenido">ESPECIFICACION</h4>
-                            </div>
-                           
-                           
-                           
-                           
-                        </div>
-                    </div>
-               
-                </div>
-            
-            </div>  
-            
-            
-             <div class="container-fluid top"> 
-                
-                <div class="row">
-                               
-                    
-                    <div class="col-4">
-                       <div class="row">
-                           
-                           
-                           
-                           <div class="col-12 cajatitulo">
-                                <h1 class="titulocaja">Puesta a tierra:</h1>
-                            </div> 
-                           <div class="col-12 caja">
-                                <h4 class="cajacontenido">Seleccion</h4>
-                            </div>
-                           <div class="col-12 caja">
-                                <h4 class="cajacontenido">ESPECIFICACION</h4>
-                            </div>
-                           
-                           
-                           
-                        </div>
-                    </div>
-                    
-                    <div class="col-4">
-                       <div class="row">
-                           
-                           
-                           
-                           <div class="col-12 cajatitulo">
-                                <h1 class="titulocaja">Prueba de carga:
-                                    (F1, F2, F3, N)</h1>
-                            </div> 
-                           <div class="col-12 caja">
-                               <div class="form-group top">
-                                                
-                                                <div class="row">
-                                                    <div class="col-6">
-                                                        <div class="input-group mb-2 mr-sm-2">
-                                                            <div class="input-group-prepend">
-                                                              <div class="input-group-text">F1</div>
-                                                            </div>
-                                                            <input type="text" class="form-control" id="inlineFormInputGroupUsername2" placeholder="">
-                                                          </div>
-                                                    </div>
-                                                    
-                                                    <div class="col-6">
-                                                        <div class="input-group mb-2 mr-sm-2">
-                                                            <div class="input-group-prepend">
-                                                              <div class="input-group-text">F2</div>
-                                                            </div>
-                                                            <input type="text" class="form-control" id="inlineFormInputGroupUsername2" placeholder="">
-                                                          </div>
-                                                    </div>
-                                                    
-                                                    <div class="col-6">
-                                                        <div class="input-group mb-2 mr-sm-2">
-                                                            <div class="input-group-prepend">
-                                                              <div class="input-group-text">F3</div>
-                                                            </div>
-                                                            <input type="text" class="form-control" id="inlineFormInputGroupUsername2" placeholder="">
-                                                          </div>
-                                                    </div>
-                                                    
-                                                    <div class="col-6">
-                                                        <div class="input-group mb-2 mr-sm-2">
-                                                            <div class="input-group-prepend">
-                                                              <div class="input-group-text">N</div>
-                                                            </div>
-                                                            <input type="text" class="form-control" id="inlineFormInputGroupUsername2" placeholder="">
-                                                          </div>
-                                                    </div>
-                                               
-                                                </div>
-                                                 
-                                                
-                                            </div>
-                               
-                            </div>
-                           <div class="col-12 caja">
-                                <h4 class="cajacontenido">NOTA</h4>
-                            </div>
-                            
-                           
-                           
-                           
-                           
-                        </div>
-                    </div>
-                    
-                    <div class="col-4">
-                       <div class="row">
-                           
-                           
-                           
-                           <div class="col-12 cajatitulo">
-                                <h1 class="titulocaja">Resultado centro de carga principal:</h1>
-                            </div> 
-                           <div class="col-12 caja">
-                                <h4 class="cajacontenido">TEXTO</h4>
-                            </div>
-                           
-                           
-                           
-                           
-                        </div>
-                    </div>
-               
-                </div>
-            
             </div>
-            
-            
-            
-            <div class="container-fluid top"> 
-                
-                <div class="row">
-                    <div class="col-12">
-                       <h1 class="titleboleta">Circuitos Remanentes</h1>
-                    </div>
-                    
-                    
-                    <div class="col-4">
-                       <div class="row">
-                           
-                           
-                           
-                           <div class="col-12 cajatitulo">
-                                <h1 class="titulocaja">Resultado circutos remanentes:</h1>
-                            </div> 
-                           <div class="col-12 caja">
-                                <h4 class="cajacontenido">Texto</h4>
-                            </div>
-                           
-                           
-                           
-                           
-                        </div>
-                    </div>
-                    
-                    
-               
-                </div>
-            
+
+        </div>
+
+    </div>
+
+
+    <div class="container-fluid top">
+
+        <div class="row">
+            <div class="col-12">
+                <h1 class="titleboleta">Informaci&oacute;n General</h1>
             </div>
-            
-            <div class="container-fluid top"> 
-                
+
+
+            <div class="col-4">
                 <div class="row">
-                    <div class="col-12">
-                       <h1 class="titleboleta">Circuitos Remanentes</h1>
+
+
+                    <div class="col-12 cajatitulo">
+                        <h1 class="titulocaja">Tipo de Visita</h1>
                     </div>
-                    
-                    
-                    <div class="col-4">
-                       <div class="row">
-                           
-                           
-                           
-                           <div class="col-12 cajatitulo">
-                                <h1 class="titulocaja">Recomendaciones Generales</h1>
-                            </div> 
-                           <div class="col-12 caja">
-                                <h4 class="cajacontenido">Texto</h4>
-                            </div>
-                           
-                           
-                           
-                           
-                        </div>
+                    <div class="col-12 caja">
+                        <h4 class="cajacontenido">{{ ticket.general_info.get_kind_visit_display }}</h4>
                     </div>
-                    
-                    
-               
+
+
                 </div>
-            
             </div>
-            
-            
-            
-        
-        </section>
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        <footer>
-          
-        </footer>
-    
-        
-         <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
-    </body>
-    
+
+            <div class="col-4">
+                <div class="row">
+
+
+                    <div class="col-12 cajatitulo">
+                        <h1 class="titulocaja">Tipo de inmueble</h1>
+                    </div>
+                    <div class="col-12 caja">
+                        <h4 class="cajacontenido">{{ ticket.general_info.get_property_type_display }}</h4>
+                    </div>
+
+
+                </div>
+            </div>
+
+            <div class="col-4">
+                <div class="row">
+
+
+                    <div class="col-12 cajatitulo">
+                        <h1 class="titulocaja">Empresa sup. servicio eléctrico</h1>
+                    </div>
+                    <div class="col-12 caja">
+                        <h4 class="cajacontenido">{{ ticket.general_info.get_company_display }}</h4>
+                    </div>
+                    <div class="col-12 caja">
+                        <h4 class="cajacontenido">{% if ticket.general_info.another_company %}{{ ticket.general_info.another_company }}{% endif %}</h4>
+                    </div>
+
+
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <div class="container-fluid top">
+
+        <div class="row">
+
+            <div class="col-4">
+                <div class="row">
+
+                    <div class="col-12 cajatitulo">
+                        <h1 class="titulocaja">Generación solar</h1>
+                    </div>
+                    <div class="col-12 caja">
+                        <h4 class="cajacontenido">{{ ticket.general_info.get_solar_generation_display }}</h4>
+                    </div>
+                    <div class="col-12 caja">
+                        <h4 class="cajacontenido">Capacidad equipada: {% if ticket.general_info.solar_generation_capacity %}{{ ticket.general_info.solar_generation_capacity }}{% endif %}</h4>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="col-4">
+                <div class="row">
+
+
+                    <div class="col-12 cajatitulo">
+                        <h1 class="titulocaja">Tipo de tarifa</h1>
+                    </div>
+                    <div class="col-12 caja">
+                        <h4 class="cajacontenido">{{ ticket.general_info.get_rate_type_display }}</h4>
+                    </div>
+                    <div class="col-12 caja">
+                        <h4 class="cajacontenido">{% if ticket.general_info.another_rate_type %}{{ ticket.general_info.another_rate_type }}{% endif %}</h4>
+                    </div>
+
+
+                </div>
+            </div>
+
+            <div class="col-4">
+                <div class="row">
+
+
+                    <div class="col-12 cajatitulo">
+                        <h1 class="titulocaja">NISE/Localización</h1>
+                    </div>
+                    <div class="col-12 caja">
+                        <h4 class="cajacontenido">{% if ticket.general_info.nise_or_location %}{{ ticket.general_info.nise_or_location }}{% endif %}</h4>
+                    </div>
+
+
+                </div>
+            </div>
+
+            <div class="col-4 top">
+                <div class="row">
+
+
+                    <div class="col-12 cajatitulo">
+                        <h1 class="titulocaja">N&uacute;mero de medido</h1>
+                    </div>
+                    <div class="col-12 caja">
+                        <h4 class="cajacontenido">{% if ticket.general_info.meter_number %}{{ ticket.general_info.meter_number }}{% endif %}</h4>
+                    </div>
+
+
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <div class="container-fluid top">
+
+        <div class="row">
+            <div class="col-12">
+                <h1 class="titleboleta">Equipo Acometida</h1>
+            </div>
+
+
+            <div class="col-4">
+                <div class="row">
+
+
+                    <div class="col-12 cajatitulo">
+                        <h1 class="titulocaja">Bajante de acometída</h1>
+                    </div>
+                    <div class="col-12 caja">
+                        <h4 class="cajacontenido">{{ ticket.equipo_acometida.get_bajante_acometida_display }}</h4>
+                    </div>
+
+
+                </div>
+            </div>
+
+            <div class="col-4">
+                <div class="row">
+
+
+                    <div class="col-12 cajatitulo">
+                        <h1 class="titulocaja">Equipo de Medición</h1>
+                    </div>
+                    <div class="col-12 caja">
+                        <h4 class="cajacontenido">{{ ticket.equipo_acometida.get_equipo_medicion_display }}</h4>
+                    </div>
+                    <div class="col-12 caja">
+                        <h4 class="cajacontenido">{% if ticket.equipo_acometida.equipo_medicion_especifique %}{{ ticket.equipo_acometida.equipo_medicion_especifique }}{% endif %}</h4>
+                    </div>
+
+
+                </div>
+            </div>
+
+            <div class="col-4">
+                <div class="row">
+
+
+                    <div class="col-12 cajatitulo">
+                        <h1 class="titulocaja">Estado del interruptor principal:</h1>
+                    </div>
+                    <div class="col-12 caja">
+                        <h4 class="cajacontenido">{{ ticket.equipo_acometida.get_estado_interruptor_display }}</h4>
+                    </div>
+                    <div class="col-12 caja">
+                        <h4 class="cajacontenido">{% if ticket.equipo_acometida.estado_interruptor_especifique %}{{ ticket.equipo_acometida.estado_interruptor_especifique }}{% endif %}</h4>
+                    </div>
+
+
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <div class="container-fluid top">
+
+        <div class="row">
+
+
+            <div class="col-4">
+                <div class="row">
+
+
+                    <div class="col-12 cajatitulo">
+                        <h1 class="titulocaja">Estado de los alimentadores principales:</h1>
+                    </div>
+                    <div class="col-12 caja">
+                        <h4 class="cajacontenido">{{ ticket.equipo_acometida.get_estado_alimentadores_display }}</h4>
+                    </div>
+                    <div class="col-12 caja">
+                        <h4 class="cajacontenido">{% if ticket.equipo_acometida.estado_alimentadores_especifique %}{{ ticket.equipo_acometida.estado_alimentadores_especifique }}{% endif %}</h4>
+                    </div>
+
+
+                </div>
+            </div>
+
+            <div class="col-4">
+                <div class="row">
+
+
+                    <div class="col-12 cajatitulo">
+                        <h1 class="titulocaja">Calibre conductores:
+                            <br>(F1, F2, F3, N, T)</h1>
+                    </div>
+
+                    <div class="col-12 caja">
+                        <div class="form-group top">
+
+                            <div class="row">
+                                <div class="col-6">
+                                    <div class="input-group mb-2 mr-sm-2">
+                                        <div class="input-group-prepend">
+                                            <div class="input-group-text">F1</div>
+                                        </div>
+                                        <input type="text" class="form-control" id="inlineFormInputGroupUsername2"
+                                               {% if ticket.equipo_acometida.calibre_conductores_f1 %} value="{{ ticket.equipo_acometida.calibre_conductores_f1 }}" {% endif %}>
+                                    </div>
+                                </div>
+
+                                <div class="col-6">
+                                    <div class="input-group mb-2 mr-sm-2">
+                                        <div class="input-group-prepend">
+                                            <div class="input-group-text">F2</div>
+                                        </div>
+                                        <input type="text" class="form-control" id="inlineFormInputGroupUsername2"
+                                               {% if ticket.equipo_acometida.calibre_conductores_f2 %} value="{{ ticket.equipo_acometida.calibre_conductores_f2 }}" {% endif %}>
+                                    </div>
+                                </div>
+
+                                <div class="col-6">
+                                    <div class="input-group mb-2 mr-sm-2">
+                                        <div class="input-group-prepend">
+                                            <div class="input-group-text">F3</div>
+                                        </div>
+                                        <input type="text" class="form-control" id="inlineFormInputGroupUsername2"
+                                               {% if ticket.equipo_acometida.calibre_conductores_f3 %} value="{{ ticket.equipo_acometida.calibre_conductores_f3 }}" {% endif %}>
+                                    </div>
+                                </div>
+
+                                <div class="col-6">
+                                    <div class="input-group mb-2 mr-sm-2">
+                                        <div class="input-group-prepend">
+                                            <div class="input-group-text">N</div>
+                                        </div>
+                                        <input type="text" class="form-control" id="inlineFormInputGroupUsername2"
+                                               {% if ticket.equipo_acometida.calibre_conductores_n %} value="{{ ticket.equipo_acometida.calibre_conductores_n }}" {% endif %}>
+                                    </div>
+                                </div>
+
+                                <div class="col-6">
+                                    <div class="input-group mb-2 mr-sm-2">
+                                        <div class="input-group-prepend">
+                                            <div class="input-group-text">T</div>
+                                        </div>
+                                        <input type="text" class="form-control" id="inlineFormInputGroupUsername2"
+                                               {% if ticket.equipo_acometida.calibre_conductores_t %} value="{{ ticket.equipo_acometida.calibre_conductores_t }}" {% endif %}>
+                                    </div>
+                                </div>
+
+                            </div>
+
+
+                        </div>
+
+                    </div>
+
+
+                </div>
+            </div>
+
+            <div class="col-4">
+                <div class="row">
+
+
+                    <div class="col-12 cajatitulo">
+                        <h1 class="titulocaja">Voltajes entrada:
+                            <br>(F1, F2, F3, F1+F2, F2+F3, F1+F3)</h1>
+                    </div>
+                    <div class="col-12 caja">
+                        <div class="form-group top">
+
+                            <div class="row">
+                                <div class="col-6">
+                                    <div class="input-group mb-2 mr-sm-2">
+                                        <div class="input-group-prepend">
+                                            <div class="input-group-text">F1</div>
+                                        </div>
+                                        <input type="text" class="form-control" id="inlineFormInputGroupUsername2"
+                                               {% if ticket.equipo_acometida.voltajes_entrada_f1 %} value="{{ ticket.equipo_acometida.voltajes_entrada_f1 }}" {% endif %}>
+                                    </div>
+                                </div>
+
+                                <div class="col-6">
+                                    <div class="input-group mb-2 mr-sm-2">
+                                        <div class="input-group-prepend">
+                                            <div class="input-group-text">F2</div>
+                                        </div>
+                                        <input type="text" class="form-control" id="inlineFormInputGroupUsername2"
+                                               {% if ticket.equipo_acometida.voltajes_entrada_f2 %} value="{{ ticket.equipo_acometida.voltajes_entrada_f2 }}" {% endif %}>
+                                    </div>
+                                </div>
+
+                                <div class="col-6">
+                                    <div class="input-group mb-2 mr-sm-2">
+                                        <div class="input-group-prepend">
+                                            <div class="input-group-text">F3</div>
+                                        </div>
+                                        <input type="text" class="form-control" id="inlineFormInputGroupUsername2"
+                                               {% if ticket.equipo_acometida.voltajes_entrada_f3 %} value="{{ ticket.equipo_acometida.voltajes_entrada_f3 }}" {% endif %}>
+                                    </div>
+                                </div>
+
+                                <div class="col-6">
+                                    <div class="input-group mb-2 mr-sm-2">
+                                        <div class="input-group-prepend">
+                                            <div class="input-group-text">F1+F2</div>
+                                        </div>
+                                        <input type="text" class="form-control" id="inlineFormInputGroupUsername2"
+                                               {% if ticket.equipo_acometida.voltajes_entrada_f1_f2 %} value="{{ ticket.equipo_acometida.voltajes_entrada_f1_f2 }}" {% endif %}>
+                                    </div>
+                                </div>
+
+                                <div class="col-6">
+                                    <div class="input-group mb-2 mr-sm-2">
+                                        <div class="input-group-prepend">
+                                            <div class="input-group-text">F2+F3</div>
+                                        </div>
+                                        <input type="text" class="form-control" id="inlineFormInputGroupUsername2"
+                                               {% if ticket.equipo_acometida.voltajes_entrada_f2_f3 %} value="{{ ticket.equipo_acometida.voltajes_entrada_f2_f3 }}" {% endif %}>
+                                    </div>
+                                </div>
+
+                                <div class="col-6">
+                                    <div class="input-group mb-2 mr-sm-2">
+                                        <div class="input-group-prepend">
+                                            <div class="input-group-text">F1+F3</div>
+                                        </div>
+                                        <input type="text" class="form-control" id="inlineFormInputGroupUsername2"
+                                               {% if ticket.equipo_acometida.voltajes_entrada_f1_f3 %} value="{{ ticket.equipo_acometida.voltajes_entrada_f1_f3 }}" {% endif %}>
+                                    </div>
+                                </div>
+
+                            </div>
+
+
+                        </div>
+
+                    </div>
+
+
+                </div>
+            </div>
+
+            <div class="col-4 top">
+                <div class="row">
+
+
+                    <div class="col-12 cajatitulo">
+                        <h1 class="titulocaja">Corriente entrada: (F1, F2, F3,)</h1>
+                    </div>
+                    <div class="col-12 caja">
+                        <div class="form-group top">
+
+                            <div class="row">
+                                <div class="col-6">
+                                    <div class="input-group mb-2 mr-sm-2">
+                                        <div class="input-group-prepend">
+                                            <div class="input-group-text">F1</div>
+                                        </div>
+                                        <input type="text" class="form-control" id="inlineFormInputGroupUsername2"
+                                               {% if ticket.equipo_acometida.corriente_entrada_f1 %} value="{{ ticket.equipo_acometida.corriente_entrada_f1 }}" {% endif %}>
+                                    </div>
+                                </div>
+
+                                <div class="col-6">
+                                    <div class="input-group mb-2 mr-sm-2">
+                                        <div class="input-group-prepend">
+                                            <div class="input-group-text">F2</div>
+                                        </div>
+                                        <input type="text" class="form-control" id="inlineFormInputGroupUsername2"
+                                               {% if ticket.equipo_acometida.corriente_entrada_f2 %} value="{{ ticket.equipo_acometida.corriente_entrada_f2 }}" {% endif %}>
+                                    </div>
+                                </div>
+
+                                <div class="col-6">
+                                    <div class="input-group mb-2 mr-sm-2">
+                                        <div class="input-group-prepend">
+                                            <div class="input-group-text">F3</div>
+                                        </div>
+                                        <input type="text" class="form-control" id="inlineFormInputGroupUsername2"
+                                               {% if ticket.equipo_acometida.corriente_entrada_f3 %} value="{{ ticket.equipo_acometida.corriente_entrada_f3 }}" {% endif %}>
+                                    </div>
+                                </div>
+
+                            </div>
+
+
+                        </div>
+
+                    </div>
+
+
+                </div>
+            </div>
+
+            <div class="col-4 top">
+                <div class="row">
+
+
+                    <div class="col-12 cajatitulo">
+                        <h1 class="titulocaja">Estado de puesta a tierra:</h1>
+                    </div>
+                    <div class="col-12 caja">
+                        <h4 class="cajacontenido">{{ ticket.equipo_acometida.get_estado_puesta_display }}</h4>
+                    </div>
+                    <div class="col-12 caja">
+                        <h4 class="cajacontenido">{% if ticket.equipo_acometida.estado_puesta_especifique %} {{ ticket.equipo_acometida.estado_puesta_especifique }} {% endif %}</h4>
+                    </div>
+
+
+                </div>
+            </div>
+
+            <div class="col-4 top">
+                <div class="row">
+
+
+                    <div class="col-12 cajatitulo">
+                        <h1 class="titulocaja">Estado neutro:</h1>
+                    </div>
+                    <div class="col-12 caja">
+                        <h4 class="cajacontenido">{{ ticket.equipo_acometida.get_estado_neutro_display }}</h4>
+                    </div>
+                    <div class="col-12 caja">
+                        <h4 class="cajacontenido">{% if ticket.equipo_acometida.estado_neutro_especifique %} {{ ticket.equipo_acometida.estado_neutro_especifique }} {% endif %}</h4>
+                    </div>
+
+
+                </div>
+            </div>
+
+            <div class="col-4 top">
+                <div class="row">
+
+
+                    <div class="col-12 cajatitulo">
+                        <h1 class="titulocaja">Resultado equipo acometida:</h1>
+                    </div>
+                    <div class="col-12 caja">
+                        <h4 class="cajacontenido">{% if ticket.equipo_acometida.resultado %} {{ ticket.equipo_acometida.resultado }} {% endif %}</h4>
+                    </div>
+
+
+                </div>
+            </div>
+
+
+        </div>
+
+    </div>
+
+
+    <div class="container-fluid top">
+
+        <div class="row">
+            <div class="col-12">
+                <h1 class="titleboleta">Centro de Carga</h1>
+            </div>
+
+
+            <div class="col-4">
+                <div class="row">
+
+
+                    <div class="col-12 cajatitulo">
+                        <h1 class="titulocaja">Marca y No. Catalago:</h1>
+                    </div>
+                    <div class="col-12 caja">
+                        <h4 class="cajacontenido">{% if ticket.centro_carga.marca_catalogo %} {{ ticket.centro_carga.marca_catalogo }} {% endif %}</h4>
+                    </div>
+
+
+                </div>
+            </div>
+
+            <div class="col-4">
+                <div class="row">
+
+
+                    <div class="col-12 cajatitulo">
+                        <h1 class="titulocaja">Espacios Ocupados:</h1>
+                    </div>
+                    <div class="col-12 caja">
+                        <h4 class="cajacontenido">{% if ticket.centro_carga.espacios_ocupados %} {{ ticket.centro_carga.espacios_ocupados }} {% endif %}</h4>
+                    </div>
+
+
+                </div>
+            </div>
+
+            <div class="col-4">
+                <div class="row">
+
+
+                    <div class="col-12 cajatitulo">
+                        <h1 class="titulocaja">Estado general del tablero:</h1>
+                    </div>
+                    <div class="col-12 caja">
+                        <h4 class="cajacontenido">{{ ticket.centro_carga.get_estado_tablero_display }}</h4>
+                    </div>
+                    <div class="col-12 caja">
+                        <h4 class="cajacontenido">{% if ticket.centro_carga.estado_tablero_especifique  %} {{ ticket.centro_carga.estado_tablero_especifique  }} {% endif %}</h4>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <div class="container-fluid top">
+
+        <div class="row">
+
+
+            <div class="col-4">
+                <div class="row">
+
+
+                    <div class="col-12 cajatitulo">
+                        <h1 class="titulocaja">Ubicación:</h1>
+                    </div>
+                    <div class="col-12 caja">
+                        <h4 class="cajacontenido">{{ ticket.centro_carga.get_ubicacion_display }}</h4>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-4">
+                <div class="row">
+
+
+                    <div class="col-12 cajatitulo">
+                        <h1 class="titulocaja">Canalización:</h1>
+                    </div>
+                    <div class="col-12 caja">
+                        <h4 class="cajacontenido">{{ ticket.centro_carga.get_canalizacion_display }}</h4>
+                    </div>
+                    <div class="col-12 caja">
+                        <h4 class="cajacontenido">{% if ticket.centro_carga.canalizacion_especifique %} {{ ticket.centro_carga.canalizacion_especifique }} {% endif %}</h4>
+                    </div>
+                    <div class="col-12 caja">
+                        <h4 class="cajacontenido">{% if ticket.centro_carga.canalizacion_distancia %} {{ ticket.centro_carga.canalizacion_distancia }} {% endif %}</h4>
+                    </div>
+
+
+                </div>
+            </div>
+
+            <div class="col-4">
+                <div class="row">
+
+
+                    <div class="col-12 cajatitulo">
+                        <h1 class="titulocaja">Condición general de los tableros:</h1>
+                    </div>
+                    <div class="col-12 caja">
+                        <h4 class="cajacontenido">{{ ticket.centro_carga.get_estado_tablero_display }}</h4>
+                    </div>
+                    <div class="col-12 caja">
+                        <h4 class="cajacontenido">{% if ticket.centro_carga.estado_tablero_especifique %} {{ ticket.centro_carga.estado_tablero_especifique }} {% endif %}</h4>
+                    </div>
+
+
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <div class="container-fluid top">
+
+        <div class="row">
+
+
+            <div class="col-4">
+                <div class="row">
+
+
+                    <div class="col-12 cajatitulo">
+                        <h1 class="titulocaja">Puesta a tierra:</h1>
+                    </div>
+                    <div class="col-12 caja">
+                        <h4 class="cajacontenido">{{ ticket.centro_carga.get_estado_puesta_display }}</h4>
+                    </div>
+                    <div class="col-12 caja">
+                        <h4 class="cajacontenido">{% if ticket.centro_carga.estado_puesta_especifique %} {{ ticket.centro_carga.estado_puesta_especifique }} {% endif %}</h4>
+                    </div>
+
+
+                </div>
+            </div>
+
+            <div class="col-4">
+                <div class="row">
+
+
+                    <div class="col-12 cajatitulo">
+                        <h1 class="titulocaja">Prueba de carga:
+                            (F1, F2, F3, N)</h1>
+                    </div>
+                    <div class="col-12 caja">
+                        <div class="form-group top">
+
+                            <div class="row">
+                                <div class="col-6">
+                                    <div class="input-group mb-2 mr-sm-2">
+                                        <div class="input-group-prepend">
+                                            <div class="input-group-text">F1-v</div>
+                                        </div>
+                                        <input type="text" class="form-control" id="inlineFormInputGroupUsername2"
+                                               {% if ticket.centro_carga.prueba_carga_f1_v %} value="{{ ticket.centro_carga.prueba_carga_f1_v }}" {% endif %}>
+                                    </div>
+                                </div>
+                                <div class="col-6">
+                                    <div class="input-group mb-2 mr-sm-2">
+                                        <div class="input-group-prepend">
+                                            <div class="input-group-text">F1-A</div>
+                                        </div>
+                                        <input type="text" class="form-control" id="inlineFormInputGroupUsername2"
+                                               {% if ticket.centro_carga.prueba_carga_f1_a %} value="{{ ticket.centro_carga.prueba_carga_f1_a }}" {% endif %}>
+                                    </div>
+                                </div>
+
+                                <div class="col-6">
+                                    <div class="input-group mb-2 mr-sm-2">
+                                        <div class="input-group-prepend">
+                                            <div class="input-group-text">F2-v</div>
+                                        </div>
+                                        <input type="text" class="form-control" id="inlineFormInputGroupUsername2"
+                                               {% if ticket.centro_carga.prueba_carga_f2_v %} value="{{ ticket.centro_carga.prueba_carga_f2_v }}" {% endif %}>
+                                    </div>
+                                </div>
+
+                                <div class="col-6">
+                                    <div class="input-group mb-2 mr-sm-2">
+                                        <div class="input-group-prepend">
+                                            <div class="input-group-text">F2-A</div>
+                                        </div>
+                                        <input type="text" class="form-control" id="inlineFormInputGroupUsername2"
+                                               {% if ticket.centro_carga.prueba_carga_f2_a %} value="{{ ticket.centro_carga.prueba_carga_f2_a }}" {% endif %}>
+                                    </div>
+                                </div>
+
+                                <div class="col-6">
+                                    <div class="input-group mb-2 mr-sm-2">
+                                        <div class="input-group-prepend">
+                                            <div class="input-group-text">F3-v</div>
+                                        </div>
+                                        <input type="text" class="form-control" id="inlineFormInputGroupUsername2"
+                                               {% if ticket.centro_carga.prueba_carga_f3_v %} value="{{ ticket.centro_carga.prueba_carga_f3_v }}" {% endif %}>
+                                    </div>
+                                </div>
+
+                                <div class="col-6">
+                                    <div class="input-group mb-2 mr-sm-2">
+                                        <div class="input-group-prepend">
+                                            <div class="input-group-text">F3-A</div>
+                                        </div>
+                                        <input type="text" class="form-control" id="inlineFormInputGroupUsername2"
+                                              {% if ticket.centro_carga.prueba_carga_f3_a %} value="{{ ticket.centro_carga.prueba_carga_f3_a }}" {% endif %}>
+                                    </div>
+                                </div>
+
+                                <div class="col-6">
+                                    <div class="input-group mb-2 mr-sm-2">
+                                        <div class="input-group-prepend">
+                                            <div class="input-group-text">N</div>
+                                        </div>
+                                        <input type="text" class="form-control" id="inlineFormInputGroupUsername2"
+                                               {% if ticket.centro_carga.prueba_carga_n_a %} value="{{ ticket.centro_carga.prueba_carga_n_a }}" {% endif %}>
+                                    </div>
+                                </div>
+
+                            </div>
+
+
+                        </div>
+
+                    </div>
+                    <div class="col-12 caja">
+                        <h4 class="cajacontenido">{% if ticket.centro_carga.prueba_carga_n_a %} {{ ticket.centro_carga.prueba_carga_n_a }} {% endif %}</h4>
+                    </div>
+
+
+                </div>
+            </div>
+
+            <div class="col-4">
+                <div class="row">
+
+
+                    <div class="col-12 cajatitulo">
+                        <h1 class="titulocaja">Resultado centro de carga principal:</h1>
+                    </div>
+                    <div class="col-12 caja">
+                        <h4 class="cajacontenido">{% if ticket.centro_carga.resultado %} {{ ticket.centro_carga.resultado }} {% endif %}</h4>
+                    </div>
+
+
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <div class="container-fluid top">
+
+        <div class="row">
+            <div class="col-12">
+                <h1 class="titleboleta">Circuitos Ramales</h1>
+            </div>
+
+
+            <div class="col-4">
+                <div class="row">
+
+
+                    <div class="col-12 cajatitulo">
+                        <h1 class="titulocaja">Resultado circutos ramales:</h1>
+                    </div>
+                    <div class="col-12 caja">
+                        <h4 class="cajacontenido">{% if ticket.circuitos_ramales.resultado %} {{ ticket.circuitos_ramales.resultado }} {% endif %}</h4>
+                    </div>
+
+
+                </div>
+            </div>
+
+
+        </div>
+
+    </div>
+
+    <div class="container-fluid top">
+
+        <div class="row">
+            <div class="col-12">
+                <h1 class="titleboleta">Recomendaciones Generales</h1>
+            </div>
+
+
+            <div class="col-4">
+                <div class="row">
+
+
+                    <div class="col-12 cajatitulo">
+                        <h1 class="titulocaja">Recomendaciones</h1>
+                    </div>
+                    <div class="col-12 caja">
+                        <h4 class="cajacontenido">{% if ticket.general_recomendations.result %} {{ ticket.general_recomendations.result }} {% endif %}</h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</section>
+
+
+<footer>
+
+</footer>
+
+
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+        integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+        crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+        integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+        crossorigin="anonymous"></script>
+</body>
+
 </html>

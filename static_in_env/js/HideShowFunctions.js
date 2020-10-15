@@ -1,16 +1,16 @@
-function yesnoCheck(that, target) {
+function yesnoCheck(that, target, targetInput) {
     if (that.value == "a") {
         document.getElementById(target).style.display = "block";
     } else {
+        document.getElementById(targetInput).value = "";
         document.getElementById(target).style.display = "none";
-        document.getElementById(target).value = "";
     }
 }
 
-function brd(that, target) {
+function brd(that, target, targetInput) {
     if (that.value == "b") {
+        document.getElementById(targetInput).value = "";
         document.getElementById(target).style.display = "none";
-        document.getElementById(target).value = "";
     } else {
         document.getElementById(target).style.display = "block";
     }
@@ -51,6 +51,18 @@ function guardarCentroSecundario(url, slug) {
     var estado_puesta_select = document.getElementById("estadoPuestaIdSec");
     var estado_puesta = estado_puesta_select.options[estado_puesta_select.selectedIndex].value;
     var estado_puesta_especifique = document.getElementById("estadoPuestaEspecifiqueIdSec").value;
+    document.getElementById("marcaNumeroIdsec").value = "";
+    document.getElementById("espaciosOcupadosIdSec").value = "";
+    document.getElementById("estadoTableroIdSec").value = "b";
+    document.getElementById("estadoTableroEspecifiqueIdSec").value = "";
+    document.getElementById("canalizacionIdSec").value = "b";
+    document.getElementById("canalizacionEspecifiqueIdSec").value = "";
+    document.getElementById("canalizacionDistanciaIdSec").value = "";
+    document.getElementById("estadoAlimentadoresIdSec").value = "b";
+    document.getElementById("estadoAlimentadoresEspecifiqueIdSec").value = "";
+    document.getElementById("estadoPuestaIdSec").value = "b";
+    document.getElementById("estadoPuestaEspecifiqueIdSec").value = "";
+
 
     $.ajax({
         type: 'POST',

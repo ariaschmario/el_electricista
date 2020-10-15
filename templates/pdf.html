@@ -9,13 +9,13 @@
     <title>Boleta El Electricista</title>
     <meta name="description" content="Servicios Electricos"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="shortcut icon" href="..{% static 'img/' %}"/>
+    <link rel="shortcut icon" href="{% static 'img/' %}"/>
 
 
-    <link rel="stylesheet" href="..{% static 'css/header.css' %}">
-    <link rel="stylesheet" href="..{% static 'css/form.css' %}">
-    <link rel="stylesheet" href="..{% static 'css/pdf.css' %}">
-    <link rel="stylesheet" href="..{% static 'css/footer.css' %}">
+    <link rel="stylesheet" href="{% static 'css/header.css' %}">
+    <link rel="stylesheet" href="{% static 'css/form.css' %}">
+    <link rel="stylesheet" href="{% static 'css/pdf.css' %}">
+    <link rel="stylesheet" href="{% static 'css/footer.css' %}">
 
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -29,20 +29,18 @@
 </head>
 
 <body>
-{% for item in secundarios %}
-    <p>1</p>
-{% endfor %}
+
 
 <header>
 
-    <div class="container">
+    <div class="container-fluid">
         <div class="row">
             <div class="col-4">
-                <img class="logoboleta" src="..{% static 'img/LogoAzul.png' %}">
+                <img class="logoboleta" src="{% static 'img/LogoAzul.png' %}">
             </div>
-            <div class="col-5">
+            <div class="col-2">
             </div>
-            <div class="col-3 top">
+            <div class="col-6 top">
                 <div class="row">
                     <div class="col-5">
                         <h1 class="numeroboleta">Boleta N. </h1>
@@ -61,9 +59,6 @@
         </div>
     </div>
 </header>
-
-
-<section>
 
     <div class="container-fluid top">
 
@@ -86,9 +81,11 @@
                     <div class="col-12 cajatitulo">
                         <h1 class="titulocaja">identificaci&oacute;n</h1>
                     </div>
-                    <div class="col-12 caja">
-                        <h4 class="cajacontenido">{% if ticket.client.legalId %}{{ ticket.client.legalId }}{% endif %}</h4>
-                    </div>
+                    {% if ticket.client.legalId %}
+                        <div class="col-12 caja">
+                            <h4 class="cajacontenido">{{ ticket.client.legalId }}</h4>
+                        </div>
+                    {% endif %}
                 </div>
             </div>
 
@@ -99,10 +96,11 @@
                     <div class="col-12 cajatitulo">
                         <h1 class="titulocaja">Nombre y Apellido</h1>
                     </div>
-                    <div class="col-12 caja">
-                        <h4 class="cajacontenido">{% if ticket.client.name %}{{ ticket.client.name }}{% endif %}</h4>
-                    </div>
-
+                    {% if ticket.client.name %}
+                        <div class="col-12 caja">
+                            <h4 class="cajacontenido">{{ ticket.client.name }}</h4>
+                        </div>
+                    {% endif %}
 
                 </div>
             </div>
@@ -124,10 +122,11 @@
                     <div class="col-12 cajatitulo">
                         <h1 class="titulocaja">Telefono</h1>
                     </div>
-                    <div class="col-12 caja">
-                        <h4 class="cajacontenido">{% if ticket.client.phoneNumber %}{{ ticket.client.phoneNumber }}{% endif %}</h4>
-                    </div>
-
+                    {% if ticket.client.phoneNumber %}
+                        <div class="col-12 caja">
+                            <h4 class="cajacontenido">{{ ticket.client.phoneNumber }}</h4>
+                        </div>
+                    {% endif %}
 
                 </div>
             </div>
@@ -139,10 +138,11 @@
                     <div class="col-12 cajatitulo">
                         <h1 class="titulocaja">Correo Electrónico</h1>
                     </div>
-                    <div class="col-12 caja">
-                        <h4 class="cajacontenido">{% if ticket.client.email %}{{ ticket.client.email }}{% endif %}</h4>
-                    </div>
-
+                    {% if ticket.client.email %}
+                        <div class="col-12 caja">
+                            <h4 class="cajacontenido">{{ ticket.client.email }}</h4>
+                        </div>
+                    {% endif %}
 
                 </div>
             </div>
@@ -154,10 +154,11 @@
                     <div class="col-12 cajatitulo">
                         <h1 class="titulocaja">Dirección</h1>
                     </div>
-                    <div class="col-12 caja">
-                        <h4 class="cajacontenido">{% if ticket.client.adress %}{{ ticket.client.adress }}{% endif %}</h4>
-                    </div>
-
+                    {% if ticket.client.adress %}
+                        <div class="col-12 caja">
+                            <h4 class="cajacontenido">{{ ticket.client.adress }}</h4>
+                        </div>
+                    {% endif %}
 
                 </div>
             </div>
@@ -215,9 +216,11 @@
                     <div class="col-12 caja">
                         <h4 class="cajacontenido">{{ ticket.general_info.get_company_display }}</h4>
                     </div>
-                    <div class="col-12 caja">
-                        <h4 class="cajacontenido">{% if ticket.general_info.another_company %}{{ ticket.general_info.another_company }}{% endif %}</h4>
-                    </div>
+                    {% if ticket.general_info.another_company %}
+                        <div class="col-12 caja">
+                            <h4 class="cajacontenido">{{ ticket.general_info.another_company }}</h4>
+                        </div>
+                    {% endif %}
 
 
                 </div>
@@ -226,7 +229,6 @@
         </div>
 
     </div>
-
 
     <div class="container-fluid top">
 
@@ -241,10 +243,12 @@
                     <div class="col-12 caja">
                         <h4 class="cajacontenido">{{ ticket.general_info.get_solar_generation_display }}</h4>
                     </div>
-                    <div class="col-12 caja">
-                        <h4 class="cajacontenido">Capacidad equipada: {% if ticket.general_info.solar_generation_capacity %}{{ ticket.general_info.solar_generation_capacity }}{% endif %}</h4>
-                    </div>
-
+                    {% if ticket.general_info.solar_generation_capacity %}
+                        <div class="col-12 caja">
+                            <h4 class="cajacontenido">Capacidad
+                                equipada: {{ ticket.general_info.solar_generation_capacity }}</h4>
+                        </div>
+                    {% endif %}
                 </div>
             </div>
 
@@ -258,10 +262,11 @@
                     <div class="col-12 caja">
                         <h4 class="cajacontenido">{{ ticket.general_info.get_rate_type_display }}</h4>
                     </div>
-                    <div class="col-12 caja">
-                        <h4 class="cajacontenido">{% if ticket.general_info.another_rate_type %}{{ ticket.general_info.another_rate_type }}{% endif %}</h4>
-                    </div>
-
+                    {% if ticket.general_info.another_rate_type %}
+                        <div class="col-12 caja">
+                            <h4 class="cajacontenido">{{ ticket.general_info.another_rate_type }}</h4>
+                        </div>
+                    {% endif %}
 
                 </div>
             </div>
@@ -273,32 +278,38 @@
                     <div class="col-12 cajatitulo">
                         <h1 class="titulocaja">NISE/Localización</h1>
                     </div>
-                    <div class="col-12 caja">
-                        <h4 class="cajacontenido">{% if ticket.general_info.nise_or_location %}{{ ticket.general_info.nise_or_location }}{% endif %}</h4>
-                    </div>
-
+                    {% if ticket.general_info.nise_or_location %}
+                        <div class="col-12 caja">
+                            <h4 class="cajacontenido">{{ ticket.general_info.nise_or_location }}</h4>
+                        </div>
+                    {% endif %}
 
                 </div>
             </div>
+        </div>
+    </div>
+</br></br></br></br>
+    <div class="container-fluid top">
 
+        <div class="row">
             <div class="col-4 top">
                 <div class="row">
 
 
                     <div class="col-12 cajatitulo">
-                        <h1 class="titulocaja">N&uacute;mero de medido</h1>
+                        <h1 class="titulocaja">N&uacute;mero de medidor</h1>
                     </div>
-                    <div class="col-12 caja">
-                        <h4 class="cajacontenido">{% if ticket.general_info.meter_number %}{{ ticket.general_info.meter_number }}{% endif %}</h4>
-                    </div>
-
+                    {% if ticket.general_info.meter_number %}
+                        <div class="col-12 caja">
+                            <h4 class="cajacontenido">{{ ticket.general_info.meter_number }}</h4>
+                        </div>
+                    {% endif %}
 
                 </div>
             </div>
-
         </div>
-
     </div>
+
 
 
     <div class="container-fluid top">
@@ -334,9 +345,11 @@
                     <div class="col-12 caja">
                         <h4 class="cajacontenido">{{ ticket.equipo_acometida.get_equipo_medicion_display }}</h4>
                     </div>
-                    <div class="col-12 caja">
-                        <h4 class="cajacontenido">{% if ticket.equipo_acometida.equipo_medicion_especifique %}{{ ticket.equipo_acometida.equipo_medicion_especifique }}{% endif %}</h4>
-                    </div>
+                    {% if ticket.equipo_acometida.equipo_medicion_especifique %}
+                        <div class="col-12 caja">
+                            <h4 class="cajacontenido">{{ ticket.equipo_acometida.equipo_medicion_especifique }}</h4>
+                        </div>
+                    {% endif %}
 
 
                 </div>
@@ -352,10 +365,11 @@
                     <div class="col-12 caja">
                         <h4 class="cajacontenido">{{ ticket.equipo_acometida.get_estado_interruptor_display }}</h4>
                     </div>
-                    <div class="col-12 caja">
-                        <h4 class="cajacontenido">{% if ticket.equipo_acometida.estado_interruptor_especifique %}{{ ticket.equipo_acometida.estado_interruptor_especifique }}{% endif %}</h4>
-                    </div>
-
+                    {% if ticket.equipo_acometida.estado_interruptor_especifique %}
+                        <div class="col-12 caja">
+                            <h4 class="cajacontenido">{{ ticket.equipo_acometida.estado_interruptor_especifique }}</h4>
+                        </div>
+                    {% endif %}
 
                 </div>
             </div>
@@ -380,11 +394,11 @@
                     <div class="col-12 caja">
                         <h4 class="cajacontenido">{{ ticket.equipo_acometida.get_estado_alimentadores_display }}</h4>
                     </div>
-                    <div class="col-12 caja">
-                        <h4 class="cajacontenido">{% if ticket.equipo_acometida.estado_alimentadores_especifique %}{{ ticket.equipo_acometida.estado_alimentadores_especifique }}{% endif %}</h4>
-                    </div>
-
-
+                    {% if ticket.equipo_acometida.estado_alimentadores_especifique %}
+                        <div class="col-12 caja">
+                            <h4 class="cajacontenido">{{ ticket.equipo_acometida.estado_alimentadores_especifique }}</h4>
+                        </div>
+                    {% endif %}
                 </div>
             </div>
 
@@ -406,8 +420,9 @@
                                         <div class="input-group-prepend">
                                             <div class="input-group-text">F1</div>
                                         </div>
-                                        <input type="text" class="form-control" id="inlineFormInputGroupUsername2"
-                                               {% if ticket.equipo_acometida.calibre_conductores_f1 %} value="{{ ticket.equipo_acometida.calibre_conductores_f1 }}" {% endif %}>
+                                        <input type="text" class="form-control" 
+                                                {% if ticket.equipo_acometida.calibre_conductores_f1 %}
+                                               value="{{ ticket.equipo_acometida.calibre_conductores_f1 }}" {% endif %}>
                                     </div>
                                 </div>
 
@@ -416,8 +431,9 @@
                                         <div class="input-group-prepend">
                                             <div class="input-group-text">F2</div>
                                         </div>
-                                        <input type="text" class="form-control" id="inlineFormInputGroupUsername2"
-                                               {% if ticket.equipo_acometida.calibre_conductores_f2 %} value="{{ ticket.equipo_acometida.calibre_conductores_f2 }}" {% endif %}>
+                                        <input type="text" class="form-control" 
+                                                {% if ticket.equipo_acometida.calibre_conductores_f2 %}
+                                               value="{{ ticket.equipo_acometida.calibre_conductores_f2 }}" {% endif %}>
                                     </div>
                                 </div>
 
@@ -426,8 +442,9 @@
                                         <div class="input-group-prepend">
                                             <div class="input-group-text">F3</div>
                                         </div>
-                                        <input type="text" class="form-control" id="inlineFormInputGroupUsername2"
-                                               {% if ticket.equipo_acometida.calibre_conductores_f3 %} value="{{ ticket.equipo_acometida.calibre_conductores_f3 }}" {% endif %}>
+                                        <input type="text" class="form-control" 
+                                                {% if ticket.equipo_acometida.calibre_conductores_f3 %}
+                                               value="{{ ticket.equipo_acometida.calibre_conductores_f3 }}" {% endif %}>
                                     </div>
                                 </div>
 
@@ -436,8 +453,9 @@
                                         <div class="input-group-prepend">
                                             <div class="input-group-text">N</div>
                                         </div>
-                                        <input type="text" class="form-control" id="inlineFormInputGroupUsername2"
-                                               {% if ticket.equipo_acometida.calibre_conductores_n %} value="{{ ticket.equipo_acometida.calibre_conductores_n }}" {% endif %}>
+                                        <input type="text" class="form-control" 
+                                                {% if ticket.equipo_acometida.calibre_conductores_n %}
+                                               value="{{ ticket.equipo_acometida.calibre_conductores_n }}" {% endif %}>
                                     </div>
                                 </div>
 
@@ -446,8 +464,9 @@
                                         <div class="input-group-prepend">
                                             <div class="input-group-text">T</div>
                                         </div>
-                                        <input type="text" class="form-control" id="inlineFormInputGroupUsername2"
-                                               {% if ticket.equipo_acometida.calibre_conductores_t %} value="{{ ticket.equipo_acometida.calibre_conductores_t }}" {% endif %}>
+                                        <input type="text" class="form-control" 
+                                                {% if ticket.equipo_acometida.calibre_conductores_t %}
+                                               value="{{ ticket.equipo_acometida.calibre_conductores_t }}" {% endif %}>
                                     </div>
                                 </div>
 
@@ -479,8 +498,9 @@
                                         <div class="input-group-prepend">
                                             <div class="input-group-text">F1</div>
                                         </div>
-                                        <input type="text" class="form-control" id="inlineFormInputGroupUsername2"
-                                               {% if ticket.equipo_acometida.voltajes_entrada_f1 %} value="{{ ticket.equipo_acometida.voltajes_entrada_f1 }}" {% endif %}>
+                                        <input type="text" class="form-control" 
+                                                {% if ticket.equipo_acometida.voltajes_entrada_f1 %}
+                                               value="{{ ticket.equipo_acometida.voltajes_entrada_f1 }}" {% endif %}>
                                     </div>
                                 </div>
 
@@ -489,8 +509,9 @@
                                         <div class="input-group-prepend">
                                             <div class="input-group-text">F2</div>
                                         </div>
-                                        <input type="text" class="form-control" id="inlineFormInputGroupUsername2"
-                                               {% if ticket.equipo_acometida.voltajes_entrada_f2 %} value="{{ ticket.equipo_acometida.voltajes_entrada_f2 }}" {% endif %}>
+                                        <input type="text" class="form-control" 
+                                                {% if ticket.equipo_acometida.voltajes_entrada_f2 %}
+                                               value="{{ ticket.equipo_acometida.voltajes_entrada_f2 }}" {% endif %}>
                                     </div>
                                 </div>
 
@@ -499,8 +520,9 @@
                                         <div class="input-group-prepend">
                                             <div class="input-group-text">F3</div>
                                         </div>
-                                        <input type="text" class="form-control" id="inlineFormInputGroupUsername2"
-                                               {% if ticket.equipo_acometida.voltajes_entrada_f3 %} value="{{ ticket.equipo_acometida.voltajes_entrada_f3 }}" {% endif %}>
+                                        <input type="text" class="form-control" 
+                                                {% if ticket.equipo_acometida.voltajes_entrada_f3 %}
+                                               value="{{ ticket.equipo_acometida.voltajes_entrada_f3 }}" {% endif %}>
                                     </div>
                                 </div>
 
@@ -509,8 +531,9 @@
                                         <div class="input-group-prepend">
                                             <div class="input-group-text">F1+F2</div>
                                         </div>
-                                        <input type="text" class="form-control" id="inlineFormInputGroupUsername2"
-                                               {% if ticket.equipo_acometida.voltajes_entrada_f1_f2 %} value="{{ ticket.equipo_acometida.voltajes_entrada_f1_f2 }}" {% endif %}>
+                                        <input type="text" class="form-control" 
+                                                {% if ticket.equipo_acometida.voltajes_entrada_f1_f2 %}
+                                               value="{{ ticket.equipo_acometida.voltajes_entrada_f1_f2 }}" {% endif %}>
                                     </div>
                                 </div>
 
@@ -519,8 +542,9 @@
                                         <div class="input-group-prepend">
                                             <div class="input-group-text">F2+F3</div>
                                         </div>
-                                        <input type="text" class="form-control" id="inlineFormInputGroupUsername2"
-                                               {% if ticket.equipo_acometida.voltajes_entrada_f2_f3 %} value="{{ ticket.equipo_acometida.voltajes_entrada_f2_f3 }}" {% endif %}>
+                                        <input type="text" class="form-control" 
+                                                {% if ticket.equipo_acometida.voltajes_entrada_f2_f3 %}
+                                               value="{{ ticket.equipo_acometida.voltajes_entrada_f2_f3 }}" {% endif %}>
                                     </div>
                                 </div>
 
@@ -529,8 +553,9 @@
                                         <div class="input-group-prepend">
                                             <div class="input-group-text">F1+F3</div>
                                         </div>
-                                        <input type="text" class="form-control" id="inlineFormInputGroupUsername2"
-                                               {% if ticket.equipo_acometida.voltajes_entrada_f1_f3 %} value="{{ ticket.equipo_acometida.voltajes_entrada_f1_f3 }}" {% endif %}>
+                                        <input type="text" class="form-control" 
+                                                {% if ticket.equipo_acometida.voltajes_entrada_f1_f3 %}
+                                               value="{{ ticket.equipo_acometida.voltajes_entrada_f1_f3 }}" {% endif %}>
                                     </div>
                                 </div>
 
@@ -545,6 +570,7 @@
                 </div>
             </div>
 
+</br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br>
             <div class="col-4 top">
                 <div class="row">
 
@@ -561,8 +587,9 @@
                                         <div class="input-group-prepend">
                                             <div class="input-group-text">F1</div>
                                         </div>
-                                        <input type="text" class="form-control" id="inlineFormInputGroupUsername2"
-                                               {% if ticket.equipo_acometida.corriente_entrada_f1 %} value="{{ ticket.equipo_acometida.corriente_entrada_f1 }}" {% endif %}>
+                                        <input type="text" class="form-control" 
+                                                {% if ticket.equipo_acometida.corriente_entrada_f1 %}
+                                               value="{{ ticket.equipo_acometida.corriente_entrada_f1 }}" {% endif %}>
                                     </div>
                                 </div>
 
@@ -571,8 +598,9 @@
                                         <div class="input-group-prepend">
                                             <div class="input-group-text">F2</div>
                                         </div>
-                                        <input type="text" class="form-control" id="inlineFormInputGroupUsername2"
-                                               {% if ticket.equipo_acometida.corriente_entrada_f2 %} value="{{ ticket.equipo_acometida.corriente_entrada_f2 }}" {% endif %}>
+                                        <input type="text" class="form-control" 
+                                                {% if ticket.equipo_acometida.corriente_entrada_f2 %}
+                                               value="{{ ticket.equipo_acometida.corriente_entrada_f2 }}" {% endif %}>
                                     </div>
                                 </div>
 
@@ -581,8 +609,9 @@
                                         <div class="input-group-prepend">
                                             <div class="input-group-text">F3</div>
                                         </div>
-                                        <input type="text" class="form-control" id="inlineFormInputGroupUsername2"
-                                               {% if ticket.equipo_acometida.corriente_entrada_f3 %} value="{{ ticket.equipo_acometida.corriente_entrada_f3 }}" {% endif %}>
+                                        <input type="text" class="form-control" 
+                                                {% if ticket.equipo_acometida.corriente_entrada_f3 %}
+                                               value="{{ ticket.equipo_acometida.corriente_entrada_f3 }}" {% endif %}>
                                     </div>
                                 </div>
 
@@ -607,11 +636,11 @@
                     <div class="col-12 caja">
                         <h4 class="cajacontenido">{{ ticket.equipo_acometida.get_estado_puesta_display }}</h4>
                     </div>
-                    <div class="col-12 caja">
-                        <h4 class="cajacontenido">{% if ticket.equipo_acometida.estado_puesta_especifique %} {{ ticket.equipo_acometida.estado_puesta_especifique }} {% endif %}</h4>
-                    </div>
-
-
+                    {% if ticket.equipo_acometida.estado_puesta_especifique %}
+                        <div class="col-12 caja">
+                            <h4 class="cajacontenido">{{ ticket.equipo_acometida.estado_puesta_especifique }}</h4>
+                        </div>
+                    {% endif %}
                 </div>
             </div>
 
@@ -625,11 +654,11 @@
                     <div class="col-12 caja">
                         <h4 class="cajacontenido">{{ ticket.equipo_acometida.get_estado_neutro_display }}</h4>
                     </div>
-                    <div class="col-12 caja">
-                        <h4 class="cajacontenido">{% if ticket.equipo_acometida.estado_neutro_especifique %} {{ ticket.equipo_acometida.estado_neutro_especifique }} {% endif %}</h4>
-                    </div>
-
-
+                    {% if ticket.equipo_acometida.estado_neutro_especifique %}
+                        <div class="col-12 caja">
+                            <h4 class="cajacontenido"> {{ ticket.equipo_acometida.estado_neutro_especifique }} </h4>
+                        </div>
+                    {% endif %}
                 </div>
             </div>
 
@@ -640,20 +669,18 @@
                     <div class="col-12 cajatitulo">
                         <h1 class="titulocaja">Resultado equipo acometida:</h1>
                     </div>
-                    <div class="col-12 caja">
-                        <h4 class="cajacontenido">{% if ticket.equipo_acometida.resultado %} {{ ticket.equipo_acometida.resultado }} {% endif %}</h4>
-                    </div>
-
-
+                    {% if ticket.equipo_acometida.resultado %}
+                        <div class="col-12 caja">
+                            <h4 class="cajacontenido">{{ ticket.equipo_acometida.resultado }} </h4>
+                        </div>
+                    {% endif %}
                 </div>
             </div>
-
-
         </div>
 
     </div>
 
-
+</br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br>
     <div class="container-fluid top">
 
         <div class="row">
@@ -669,11 +696,11 @@
                     <div class="col-12 cajatitulo">
                         <h1 class="titulocaja">Marca y No. Catalago:</h1>
                     </div>
-                    <div class="col-12 caja">
-                        <h4 class="cajacontenido">{% if ticket.centro_carga.marca_catalogo %} {{ ticket.centro_carga.marca_catalogo }} {% endif %}</h4>
-                    </div>
-
-
+                    {% if ticket.centro_carga.marca_catalogo %}
+                        <div class="col-12 caja">
+                            <h4 class="cajacontenido">{{ ticket.centro_carga.marca_catalogo }}</h4>
+                        </div>
+                    {% endif %}
                 </div>
             </div>
 
@@ -684,10 +711,11 @@
                     <div class="col-12 cajatitulo">
                         <h1 class="titulocaja">Espacios Ocupados:</h1>
                     </div>
-                    <div class="col-12 caja">
-                        <h4 class="cajacontenido">{% if ticket.centro_carga.espacios_ocupados %} {{ ticket.centro_carga.espacios_ocupados }} {% endif %}</h4>
-                    </div>
-
+                    {% if ticket.centro_carga.espacios_ocupados %}
+                        <div class="col-12 caja">
+                            <h4 class="cajacontenido">{{ ticket.centro_carga.espacios_ocupados }} </h4>
+                        </div>
+                    {% endif %}
 
                 </div>
             </div>
@@ -702,9 +730,11 @@
                     <div class="col-12 caja">
                         <h4 class="cajacontenido">{{ ticket.centro_carga.get_estado_tablero_display }}</h4>
                     </div>
-                    <div class="col-12 caja">
-                        <h4 class="cajacontenido">{% if ticket.centro_carga.estado_tablero_especifique  %} {{ ticket.centro_carga.estado_tablero_especifique  }} {% endif %}</h4>
-                    </div>
+                    {% if ticket.centro_carga.estado_tablero_especifique %}
+                        <div class="col-12 caja">
+                            <h4 class="cajacontenido"> {{ ticket.centro_carga.estado_tablero_especifique }} </h4>
+                        </div>
+                    {% endif %}
                 </div>
             </div>
 
@@ -741,13 +771,16 @@
                     <div class="col-12 caja">
                         <h4 class="cajacontenido">{{ ticket.centro_carga.get_canalizacion_display }}</h4>
                     </div>
-                    <div class="col-12 caja">
-                        <h4 class="cajacontenido">{% if ticket.centro_carga.canalizacion_especifique %} {{ ticket.centro_carga.canalizacion_especifique }} {% endif %}</h4>
-                    </div>
-                    <div class="col-12 caja">
-                        <h4 class="cajacontenido">{% if ticket.centro_carga.canalizacion_distancia %} {{ ticket.centro_carga.canalizacion_distancia }} {% endif %}</h4>
-                    </div>
-
+                    {% if ticket.centro_carga.canalizacion_especifique %}
+                        <div class="col-12 caja">
+                            <h4 class="cajacontenido">{{ ticket.centro_carga.canalizacion_especifique }}</h4>
+                        </div>
+                    {% endif %}
+                    {% if ticket.centro_carga.canalizacion_distancia %}
+                        <div class="col-12 caja">
+                            <h4 class="cajacontenido"> {{ ticket.centro_carga.canalizacion_distancia }} </h4>
+                        </div>
+                    {% endif %}
 
                 </div>
             </div>
@@ -762,10 +795,11 @@
                     <div class="col-12 caja">
                         <h4 class="cajacontenido">{{ ticket.centro_carga.get_estado_tablero_display }}</h4>
                     </div>
-                    <div class="col-12 caja">
-                        <h4 class="cajacontenido">{% if ticket.centro_carga.estado_tablero_especifique %} {{ ticket.centro_carga.estado_tablero_especifique }} {% endif %}</h4>
-                    </div>
-
+                    {% if ticket.centro_carga.estado_tablero_especifique %}
+                        <div class="col-12 caja">
+                            <h4 class="cajacontenido">{{ ticket.centro_carga.estado_tablero_especifique }} </h4>
+                        </div>
+                    {% endif %}
 
                 </div>
             </div>
@@ -776,10 +810,7 @@
 
 
     <div class="container-fluid top">
-
         <div class="row">
-
-
             <div class="col-4">
                 <div class="row">
 
@@ -790,14 +821,14 @@
                     <div class="col-12 caja">
                         <h4 class="cajacontenido">{{ ticket.centro_carga.get_estado_puesta_display }}</h4>
                     </div>
-                    <div class="col-12 caja">
-                        <h4 class="cajacontenido">{% if ticket.centro_carga.estado_puesta_especifique %} {{ ticket.centro_carga.estado_puesta_especifique }} {% endif %}</h4>
-                    </div>
-
+                    {% if ticket.centro_carga.estado_puesta_especifique %}
+                        <div class="col-12 caja">
+                            <h4 class="cajacontenido"> {{ ticket.centro_carga.estado_puesta_especifique }} </h4>
+                        </div>
+                    {% endif %}
 
                 </div>
             </div>
-
             <div class="col-4">
                 <div class="row">
 
@@ -815,8 +846,9 @@
                                         <div class="input-group-prepend">
                                             <div class="input-group-text">F1-v</div>
                                         </div>
-                                        <input type="text" class="form-control" id="inlineFormInputGroupUsername2"
-                                               {% if ticket.centro_carga.prueba_carga_f1_v %} value="{{ ticket.centro_carga.prueba_carga_f1_v }}" {% endif %}>
+                                        <input type="text" class="form-control" 
+                                                {% if ticket.centro_carga.prueba_carga_f1_v %}
+                                               value="{{ ticket.centro_carga.prueba_carga_f1_v }}" {% endif %}>
                                     </div>
                                 </div>
                                 <div class="col-6">
@@ -824,8 +856,9 @@
                                         <div class="input-group-prepend">
                                             <div class="input-group-text">F1-A</div>
                                         </div>
-                                        <input type="text" class="form-control" id="inlineFormInputGroupUsername2"
-                                               {% if ticket.centro_carga.prueba_carga_f1_a %} value="{{ ticket.centro_carga.prueba_carga_f1_a }}" {% endif %}>
+                                        <input type="text" class="form-control" 
+                                                {% if ticket.centro_carga.prueba_carga_f1_a %}
+                                               value="{{ ticket.centro_carga.prueba_carga_f1_a }}" {% endif %}>
                                     </div>
                                 </div>
 
@@ -834,8 +867,9 @@
                                         <div class="input-group-prepend">
                                             <div class="input-group-text">F2-v</div>
                                         </div>
-                                        <input type="text" class="form-control" id="inlineFormInputGroupUsername2"
-                                               {% if ticket.centro_carga.prueba_carga_f2_v %} value="{{ ticket.centro_carga.prueba_carga_f2_v }}" {% endif %}>
+                                        <input type="text" class="form-control" 
+                                                {% if ticket.centro_carga.prueba_carga_f2_v %}
+                                               value="{{ ticket.centro_carga.prueba_carga_f2_v }}" {% endif %}>
                                     </div>
                                 </div>
 
@@ -844,8 +878,9 @@
                                         <div class="input-group-prepend">
                                             <div class="input-group-text">F2-A</div>
                                         </div>
-                                        <input type="text" class="form-control" id="inlineFormInputGroupUsername2"
-                                               {% if ticket.centro_carga.prueba_carga_f2_a %} value="{{ ticket.centro_carga.prueba_carga_f2_a }}" {% endif %}>
+                                        <input type="text" class="form-control" 
+                                                {% if ticket.centro_carga.prueba_carga_f2_a %}
+                                               value="{{ ticket.centro_carga.prueba_carga_f2_a }}" {% endif %}>
                                     </div>
                                 </div>
 
@@ -854,8 +889,9 @@
                                         <div class="input-group-prepend">
                                             <div class="input-group-text">F3-v</div>
                                         </div>
-                                        <input type="text" class="form-control" id="inlineFormInputGroupUsername2"
-                                               {% if ticket.centro_carga.prueba_carga_f3_v %} value="{{ ticket.centro_carga.prueba_carga_f3_v }}" {% endif %}>
+                                        <input type="text" class="form-control" 
+                                                {% if ticket.centro_carga.prueba_carga_f3_v %}
+                                               value="{{ ticket.centro_carga.prueba_carga_f3_v }}" {% endif %}>
                                     </div>
                                 </div>
 
@@ -864,8 +900,9 @@
                                         <div class="input-group-prepend">
                                             <div class="input-group-text">F3-A</div>
                                         </div>
-                                        <input type="text" class="form-control" id="inlineFormInputGroupUsername2"
-                                              {% if ticket.centro_carga.prueba_carga_f3_a %} value="{{ ticket.centro_carga.prueba_carga_f3_a }}" {% endif %}>
+                                        <input type="text" class="form-control" 
+                                                {% if ticket.centro_carga.prueba_carga_f3_a %}
+                                               value="{{ ticket.centro_carga.prueba_carga_f3_a }}" {% endif %}>
                                     </div>
                                 </div>
 
@@ -874,8 +911,9 @@
                                         <div class="input-group-prepend">
                                             <div class="input-group-text">N</div>
                                         </div>
-                                        <input type="text" class="form-control" id="inlineFormInputGroupUsername2"
-                                               {% if ticket.centro_carga.prueba_carga_n_a %} value="{{ ticket.centro_carga.prueba_carga_n_a }}" {% endif %}>
+                                        <input type="text" class="form-control" 
+                                                {% if ticket.centro_carga.prueba_carga_n_a %}
+                                               value="{{ ticket.centro_carga.prueba_carga_n_a }}" {% endif %}>
                                     </div>
                                 </div>
 
@@ -885,14 +923,15 @@
                         </div>
 
                     </div>
-                    <div class="col-12 caja">
-                        <h4 class="cajacontenido">{% if ticket.centro_carga.prueba_carga_n_a %} {{ ticket.centro_carga.prueba_carga_n_a }} {% endif %}</h4>
-                    </div>
+                    {% if ticket.centro_carga.nota %}
+                        <div class="col-12 caja">
+                            <h4 class="cajacontenido"> {{ ticket.centro_carga.nota }} </h4>
+                        </div>
+                    {% endif %}
 
 
                 </div>
             </div>
-
             <div class="col-4">
                 <div class="row">
 
@@ -900,19 +939,174 @@
                     <div class="col-12 cajatitulo">
                         <h1 class="titulocaja">Resultado centro de carga principal:</h1>
                     </div>
-                    <div class="col-12 caja">
-                        <h4 class="cajacontenido">{% if ticket.centro_carga.resultado %} {{ ticket.centro_carga.resultado }} {% endif %}</h4>
-                    </div>
-
+                    {% if ticket.centro_carga.resultado %}
+                        <div class="col-12 caja">
+                            <h4 class="cajacontenido">{{ ticket.centro_carga.resultado }} </h4>
+                        </div>
+                    {% endif %}
 
                 </div>
             </div>
-
         </div>
 
     </div>
 
+    {% for item in secundarios %}
+        <div class="container-fluid top">
 
+            <div class="row">
+                <div class="col-12">
+                    <h1 class="subtitulo">Centro de Carga Secundario</h1>
+                </div>
+
+
+                <div class="col-4">
+                    <div class="row">
+
+
+                        <div class="col-12 cajatitulo">
+                            <h1 class="titulocaja">Marca y No. Catalago:</h1>
+                        </div>
+                        {% if item.marca_catalogo %}
+                            <div class="col-12 caja">
+                                <h4 class="cajacontenido">{{ item.marca_catalogo }}</h4>
+                            </div>
+                        {% endif %}
+                    </div>
+                </div>
+
+                <div class="col-4">
+                    <div class="row">
+
+
+                        <div class="col-12 cajatitulo">
+                            <h1 class="titulocaja">Espacios Ocupados:</h1>
+                        </div>
+                        {% if item.espacios_ocupados %}
+                            <div class="col-12 caja">
+                                <h4 class="cajacontenido">{{ item.espacios_ocupados }} </h4>
+                            </div>
+                        {% endif %}
+
+                    </div>
+                </div>
+
+                <div class="col-4">
+                    <div class="row">
+
+
+                        <div class="col-12 cajatitulo">
+                            <h1 class="titulocaja">Estado general del tablero:</h1>
+                        </div>
+                        <div class="col-12 caja">
+                            <h4 class="cajacontenido">{{ item.get_estado_tablero_display }}</h4>
+                        </div>
+                        {% if item.estado_tablero_especifique %}
+                            <div class="col-12 caja">
+                                <h4 class="cajacontenido"> {{ item.estado_tablero_especifique }} </h4>
+                            </div>
+                        {% endif %}
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="container-fluid top">
+
+            <div class="row">
+
+
+                <div class="col-4">
+                    <div class="row">
+
+
+                        <div class="col-12 cajatitulo">
+                            <h1 class="titulocaja">Ubicación:</h1>
+                        </div>
+                        <div class="col-12 caja">
+                            <h4 class="cajacontenido">{{ item.get_ubicacion_display }}</h4>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-4">
+                    <div class="row">
+
+
+                        <div class="col-12 cajatitulo">
+                            <h1 class="titulocaja">Canalización:</h1>
+                        </div>
+                        <div class="col-12 caja">
+                            <h4 class="cajacontenido">{{ item.get_canalizacion_display }}</h4>
+                        </div>
+                        {% if item.canalizacion_especifique %}
+                            <div class="col-12 caja">
+                                <h4 class="cajacontenido">{{ item.canalizacion_especifique }}</h4>
+                            </div>
+                        {% endif %}
+                        {% if item.canalizacion_distancia %}
+                            <div class="col-12 caja">
+                                <h4 class="cajacontenido"> {{ item.canalizacion_distancia }} </h4>
+                            </div>
+                        {% endif %}
+
+                    </div>
+                </div>
+
+                <div class="col-4">
+                    <div class="row">
+
+
+                        <div class="col-12 cajatitulo">
+                            <h1 class="titulocaja">Condición general de los tableros:</h1>
+                        </div>
+                        <div class="col-12 caja">
+                            <h4 class="cajacontenido">{{ item.get_estado_tablero_display }}</h4>
+                        </div>
+                        {% if item.estado_tablero_especifique %}
+                            <div class="col-12 caja">
+                                <h4 class="cajacontenido">{{ item.estado_tablero_especifique }} </h4>
+                            </div>
+                        {% endif %}
+
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="container-fluid top">
+            <div class="row">
+                <div class="col-4">
+                    <div class="row">
+
+
+                        <div class="col-12 cajatitulo">
+                            <h1 class="titulocaja">Puesta a tierra:</h1>
+                        </div>
+                        <div class="col-12 caja">
+                            <h4 class="cajacontenido">{{ item.get_estado_puesta_display }}</h4>
+                        </div>
+                        {% if item.estado_puesta_especifique %}
+                            <div class="col-12 caja">
+                                <h4 class="cajacontenido"> {{ item.estado_puesta_especifique }} </h4>
+                            </div>
+                        {% endif %}
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    {% endfor %}
+
+
+</br></br></br></br></br></br></br></br>
     <div class="container-fluid top">
 
         <div class="row">
@@ -922,16 +1116,16 @@
 
 
             <div class="col-4">
-                <div class="row">
 
 
                     <div class="col-12 cajatitulo">
                         <h1 class="titulocaja">Resultado circutos ramales:</h1>
                     </div>
-                    <div class="col-12 caja">
-                        <h4 class="cajacontenido">{% if ticket.circuitos_ramales.resultado %} {{ ticket.circuitos_ramales.resultado }} {% endif %}</h4>
-                    </div>
-
+                    {% if ticket.circuitos_ramales.resultado %}
+                        <div class="col-12 caja">
+                            <h4 class="cajacontenido"> {{ ticket.circuitos_ramales.resultado }} </h4>
+                        </div>
+                    {% endif %}
 
                 </div>
             </div>
@@ -956,9 +1150,11 @@
                     <div class="col-12 cajatitulo">
                         <h1 class="titulocaja">Recomendaciones</h1>
                     </div>
-                    <div class="col-12 caja">
-                        <h4 class="cajacontenido">{% if ticket.general_recomendations.result %} {{ ticket.general_recomendations.result }} {% endif %}</h4>
-                    </div>
+                    {% if ticket.general_recomendations.result %}
+                        <div class="col-12 caja">
+                            <h4 class="cajacontenido">{{ ticket.general_recomendations.result }} </h4>
+                        </div>
+                    {% endif %}
                 </div>
             </div>
         </div>

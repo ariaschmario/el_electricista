@@ -301,6 +301,10 @@ class Ticket(models.Model):
     def get_id(self):
         return self.superId
 
+    def update_file_url(self, url):
+        self.file_url = url
+        self.save()
+
     def set_superId(self, new_super_id):
         self.superId = new_super_id
         self.general_info.superId = new_super_id

@@ -1,6 +1,6 @@
 import os
 
-from django.http import HttpResponseRedirect, FileResponse, JsonResponse
+from django.http import HttpResponseRedirect, FileResponse, JsonResponse, HttpResponse
 from django.shortcuts import render
 from django.template.loader import render_to_string
 from django.urls import reverse
@@ -27,8 +27,7 @@ class PdfView(View):
 class PdfHtmlView(View):
     def get(self, *args, **kwargs):
         tikect = Ticket.objects.get(superId=self.kwargs['slug'])
-        secundarios = tikect.centro_carga.secundarios.all()
-
+        secundarios = CentroCargaSecundario.objects.filter(principal=Ticket.objects.get(superId=self.kwargs['slug']).centro_carga)
         context = {'ticket': tikect,
                    'secundarios': secundarios}
         return render(self.request, "pdf.html", context)
@@ -36,8 +35,8 @@ class PdfHtmlView(View):
 
 class SendedView(View):
     def get(self, *args, **kwargs):
-        link = self.kwargs['link']
-        context = {'link': link}
+        slug = self.kwargs['slug']
+        context = {'slug': slug}
         return render(self.request, "boletaenviada.html", context)
 
 
@@ -46,17 +45,6 @@ class GeneralRecomendationsUpdateView(UpdateView):
     form_class = GeneralRecomendationsUpdateForm
     model = GeneralRecomendatios
 
-    def upload_blob(self, bucket_name, source_file_name, destination_blob_name):
-        """Uploads a file to the bucket."""
-        # bucket_name = "your-bucket-name"
-        # source_file_name = "local/path/to/file"
-        # destination_blob_name = "storage-object-name"
-
-        storage_client = storage.Client()
-        bucket = storage_client.bucket(bucket_name)
-        blob = bucket.blob(destination_blob_name)
-
-        blob.upload_from_filename(source_file_name)
 
     def form_valid(self, form):
         self.object = form.save(commit=False)
@@ -65,14 +53,22 @@ class GeneralRecomendationsUpdateView(UpdateView):
             me = pdfcrowd.HtmlToPdfClient('ariaschmario', 'c9aeae493b830137cf765dcd473ad9f1')
             context = {'ticket': Ticket.objects.get(superId=self.kwargs['slug'])}
             x = render_to_string('pdf.html', context)
-            with open(os.path.join(settings.BASE_DIR, 'tmp', 'pdf.html'), 'w+') as f:
-                f.write(x)
 
-            return redirect("core:pdfhtml", slug=self.kwargs['slug'])
-            # me.convertStringToFile(x, 'tmp/' + self.kwargs['slug'] + '.pdf')
-            # self.upload_blob('elelectricista', 'tmp/' + self.kwargs['slug'] + '.pdf', 'tickets/' + self.kwargs['slug'] + '.pdf')
+            me.setPageSize(u'Letter')
+            me.setOrientation(u'landscape')
+            response = HttpResponse(content_type='application/pdf')
+            me.convertStringToStream(x, response)
+
+            storage_client = storage.Client()
+
+            bucket = storage_client.bucket('elelectricista')
+            blob = bucket.blob('boletas/' + self.kwargs['slug'] + '.pdf')
+            blob.upload_from_string(response.getvalue(), content_type='application/pdf')
+            Ticket.objects.get(superId=self.kwargs['slug']).update_file_url('https://storage.cloud.google.com/elelectricista/boletas/' + self.kwargs['slug'] + '.pdf')
+            #return redirect("core:pdfhtml", slug=self.kwargs['slug'])
+
             # link = self.kwargs["slug"] + '.pdf'
-            # return redirect("core:sended", link=link)
+            return redirect("core:sended", slug=self.kwargs['slug'])
         else:
             return redirect("core:circuitosramales", slug=self.kwargs['slug'])
 

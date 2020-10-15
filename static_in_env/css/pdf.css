@@ -6,7 +6,6 @@
 
 .logoboleta {
     width: 100%;
-    margin-top: 5%;
 }
 
 .numeroboleta {
@@ -59,14 +58,14 @@
 
 .titleboleta {
     font-family: 'Roboto', sans-serif;
-    font-size: 180%;
+    font-size: 130%;
     font-weight: 800;
     color: #00ade5;
 }
 
 .subtitulo {
     font-family: 'Roboto', sans-serif;
-    font-size: 150%;
+    font-size: 100%;
     font-weight: 700;
 }
 
@@ -87,7 +86,7 @@
 
 .titulocaja {
   font-family: 'Roboto', sans-serif;
-    font-size: 140%;
+    font-size: 110%;
     font-weight: 500; 
     margin-top: 2%;
     text-align: center;
@@ -95,6 +94,6 @@
 
 .cajacontenido {
     font-family: 'Roboto', sans-serif;
-    font-size: 120%;
+    font-size: 100%;
     font-weight: 400;
 }

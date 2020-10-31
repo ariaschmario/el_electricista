@@ -3,7 +3,6 @@
 import os
 import sys
 
-import firebase_admin
 
 from elElectricistaProject.wsgi import application
 

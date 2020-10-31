@@ -53,7 +53,8 @@ class PdfHtmlView(View):
 class SendedView(View):
     def get(self, *args, **kwargs):
         slug = self.kwargs['slug']
-        context = {'slug': slug}
+        sended = self.kwargs['sended']
+        context = {'slug': slug, 'sended': sended}
         return render(self.request, "boletaenviada.html", context)
 
 
@@ -109,36 +110,39 @@ class GeneralRecomendationsUpdateView(UpdateView):
             blob.upload_from_string(filePfd, content_type='application/pdf')
             Ticket.objects.get(superId=self.kwargs['slug']).update_file_url('https://storage.cloud.google.com/elelectricista/boletas/' + self.kwargs['slug'] + '.pdf')
 
-            mail_content = "Te adjuntamos la boleta técnica de la visita de El Electricista"
-            sender_address = 'mario@zacatearca.com'
-            #sender_pass = self.access_secret_version(os.getenv('PROJECT_SECRET_MANAGER_ID'), os.getenv('GMAIL_APP_PASSWORD_ID'), 1),
-            sender_pass = os.getenv('GMAIL_PASSWORD_ID')
-            receiver_address = 'ariaschmario@gmail.com'
-            # Setup the MIME
-            message = MIMEMultipart()
-            message['From'] = sender_address
-            message['To'] = receiver_address
-            message['Subject'] = 'El Electricista Boleta'
-            # The subject line
-            # The body and the attachments for the mail
-            message.attach(MIMEText(mail_content, 'plain'))
-            # attach_file = open(filePfd, 'rb')  # Open the file as binary mode
-            payload = MIMEBase('application', 'octate-stream')
-            payload.set_payload(filePfd)
-            encoders.encode_base64(payload)  # encode the attachment
-            # add payload header with filename
-            filename = "boleta.pdf"
-            payload.add_header('Content-Disposition', 'attachment; filename="%s"' % filename)
-            message.attach(payload)
-            # Create SMTP session for sending the mail
-            session = smtplib.SMTP('smtp.gmail.com', 587)  # use gmail with port
-            session.starttls()  # enable security
-            session.login(sender_address, sender_pass[0])  # login with mail_id and password
-            text = message.as_string()
-            session.sendmail(sender_address, receiver_address, text)
-            session.quit()
 
-            return redirect("core:sended", slug=self.kwargs['slug'])
+            try:
+                mail_content = "Te adjuntamos la boleta técnica de la visita de El Electricista"
+                sender_address = 'christiam@elelectricistacr.com'
+                #sender_pass = self.access_secret_version(os.getenv('PROJECT_SECRET_MANAGER_ID'), os.getenv('GMAIL_APP_PASSWORD_ID'), 1),
+                sender_pass = os.getenv('GMAIL_PASSWORD_ID')
+                receiver_address = Ticket.objects.get(superId=self.kwargs['slug']).client.email
+                # Setup the MIME
+                message = MIMEMultipart()
+                message['From'] = sender_address
+                message['To'] = receiver_address
+                message['Subject'] = 'El Electricista Boleta'
+                # The subject line
+                # The body and the attachments for the mail
+                message.attach(MIMEText(mail_content, 'plain'))
+                # attach_file = open(filePfd, 'rb')  # Open the file as binary mode
+                payload = MIMEBase('application', 'octate-stream')
+                payload.set_payload(filePfd)
+                encoders.encode_base64(payload)  # encode the attachment
+                # add payload header with filename
+                filename = "boleta.pdf"
+                payload.add_header('Content-Disposition', 'attachment; filename="%s"' % filename)
+                message.attach(payload)
+                # Create SMTP session for sending the mail
+                session = smtplib.SMTP('smtp.gmail.com', 587)  # use gmail with port
+                session.starttls()  # enable security
+                session.login(sender_address, sender_pass)  # login with mail_id and password
+                text = message.as_string()
+                session.sendmail(sender_address, receiver_address, text)
+                session.quit()
+                return redirect("core:sended", slug=self.kwargs['slug'], sended=True)
+            except:
+                return redirect("core:sended", slug=self.kwargs['slug'], sended=False)
         else:
             return redirect("core:circuitosramales", slug=self.kwargs['slug'])
 

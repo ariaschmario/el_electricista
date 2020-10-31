@@ -31,5 +31,6 @@ env_variables:
   #temporal values
   DATABASE_PASSWORD: 'holamundo'
   PDFCROWD_PASSWORD: 'c9aeae493b830137cf765dcd473ad9f1'
-  GMAIL_PASSWORD_ID: 'jnnjutwdjzjvqzww'
+  GMAIL_PASSWORD_ID: 'rcjxttgfmcgahmwi'
+  SECRET_KEY_DJANGO: 'r3^rk4ju6^!-)rm!f+2psiqx&+3v=v%vkw03th*9zxqzugdho2'
 

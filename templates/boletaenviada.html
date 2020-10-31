@@ -68,7 +68,8 @@
             <div class="col-4 col-md-5"></div>
 
             <div class="col-4 col-md-2">
-                <h1 class="sentmessage">Boleta enviada</h1>
+                {% if form.solar_generation_capacity.value %} <h1 class="sentmessage">Boleta enviada</h1>
+                {% else %} <h1 class="sentmessage">Boleta creada pero No enviada</h1> {% endif %}
             </div>
 
             <div class="col-4 col-md-5"></div>

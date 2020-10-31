@@ -107,7 +107,7 @@ if os.getenv('GAE_APPLICATION', None):
     DATABASES = {
         'default': {
             'ENGINE': os.getenv('DATABASE_ENGINE'),
-            'HOST': os.getenv('DATABASE_NAME'),
+            'HOST': os.getenv('SQL_INSTANCE_HOST'),
             'USER': os.getenv('DATABASE_USER'),
             #'PASSWORD': access_secret_version(os.getenv('PROJECT_SECRET_MANAGER_ID'), os.getenv('SECRET_DATABASE_PASSWORD_ID'), 1),
             'PASSWORD': os.getenv('DATABASE_PASSWORD'),

@@ -28,4 +28,8 @@ env_variables:
   SECRET_DATABASE_PASSWORD_ID: 'DataBasePassword'
   SECRET_PDFCROWD_PASSWORD_ID: 'PdfCrowdPassword'
   GMAIL_APP_PASSWORD_ID: 'GmailAppPassword'
+  #temporal values
+  DATABASE_PASSWORD: 'holamundo'
+  PDFCROWD_PASSWORD: 'c9aeae493b830137cf765dcd473ad9f1'
+  GMAIL_PASSWORD_ID: 'jnnjutwdjzjvqzww'
 

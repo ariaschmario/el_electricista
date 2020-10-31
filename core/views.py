@@ -92,7 +92,7 @@ class GeneralRecomendationsUpdateView(UpdateView):
         self.object = form.save(commit=False)
         self.object.save()
         if 'sigt' in self.request.POST:
-            me = pdfcrowd.HtmlToPdfClient('ariaschmario', self.access_secret_version(os.getenv('PROJECT_SECRET_MANAGER_ID'), os.getenv('SECRET_PDFCROWD_PASSWORD_ID'), 1))
+            me = pdfcrowd.HtmlToPdfClient('ariaschmario', os.getenv('PDFCROWD_PASSWORD'))
             context = {'ticket': Ticket.objects.get(superId=self.kwargs['slug'])}
             x = render_to_string('pdf.html', context)
 
@@ -111,7 +111,8 @@ class GeneralRecomendationsUpdateView(UpdateView):
 
             mail_content = "Te adjuntamos la boleta técnica de la visita de El Electricista"
             sender_address = 'mario@zacatearca.com'
-            sender_pass = self.access_secret_version(os.getenv('PROJECT_SECRET_MANAGER_ID'), os.getenv('GMAIL_APP_PASSWORD_ID'), 1),
+            #sender_pass = self.access_secret_version(os.getenv('PROJECT_SECRET_MANAGER_ID'), os.getenv('GMAIL_APP_PASSWORD_ID'), 1),
+            sender_pass = os.getenv('GMAIL_PASSWORD_ID')
             receiver_address = 'ariaschmario@gmail.com'
             # Setup the MIME
             message = MIMEMultipart()

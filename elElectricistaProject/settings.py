@@ -109,8 +109,9 @@ if os.getenv('GAE_APPLICATION', None):
             'ENGINE': os.getenv('DATABASE_ENGINE'),
             'HOST': os.getenv('DATABASE_NAME'),
             'USER': os.getenv('DATABASE_USER'),
-            'PASSWORD': access_secret_version(os.getenv('PROJECT_SECRET_MANAGER_ID'), os.getenv('SECRET_DATABASE_PASSWORD_ID'), 1),
-            'NAME': os.getenv('DATABASE_NAME'),
+            #'PASSWORD': access_secret_version(os.getenv('PROJECT_SECRET_MANAGER_ID'), os.getenv('SECRET_DATABASE_PASSWORD_ID'), 1),
+            'PASSWORD': os.getenv('DATABASE_PASSWORD'),
+            'NAME': os.getenv('DATABASE_NAME')
         }
     }
 else:
@@ -127,7 +128,8 @@ else:
             'PORT': '3306',
             'NAME':  'elelectricista',
             'USER': 'elelectricista',
-            'PASSWORD': access_secret_version('192250245556', 'DataBasePassword', 1)
+            #'PASSWORD': access_secret_version('192250245556', 'DataBasePassword', 1)
+            'PASSWORD': os.getenv('DATABASE_PASSWORD')
         }
     }
 

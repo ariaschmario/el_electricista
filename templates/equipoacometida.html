@@ -139,7 +139,7 @@
                     <div class="col-12 col-sm-6 col-md-6 col-xl-4 borderdown">
 
                         <div class="form-group">
-                            <label for="{{ form.bajante_acometida.id_for_label }}">Bajante de acomet&iacute;da</label>
+                            <label for="{{ form.bajante_acometida.id_for_label }}">Bajante de acomet&iacute;da (Cable de conexión a la red pública)</label>
                             <select class="form-control" id="{{ form.bajante_acometida.id_for_label }}" name="{{ form.bajante_acometida.html_name }}">
                                 <option {% if form.bajante_acometida.value == "a" %} selected {% endif %}  value="a">A&eacute;reo</option>
                                 <option {% if form.bajante_acometida.value == "s" %} selected {% endif %}  value="s">Subterr&aacute;neo</option>
@@ -167,16 +167,14 @@
                                     </select>
                                 </div>
                             </div>
-                            <div id="anotherEquipoMedicion" style="display:none">
+                            <div id="anotherEquipoMedicion" style="{% if form.equipo_medicion.value != "a" %}display:none"{% endif %}>
                                 <div class="col-1">
                                 </div>
 
                                 <div class="col-11">
                                     <div class="form-group">
                                         <label for="{{ form.equipo_medicion_especifique.id_for_label }}">Especifique</label>
-                                        <input type="text" class="form-control" id="{{ form.equipo_medicion_especifique.id_for_label }}"
-                                              name="{{ form.equipo_medicion_especifique.html_name }}" maxlength="25"
-                                                {% if form.equipo_medicion_especifique.value %}  value="{{ form.equipo_medicion_especifique.value }}" {% endif %}>
+                                        <textarea class="form-control" id="{{ form.equipo_medicion_especifique.id_for_label }}" name="{{ form.equipo_medicion_especifique.html_name }}" maxlength="249" rows="3">{% if form.equipo_medicion_especifique.value %}  {{ form.equipo_medicion_especifique.value }} {% endif %}</textarea>
                                     </div>
                                 </div>
                             </div>
@@ -202,16 +200,15 @@
                                     </select>
                                 </div>
                             </div>
-                            <div id="estadoInterruptorEspecifique" style="display:none">
+                            <div id="estadoInterruptorEspecifique" {% if form.estado_interruptor.value != "r" and form.estado_interruptor.value != "d" %} style="display:none" {% endif %}>
                                 <div class="col-1">
                                 </div>
 
                                 <div class="col-11">
                                     <div class="form-group">
                                         <label for="{{ form.estado_interruptor_especifique.id_for_label }}">Especifique</label>
-                                        <input type="text" class="form-control" id="{{ form.estado_interruptor_especifique.id_for_label }}"
-                                                name="{{ form.estado_interruptor_especifique.html_name }}"  maxlength="25"
-                                                {% if form.estado_interruptor_especifique.value %} value="{{ form.estado_interruptor_especifique.value }}" {% endif %}>
+
+                                        <textarea class="form-control" id="{{ form.estado_interruptor_especifique.id_for_label }}" name="{{ form.estado_interruptor_especifique.html_name }}"  maxlength="249" rows="3"> {% if form.estado_interruptor_especifique.value %} {{ form.estado_interruptor_especifique.value }}  {%endif%} </textarea>
                                     </div>
                                 </div>
                             </div>
@@ -238,16 +235,15 @@
                                     </select>
                                 </div>
                             </div>
-                            <div id="estadoAlimentadoresEspecifique" style="display:none">
+                            <div id="estadoAlimentadoresEspecifique" style="{% if form.estado_alimentadores.value != "r" and form.estado_alimentadores.value != "d" %} display:none"{% endif %}>
                                 <div class="col-1">
                                 </div>
 
                                 <div class="col-11">
                                     <div class="form-group">
                                         <label for="{{ form.estado_alimentadores_especifique.id_for_label }}">Especifique</label>
-                                        <input type="text" class="form-control" id="{{ form.estado_alimentadores_especifique.id_for_label }}"
-                                               name="{{ form.estado_alimentadores_especifique.html_name }}" maxlength="25"
-                                                {% if form.estado_alimentadores_especifique.value %}  value="{{ form.estado_alimentadores_especifique.value }}" {% endif %}>
+                                    <textarea class="form-control" id="{{ form.estado_alimentadores_especifique.id_for_label }}"
+                                               name="{{ form.estado_alimentadores_especifique.html_name }}" maxlength="249" rows="3">{% if form.estado_alimentadores_especifique.value %}  {{ form.estado_alimentadores_especifique.value }} {% endif %}</textarea>
                                     </div>
                                 </div>
                             </div>
@@ -493,16 +489,15 @@
                                     </select>
                                 </div>
                             </div>
-                            <div id="estadoPuestaEspecifique" style="display:none">
+                            <div id="estadoPuestaEspecifique" style="{% if form.estado_puesta.value != "r" and form.estado_puesta.value != "d"  %} display:none{% endif %}">
                                 <div class="col-1">
                                 </div>
 
                                 <div class="col-11">
                                     <div class="form-group">
                                         <label for="{{ form.estado_puesta_especifique.id_for_label }}">Especifique</label>
-                                        <input type="text" class="form-control" id="{{ form.estado_puesta_especifique.id_for_label }}"
-                                               name="{{ form.estado_puesta_especifique.html_name }}" maxlength="25"
-                                                {% if form.estado_puesta_especifique.value %}  value="{{ form.estado_puesta_especifique.value }}" {% endif %}>
+                                    <textarea class="form-control" id="{{ form.estado_puesta_especifique.id_for_label }}"
+                                               name="{{ form.estado_puesta_especifique.html_name }}" maxlength="249" rows="3">{% if form.estado_puesta_especifique.value %}  {{ form.estado_puesta_especifique.value }} {% endif %}</textarea>
                                     </div>
                                 </div>
                             </div>
@@ -528,16 +523,16 @@
                                     </select>
                                 </div>
                             </div>
-                            <div id="estadoNeutroEspecifique" style="display:none">
+                            <div id="estadoNeutroEspecifique" {% if form.estado_neutro.value != "r" and form.estado_neutro.value != "d"  %} style="display:none" {% endif %} >
                                 <div class="col-1">
                                 </div>
 
                                 <div class="col-11">
                                     <div class="form-group">
                                         <label for="{{ form.estado_neutro_especifique.id_for_label }}">Especifique</label>
-                                        <input type="text" class="form-control" id="{{ form.estado_neutro_especifique.id_for_label }}"
-                                              name="{{ form.estado_neutro_especifique.html_name }}" maxlength="25"
-                                                {% if form.estado_neutro_especifique.value %} value="{{ form.estado_neutro_especifique.value }}" {% endif %}>
+                                        <textarea class="form-control" id="{{ form.estado_neutro_especifique.id_for_label }}"
+                                              name="{{ form.estado_neutro_especifique.html_name }}" maxlength="249" rows="3">
+                                            {% if form.estado_neutro_especifique.value %} {{ form.estado_neutro_especifique.value }} {% endif %}</textarea>
                                     </div>
                                 </div>
                             </div>
@@ -552,7 +547,7 @@
                     <div class="col-12 col-sm-6 col-md-6 col-xl-4">
                         <div class="form-group">
                             <label for="{{ form.resultado.id_for_label }}">Resultado equipo acometida:</label>
-                            <textarea class="form-control" id="{{ form.resultado.id_for_label }}" name="{{ form.resultado.html_name }}" maxlength="500" required rows="3">{% if form.resultado.value %}{{ form.resultado.value }}{% endif %}</textarea>
+                            <textarea class="form-control" id="{{ form.resultado.id_for_label }}" name="{{ form.resultado.html_name }}" maxlength="500" rows="3">{% if form.resultado.value %}{{ form.resultado.value }}{% endif %}</textarea>
                         </div>
                     </div>
 

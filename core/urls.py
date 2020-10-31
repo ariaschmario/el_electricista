@@ -1,3 +1,4 @@
+import firebase_admin
 from django.urls import path
 from .views import (
     TicketCreateView,
@@ -10,13 +11,16 @@ from .views import (
     SendedView,
     PdfView,
     PdfHtmlView,
-    CentroCargaSecundarioView
+    CentroCargaSecundarioView,
+    LoginView
 )
 
 app_name = 'core'
 
+
 urlpatterns = [
-    path('', TicketCreateView.as_view(), name='createTicket'),
+    path('', LoginView.as_view(), name='login'),
+    path('new/<user>',TicketCreateView.as_view() , name='createTicketAux'),
     path('equipoacometida/<slug>', EquipoAcometidaUpdateView.as_view(), name='equipoacometida'),
     path('centrocarga/<slug>', CentroCargaUpdateView.as_view(), name='centrocarga'),
     path('circuitosramales/<slug>', CircuitosRamalesUpdateView.as_view(), name='circuitosramales'),
@@ -28,3 +32,5 @@ urlpatterns = [
     path('pdfhtml/<slug>', PdfHtmlView.as_view(), name='pdfhtml'),
     path('centroCargaSecundario/<slug>', CentroCargaSecundarioView.add_centro, name='centroCargaSecundario')
 ]
+
+

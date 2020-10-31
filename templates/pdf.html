@@ -43,16 +43,16 @@
             <div class="col-6 top">
                 <div class="row">
                     <div class="col-5">
-                        <h1 class="numeroboleta">Boleta N. </h1>
+                        <h1 class="numeroboleta">Boleta N. {{ ticket.superId }}</h1>
                     </div>
                     <div class="col-7">
-                        <h2 class="ncodigo">{{ ticket.superId }}</h2>
+                        <h2 class="ncodigo"></h2>
                     </div>
                     <div class="col-4">
-                        <h1 class="fecha">Fecha: </h1>
+                        <h1 class="fecha">Fecha: {% now "SHORT_DATE_FORMAT" %}</h1>
                     </div>
                     <div class="col-8">
-                        <h1 class="fecha">{% now "SHORT_DATE_FORMAT" %}</h1>
+                        <h1 class="fecha"></h1>
                     </div>
                 </div>
             </div>

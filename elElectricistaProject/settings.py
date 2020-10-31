@@ -17,6 +17,32 @@ import os
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 
+def access_secret_version(project_manager_id, secret_id, version_id):
+    """
+    Access the payload for the given secret version if one exists. The version
+    can be a version number as a string (e.g. "5") or an alias (e.g. "latest").
+    """
+
+    # Import the Secret Manager client library.
+    from google.cloud import secretmanager
+
+    # Create the Secret Manager client.
+    client = secretmanager.SecretManagerServiceClient()
+
+    # Build the resource name of the secret version.
+    name = f"projects/{project_manager_id}/secrets/{secret_id}/versions/{version_id}"
+
+    # Access the secret version.
+    response = client.access_secret_version(request={"name": name})
+
+    # Print the secret payload.
+    #
+    # WARNING: Do not print the secret in a production environment - this
+    # snippet is showing how to access the secret material.
+    payload = response.payload.data.decode("UTF-8")
+    return payload
+
+
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/
 
@@ -80,11 +106,11 @@ if os.getenv('GAE_APPLICATION', None):
     # the unix socket at /cloudsql/<your-cloudsql-connection string>
     DATABASES = {
         'default': {
-            'ENGINE': 'django.db.backends.mysql',
-            'HOST': '/cloudsql/elelectricista:us-central1:elelectricista',
-            'USER': 'elelectricista',
-            'PASSWORD': 'holamundo',
-            'NAME': 'elelectricista',
+            'ENGINE': os.getenv('DATABASE_ENGINE'),
+            'HOST': os.getenv('DATABASE_NAME'),
+            'USER': os.getenv('DATABASE_USER'),
+            'PASSWORD': access_secret_version(os.getenv('PROJECT_SECRET_MANAGER_ID'), os.getenv('SECRET_ID'), 1),
+            'NAME': os.getenv('DATABASE_NAME'),
         }
     }
 else:
@@ -99,9 +125,9 @@ else:
             'ENGINE': 'django.db.backends.mysql',
             'HOST': '127.0.0.1',
             'PORT': '3306',
-            'NAME': 'elelectricista',
+            'NAME':  'elelectricista',
             'USER': 'elelectricista',
-            'PASSWORD': 'holamundo',
+            'PASSWORD': access_secret_version('192250245556', 'DataBasePassword', 1)
         }
     }
 

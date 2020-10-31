@@ -17,31 +17,6 @@
         <link rel="stylesheet" href="{% static 'css/footer.css'%}">
 
 
-        <script src="https://www.gstatic.com/firebasejs/7.24.0/firebase.js"></script>
-        <script>
-          var config = {
-            apiKey: "AIzaSyC6MF2MG7mS5jtCocMM7wqNMvCfPQCQKOQ",
-            authDomain: "elelectricista.firebaseapp.com",
-          };
-          firebase.initializeApp(config);
-          var provider = new firebase.auth.GoogleAuthProvider();
-          firebase.auth().signInWithPopup(provider).then(function(result) {
-              // This gives you a Google Access Token. You can use it to access the Google API.
-              var token = result.credential.accessToken;
-              // The signed-in user info.
-              var user = result.user;
-              // ...
-        }).catch(function(error) {
-            // Handle Errors here.
-            var errorCode = error.code;
-            var errorMessage = error.message;
-            // The email of the user's account used.
-            var email = error.email;
-            // The firebase.auth.AuthCredential type that was used.
-            var credential = error.credential;
-            // ...
-            });
-        </script>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
 
@@ -174,7 +149,7 @@
                                         <div class="form-group">
                                             {{ form.phoneNumber.errors }}
                                             <label for="{{ form.phoneNumber.id_for_label }}">Tel&eacute;fono</label>
-                                            <input type="text" {% if form.legalId.value %} value="{{ form.phoneNumber.value }}" {% endif %} name="{{ form.phoneNumber.html_name }}" maxlength="15" required class="form-control" id="{{ form.phoneNumber.id_for_label }}" placeholder="">
+                                            <input type="text" {% if form.legalId.value %} value="{{ form.phoneNumber.value }}" {% endif %} name="{{ form.phoneNumber.html_name }}" maxlength="15" class="form-control" id="{{ form.phoneNumber.id_for_label }}" placeholder="">
                                           </div>
                                     </div>
                                     <div class="col-12 col-md-6 col-xl-4">
@@ -188,7 +163,7 @@
                                         <div class="form-group">
                                             {{ form.adress.errors }}
                                             <label for="{{ form.adress.id_for_label }}">Direcci&oacute;n</label>
-                                            <textarea class="form-control" id="{{ form.adress.id_for_label }}" name="{{ form.adress.html_name }}" maxlength="200" required rows="3">{% if form.adress.value %}{{ form.adress.value }}{% endif %}</textarea>
+                                            <textarea class="form-control" id="{{ form.adress.id_for_label }}" name="{{ form.adress.html_name }}" maxlength="200" rows="3">{% if form.adress.value %}{{ form.adress.value }}{% endif %}</textarea>
                                           </div>
                                     </div>
                                 </div>

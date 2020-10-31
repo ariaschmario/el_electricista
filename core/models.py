@@ -27,6 +27,7 @@ ELECTRIC_COMPANY = (
     ('c', 'CNFL'),
     ('i', 'ICE'),
     ('e', 'ESPH'),
+    ('j', 'JASEC'),
     ('a', 'Otro'),
 )
 
@@ -85,7 +86,7 @@ class Client(models.Model):
         return self.legalId
 
     def get_absolute_url(self):
-        return reverse('core:createTicket')
+        return reverse('core:login')
 
 class CalibreConductores(models.Model):
     f1 = models.CharField(max_length=15, default=None, blank=True, null=True)
@@ -134,7 +135,7 @@ class CircuitosRamales(models.Model):
         return self.superId
 
     def get_absolute_url(self):
-        return reverse('core:createTicket')
+        return reverse('core:login')
 
 
 class GeneralRecomendatios(models.Model):
@@ -149,7 +150,7 @@ class GeneralRecomendatios(models.Model):
         return self.superId
 
     def get_absolute_url(self):
-        return reverse('core:createTicket')
+        return reverse('core:login')
 
 
 class CentroCarga(models.Model):
@@ -158,15 +159,15 @@ class CentroCarga(models.Model):
     marca_catalogo = models.CharField(max_length=25, default=None, blank=True, null=True)
     espacios_ocupados = models.CharField(max_length=25, default=None, blank=True, null=True)
     estado_tablero = models.CharField(choices=ESTADO, max_length=1)
-    estado_tablero_especifique = models.CharField(max_length=25, default=None, blank=True, null=True)
+    estado_tablero_especifique = models.CharField(max_length=250, default=None, blank=True, null=True)
     ubicacion = models.CharField(choices=UBICACION, max_length=1, default=None, blank=True, null=True)
     canalizacion = models.CharField(choices=ESTADO, max_length=1, default=None, blank=True, null=True)
-    canalizacion_especifique = models.CharField(max_length=25, default=None, blank=True, null=True)
+    canalizacion_especifique = models.CharField(max_length=250, default=None, blank=True, null=True)
     canalizacion_distancia = models.CharField(max_length=25, default=None, blank=True, null=True)
     estado_alimentadores = models.CharField(choices=ESTADO, max_length=1)
-    estado_alimentadores_especifique = models.CharField(max_length=25, default=None, blank=True, null=True)
+    estado_alimentadores_especifique = models.CharField(max_length=250, default=None, blank=True, null=True)
     estado_puesta = models.CharField(choices=ESTADO, max_length=1)
-    estado_puesta_especifique = models.CharField(max_length=25, default=None, blank=True, null=True)
+    estado_puesta_especifique = models.CharField(max_length=250, default=None, blank=True, null=True)
 
     prueba_carga_f1_v = models.CharField(max_length=25, default=None, blank=True, null=True)
     prueba_carga_f1_a = models.CharField(max_length=25, default=None, blank=True, null=True)
@@ -185,7 +186,7 @@ class CentroCarga(models.Model):
         return self.superId
 
     def get_absolute_url(self):
-        return reverse('core:createTicket')
+        return reverse('core:login')
 
 
 class CentroCargaSecundario(models.Model):
@@ -194,15 +195,15 @@ class CentroCargaSecundario(models.Model):
     marca_catalogo = models.CharField(max_length=25, default=None, blank=True, null=True)
     espacios_ocupados = models.CharField(max_length=25, default=None, blank=True, null=True)
     estado_tablero = models.CharField(choices=ESTADO, max_length=1)
-    estado_tablero_especifique = models.CharField(max_length=25, default=None, blank=True, null=True)
+    estado_tablero_especifique = models.CharField(max_length=250, default=None, blank=True, null=True)
     ubicacion = models.CharField(choices=UBICACION, max_length=1, default=None, blank=True, null=True)
     canalizacion = models.CharField(choices=ESTADO, max_length=1, default=None, blank=True, null=True)
-    canalizacion_especifique = models.CharField(max_length=25, default=None, blank=True, null=True)
+    canalizacion_especifique = models.CharField(max_length=250, default=None, blank=True, null=True)
     canalizacion_distancia = models.CharField(max_length=25, default=None, blank=True, null=True)
     estado_alimentadores = models.CharField(choices=ESTADO, max_length=1)
-    estado_alimentadores_especifique = models.CharField(max_length=25, default=None, blank=True, null=True)
+    estado_alimentadores_especifique = models.CharField(max_length=250, default=None, blank=True, null=True)
     estado_puesta = models.CharField(choices=ESTADO, max_length=1)
-    estado_puesta_especifique = models.CharField(max_length=25, default=None, blank=True, null=True)
+    estado_puesta_especifique = models.CharField(max_length=250, default=None, blank=True, null=True)
 
     def __str__(self):
         return self.local_id
@@ -226,11 +227,11 @@ class EquipoAcometida(models.Model):
     slug = models.CharField(max_length=15, default=None, blank=True, null=True)
     bajante_acometida = models.CharField(choices=BAJANTE_ACOMETIDA, max_length=1, default=None, blank=True, null=True)
     equipo_medicion = models.CharField(choices=EQUIPO_MEDICION, max_length=1, default=None, blank=True, null=True)
-    equipo_medicion_especifique = models.CharField(max_length=25, default=None, blank=True, null=True)
+    equipo_medicion_especifique = models.CharField(max_length=250, default=None, blank=True, null=True)
     estado_interruptor = models.CharField(choices=ESTADO, max_length=1)
-    estado_interruptor_especifique = models.CharField(max_length=25, default=None, blank=True, null=True)
+    estado_interruptor_especifique = models.CharField(max_length=250, default=None, blank=True, null=True)
     estado_alimentadores = models.CharField(choices=ESTADO, max_length=1)
-    estado_alimentadores_especifique = models.CharField(max_length=25, default=None, blank=True, null=True)
+    estado_alimentadores_especifique = models.CharField(max_length=250, default=None, blank=True, null=True)
     calibre_conductores_f1 = models.CharField(max_length=25, default=None, blank=True, null=True)
     calibre_conductores_f2 = models.CharField(max_length=25, default=None, blank=True, null=True)
     calibre_conductores_f3 = models.CharField(max_length=25, default=None, blank=True, null=True)
@@ -246,9 +247,9 @@ class EquipoAcometida(models.Model):
     corriente_entrada_f2 = models.CharField(max_length=25, default=None, blank=True, null=True)
     corriente_entrada_f3 = models.CharField(max_length=25, default=None, blank=True, null=True)
     estado_puesta = models.CharField(choices=ESTADO, max_length=1)
-    estado_puesta_especifique = models.CharField(max_length=25, default=None, blank=True, null=True)
+    estado_puesta_especifique = models.CharField(max_length=250, default=None, blank=True, null=True)
     estado_neutro = models.CharField(choices=ESTADO, max_length=1, default=None, blank=True, null=True)
-    estado_neutro_especifique = models.CharField(max_length=25, default=None, blank=True, null=True)
+    estado_neutro_especifique = models.CharField(max_length=250, default=None, blank=True, null=True)
     resultado = models.CharField(max_length=900, default=None, blank=True, null=True)
 
     def __str__(self):
@@ -258,7 +259,7 @@ class EquipoAcometida(models.Model):
         return self.superId
 
     def get_absolute_url(self):
-        return reverse('core:createTicket')
+        return reverse('core:login')
 
 
 class GeneralInfo(models.Model):
@@ -268,10 +269,10 @@ class GeneralInfo(models.Model):
     property_type = models.CharField(choices=PROPOERTY_TYPE_CHOICES, max_length=1)
     company = models.CharField(choices=ELECTRIC_COMPANY, max_length=1)
     another_company = models.CharField(max_length=25, default=None, blank=True, null=True)
-    meter_number = models.CharField(max_length=25)
     rate_type = models.CharField(choices=RATE_TYPE, max_length=1)
     another_rate_type = models.CharField(max_length=25, default=None, blank=True, null=True)
-    nise_or_location = models.CharField(max_length=25)
+    nise_or_location = models.CharField(max_length=25, default=None, blank=True, null=True)
+    meter_number = models.CharField(max_length=25, default=None, blank=True, null=True)
     solar_generation = models.CharField(choices=YES_NO, max_length=1)
     solar_generation_capacity = models.CharField(max_length=25, default=None, blank=True, null=True)
 
@@ -282,7 +283,7 @@ class GeneralInfo(models.Model):
         return self.superId
 
     def get_absolute_url(self):
-        return reverse('core:createTicket')
+        return reverse('core:login')
 
 
 class Ticket(models.Model):

@@ -18,6 +18,8 @@ function brd(that, target, targetInput) {
 
 
 
+
+
 function SaveCategory(cat, value){
 	localStorage.setItem(cat, value);
 }
@@ -91,7 +93,7 @@ function guardarCentroSecundario(url, slug) {
         error: function (response) {
             console.log(response);
         }
-    })
+    });
 }
 
 function setInitialCategory() {

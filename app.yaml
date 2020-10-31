@@ -17,3 +17,15 @@ handlers:
 - url: /.*
   script: auto
 # [END django_app]
+
+env_variables:
+  GAE_USE_SOCKETS_HTTPLIB : 'true'
+  SQL_INSTANCE_HOST : '/cloudsql/elelectricista:us-central1:elelectricista'
+  DATABASE_NAME : 'elelectricista'
+  DATABASE_USER : 'elelectricista'
+  DATABASE_ENGINE: 'django.db.backends.mysql'
+  PROJECT_SECRET_MANAGER_ID: '192250245556'
+  SECRET_DATABASE_PASSWORD_ID: 'DataBasePassword'
+  SECRET_PDFCROWD_PASSWORD_ID: 'PdfCrowdPassword'
+  GMAIL_APP_PASSWORD_ID: 'GmailAppPassword'
+

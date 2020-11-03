@@ -257,7 +257,7 @@ class TicketUpdateView(UpdateView):
     def form_valid(self, form):
         self.object = form.save(commit=False)
         self.object.save()
-        client_id = form.cleaned_data['legalId']
+        client_id = form.cleaned_data['legalId'].replace(" ", "")
         superId = self.kwargs['superId']
         new_super_id = client_id + "-" + superId[-1]
         Ticket.objects.get(superId=superId).set_superId(new_super_id)
@@ -282,7 +282,7 @@ class TicketCreateView(CreateView):
 
     def form_valid(self, form):
         idType = form.cleaned_data['idType']
-        client_id = form.cleaned_data['legalId']
+        client_id = form.cleaned_data['legalId'].replace(" ", "")
         name = form.cleaned_data['name']
         phoneNumber = form.cleaned_data['phoneNumber']
         email = form.cleaned_data['email']
@@ -294,7 +294,7 @@ class TicketCreateView(CreateView):
             self.object = form.save(commit=False)
             self.object.save()
             Client.objects.filter(legalId=client_id).update(slug=client_id)
-        client_id = form.cleaned_data['legalId']
+        client_id = form.cleaned_data['legalId'].replace(" ", "")
         x = 1
         superIdAux = client_id + "-"
         while True:

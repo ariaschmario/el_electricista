@@ -88,6 +88,10 @@ class Client(models.Model):
     def get_absolute_url(self):
         return reverse('core:login')
 
+    def clean(self):
+        if self.legalId:
+            self.legalId = self.legalId.replace(" ", "")
+
 class CalibreConductores(models.Model):
     f1 = models.CharField(max_length=15, default=None, blank=True, null=True)
     f2 = models.CharField(max_length=15, default=None, blank=True, null=True)

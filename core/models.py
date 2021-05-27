@@ -168,8 +168,8 @@ class CentroCarga(models.Model):
     canalizacion = models.CharField(choices=ESTADO, max_length=1, default=None, blank=True, null=True)
     canalizacion_especifique = models.CharField(max_length=250, default=None, blank=True, null=True)
     canalizacion_distancia = models.CharField(max_length=25, default=None, blank=True, null=True)
-    estado_alimentadores = models.CharField(choices=ESTADO, max_length=1)
-    estado_alimentadores_especifique = models.CharField(max_length=250, default=None, blank=True, null=True)
+    # estado_alimentadores = models.CharField(choices=ESTADO, max_length=1)
+    # estado_alimentadores_especifique = models.CharField(max_length=250, default=None, blank=True, null=True)
     estado_puesta = models.CharField(choices=ESTADO, max_length=1)
     estado_puesta_especifique = models.CharField(max_length=250, default=None, blank=True, null=True)
 
@@ -250,6 +250,7 @@ class EquipoAcometida(models.Model):
     corriente_entrada_f1 = models.CharField(max_length=25, default=None, blank=True, null=True)
     corriente_entrada_f2 = models.CharField(max_length=25, default=None, blank=True, null=True)
     corriente_entrada_f3 = models.CharField(max_length=25, default=None, blank=True, null=True)
+    corriente_entrada_n = models.CharField(max_length = 25, default = None, blank = True, null = True)
     estado_puesta = models.CharField(choices=ESTADO, max_length=1)
     estado_puesta_especifique = models.CharField(max_length=250, default=None, blank=True, null=True)
     estado_neutro = models.CharField(choices=ESTADO, max_length=1, default=None, blank=True, null=True)

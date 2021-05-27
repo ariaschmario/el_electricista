@@ -1,0 +1,1 @@
+cloud_sql_proxy -instances="elelectricista:us-central1:elelectricista"=tcp:3306

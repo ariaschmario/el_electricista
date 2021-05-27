@@ -428,7 +428,7 @@
                             <div class="col-12">
                                 <div class="form-group">
                                     <label for="exampleFormControlSelect1">Corriente entrada:
-                                        (F1, F2, F3,)</label>
+                                        (F1, F2, F3,N)</label>
 
                                     <div class="row">
                                         <div class="col-6">
@@ -463,7 +463,16 @@
                                             {% if form.corriente_entrada_f3.value %}  value="{{ form.corriente_entrada_f3.value }}" {% endif %}>
                                             </div>
                                         </div>
-
+                                        <div class="col-6">
+                                            <div class="input-group mb-2 mr-sm-2">
+                                                <div class="input-group-prepend">
+                                                    <div class="input-group-text">N</div>
+                                                </div>
+                                                <input type="text" class="form-control"
+                                                       id="{{ form.corriente_entrada_n.id_for_label }}" name="{{ form.corriente_entrada_n.html_name }}" maxlength="25"
+                                            {% if form.corriente_entrada_n.value %}  value="{{ form.corriente_entrada_n.value }}" {% endif %}>
+                                            </div>
+                                        </div>
                                     </div>
 
 

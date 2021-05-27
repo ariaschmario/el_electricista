@@ -50,9 +50,9 @@ def access_secret_version(project_manager_id, secret_id, version_id):
 SECRET_KEY = os.getenv('SECRET_KEY_DJANGO')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
-ALLOWED_HOSTS = ['boleta.elelectricistacr.com']
+ALLOWED_HOSTS = ['boleta.elelectricistacr.com', '127.0.0.1']
 
 
 # Application definition

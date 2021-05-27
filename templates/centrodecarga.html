@@ -313,49 +313,6 @@
 
                                 <div class="col-12">
                                     <div class="form-group">
-                                        <label for="{{ form.estado_alimentadores.id_for_label }}">Condici&oacute;n
-                                            general de los
-                                            alimentadores:</label>
-                                        <select onchange="brd(this, 'estadoAlimentadoresEspecifique', {{ form.estado_alimentadores_especifique.id_for_label }});"
-                                                class="form-control" id="{{ form.estado_alimentadores.id_for_label }}"
-                                                name="{{ form.estado_alimentadores.html_name }}">
-                                            <option {% if form.estado_alimentadores.value == "b" %} selected {% endif %}
-                                                                                                    value="b">Bueno
-                                            </option>
-                                            <option {% if form.estado_alimentadores.value == "r" %} selected {% endif %}
-                                                                                                    value="r">Regular
-                                            </option>
-                                            <option {% if form.estado_alimentadores.value == "d" %} selected {% endif %}
-                                                                                                    value="d">Deficiente
-                                            </option>
-                                        </select>
-                                    </div>
-                                </div>
-                                <div id="estadoAlimentadoresEspecifique" {% if form.estado_alimentadores.value != "r" and form.estado_alimentadores.value != "d"  %} style="display:none" {% endif %}>
-                                    <div class="col-1">
-                                    </div>
-
-                                    <div class="col-11">
-                                        <div class="form-group">
-                                            <label for="{{ form.estado_alimentadores_especifique.id_for_label }}">Especifique</label>
-                                            <textarea class="form-control"
-                                                      id="{{ form.estado_alimentadores_especifique.id_for_label }}"
-                                                      name="{{ form.estado_alimentadores_especifique.html_name }}"
-                                                      maxlength="249" rows="3">
-                                            {% if form.estado_alimentadores_especifique.value %}
-                                                {{ form.estado_alimentadores_especifique.value }}{% endif %}</textarea>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                        </div>
-
-                        <div class="col-12 col-sm-6 col-xl-4 borderdown">
-                            <div class="row">
-
-                                <div class="col-12">
-                                    <div class="form-group">
                                         <label for="{{ form.estado_puesta.id_for_label }}">Puesta a tierra:</label>
                                         <select onchange="brd(this, 'estadoPuestaEspecifique', '{{ form.estado_puesta_especifique.id_for_label }}');"
                                                 class="form-control"

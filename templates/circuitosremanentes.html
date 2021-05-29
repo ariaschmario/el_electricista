@@ -117,61 +117,256 @@
 
 </header>
 
-
-<section>
-    <form method="POST">
-        {% csrf_token %}
-        <div class="container">
-            <div class="row">
-
-
-                <div class="col-12 formline">
-                    <div class="row">
+<form method="POST">
+{% csrf_token %}
+    <section>
+            <div class="container borderdown">
+                <div class="row">
 
 
-                        <div class="col-12">
+                    <div class="col-12 formline">
+                        <div class="row">
 
-                            <h1 class="title">Circuitos Remanentes</h1>
-                        </div>
 
-                        <div class="col-12 col-sm-6 col-md-6 col-xl-4">
+                            <div class="col-12">
 
-                            <div class="form-group">
-                                <label for="{{ form.resultado.id_for_label }}">Resultado circutos ramales:</label>
-                                <textarea class="form-control" id="{{ form.resultado.id_for_label }}" name="{{ form.resultado.html_name }}" maxlength="500" rows="3">{% if form.resultado.value %}{{ form.resultado.value }}{% endif %}</textarea>
+                                <h1 class="title">Circuitos Remanentes</h1>
+                            </div>
+
+                            <div class="col-12">
+
+                                <h4 class="">Iluminación</h4>
+                            </div>
+
+                            <div class="col-12 col-sm-6 col-xl-4 borderdown">
+
+                                <div class="form-group">
+                                    <label for="{{ form.luminarias.id_for_label }}">Cantidad de luminarias:</label>
+                                    <input type="text" class="form-control" id="{{ form.luminarias.id_for_label }}"
+                                           name="{{ form.luminarias.html_name }}" maxlength="25"
+                                            {% if form.luminarias.value %}
+                                           value="{{ form.luminarias.value }}" {% endif %}>
+                                </div>
+
+                            </div>
+
+                            <div class="col-12 col-sm-6 col-xl-4 borderdown">
+
+                                <div class="form-group">
+                                    <label for="{{ form.luminarias_circuitos.id_for_label }}">Cantidad de circuitos:</label>
+                                    <input type="text" class="form-control" id="{{ form.luminarias_circuitos.id_for_label }}"
+                                           name="{{ form.luminarias_circuitos.html_name }}" maxlength="25"
+                                            {% if form.luminarias_circuitos.value %}
+                                           value="{{ form.luminarias_circuitos.value }}" {% endif %}>
+                                </div>
+
+                            </div>
+
+                            <div class="col-12 col-sm-6 col-md-6 col-xl-4">
+
+                                <div class="form-group">
+                                    <label for="{{ form.luminarias_notas.id_for_label }}">Notas y recomendaciónes:</label>
+                                    <textarea class="form-control" id="{{ form.luminarias_notas.id_for_label }}"
+                                              name="{{ form.luminarias_notas.html_name }}" maxlength="500"
+                                              rows="3">{% if form.luminarias_notas.value %}
+                                        {{ form.luminarias_notas.value }}{% endif %}</textarea>
+                                </div>
+
                             </div>
 
                         </div>
+                    </div>
+
+
+                </div>
+                <span class="borderpc"></span>
+            </div>
+
+
+
+    </section>
+
+
+    <section>
+            <div class="container">
+                <div class="row">
+
+
+                    <div class="col-12 formline">
+                        <div class="row">
+
+
+                            <div class="col-12">
+
+                                <h4 class="">Tomacorrientes</h4>
+                            </div>
+
+                            <div class="col-12 col-sm-6 col-xl-4 borderdown">
+
+                                <div class="form-group">
+                                    <label for="{{ form.tomas_aprox.id_for_label }}">Cantidad de tomas
+                                        aproximadas:</label>
+                                    <input type="text" class="form-control" id="{{ form.tomas_aprox.id_for_label }}"
+                                           name="{{ form.tomas_aprox.html_name }}" maxlength="25"
+                                            {% if form.tomas_aprox.value %}
+                                           value="{{ form.tomas_aprox.value }}" {% endif %}>
+                                </div>
+
+                            </div>
+
+                            <div class="col-12 col-sm-6 col-xl-4 borderdown">
+
+                                <div class="form-group">
+                                    <label for="{{ form.tomas_aprox_circuitos.id_for_label }}">Cantidad de circuitos:</label>
+                                    <input type="text" class="form-control" id="{{ form.tomas_aprox_circuitos.id_for_label }}"
+                                           name="{{ form.tomas_aprox_circuitos.html_name }}" maxlength="25"
+                                            {% if form.tomas_aprox_circuitos.value %}
+                                           value="{{ form.tomas_aprox_circuitos.value }}" {% endif %}>
+                                </div>
+
+                            </div>
+
+                            <div class="col-12 col-sm-6 col-md-6 col-xl-4 borderdown">
+
+                                <div class="form-group">
+                                    <label for="{{ form.tomas_aprox_notas.id_for_label }}">Notas y recomendaciónes:</label>
+                                    <textarea class="form-control" id="{{ form.tomas_aprox_notas.id_for_label }}"
+                                              name="{{ form.tomas_aprox_notas.html_name }}" maxlength="500"
+                                              rows="3">{% if form.tomas_aprox_notas.value %}
+                                        {{ form.tomas_aprox_notas.value }}{% endif %}</textarea>
+                                </div>
+
+                            </div>
+
+                        </div>
+                    </div>
+
+
+                </div>
+                <span class="borderpc"></span>
+            </div>
+
+
+
+    </section>
+
+    <section>
+
+            <div class="container">
+                <div class="row">
+
+
+                    <div class="col-12 formline">
+                        <div class="row">
+
+
+                            <div class="col-12">
+
+                                <h4 class="">Tomacorrientes Carga Mayores</h4>
+                            </div>
+
+                            <div class="col-6 col-sm-6 col-xl-3 borderdown">
+
+                                <div class="form-group">
+                                    <label for="{{ form.calentadores_agua.id_for_label }}">Calentador de agua:</label>
+                                    <input type="text" class="form-control" id="{{ form.calentadores_agua.id_for_label }}"
+                                           name="{{ form.calentadores_agua.html_name }}" maxlength="25"
+                                            {% if form.calentadores_agua.value %}
+                                           value="{{ form.calentadores_agua.value }}" {% endif %}>
+                                </div>
+
+                            </div>
+
+                            <div class="col-6 col-sm-6 col-xl-3 borderdown">
+
+                                <div class="form-group">
+                                    <label for="{{ form.secadoras.id_for_label }}">Secadora:</label>
+                                    <input type="text" class="form-control" id="{{ form.secadoras.id_for_label }}"
+                                           name="{{ form.secadoras.html_name }}" maxlength="25"
+                                            {% if form.secadoras.value %}
+                                           value="{{ form.secadoras.value }}" {% endif %}>
+                                </div>
+
+                            </div>
+
+                            <div class="col-6 col-sm-6 col-md-6 col-xl-3 borderdown">
+
+                                <div class="form-group">
+                                    <label for="{{ form.cocinas.id_for_label }}">Cocina:</label>
+                                    <input type="text" class="form-control" id="{{ form.cocinas.id_for_label }}"
+                                           name="{{ form.cocinas.html_name }}" maxlength="25"
+                                            {% if form.cocinas.value %}
+                                           value="{{ form.cocinas.value }}" {% endif %}>
+                                </div>
+
+                            </div>
+
+                            <div class="col-6 col-sm-6 col-md-6 col-xl-3 borderdown">
+
+                                <div class="form-group">
+                                    <label for="{{ form.termoduchas.id_for_label }}">Termoducha:</label>
+                                    <input type="text" class="form-control" id="{{ form.termoduchas.id_for_label }}"
+                                           name="{{ form.termoduchas.html_name }}" maxlength="25"
+                                            {% if form.termoduchas.value %}
+                                           value="{{ form.termoduchas.value }}" {% endif %}>
+                                </div>
+
+                            </div>
+
+                            <div class="col-6 col-sm-6 col-md-6 col-xl-3 borderdown">
+
+                                <div class="form-group">
+                                    <label for="{{ form.aires_acondicionados.id_for_label }}">Aire Acondicionado:</label>
+                                    <input type="text" class="form-control" id="{{ form.aires_acondicionados.id_for_label }}"
+                                           name="{{ form.aires_acondicionados.html_name }}" maxlength="25"
+                                            {% if form.aires_acondicionados.value %}
+                                           value="{{ form.aires_acondicionados.value }}" {% endif %}>
+                                </div>
+
+                            </div>
+
+                         <div class="col-12 col-sm-6 col-md-6 col-xl-4 borderdown">
+
+                                <div class="form-group">
+                                    <label for="{{ form.resultado.id_for_label }}">Notas y recomendaciónes:</label>
+                                    <textarea class="form-control" id="{{ form.resultado.id_for_label }}"
+                                              name="{{ form.resultado.html_name }}" maxlength="500"
+                                              rows="3">{% if form.resultado.value %}
+                                        {{ form.resultado.value }}{% endif %}</textarea>
+                                </div>
+
+                            </div>
+
+
+                        </div>
+                    </div>
+
+
+                </div>
+
+            </div>
+            <div class="container">
+                <div class="row">
+
+                    <div class="col-0 col-md-8">
 
                     </div>
-                </div>
 
+                    <div class="col-6 col-md-2">
+                        <button type="submit" class="btn btn-secondary">Ir atr&aacute;s</button>
+                    </div>
 
-            </div>
+                    <div class="col-6 col-md-2">
+                        <button type="submit" name="sigt" class="btn btn-warning">Siguiente</button>
+                    </div>
 
-        </div>
-        <div class="container">
-            <div class="row">
-
-                <div class="col-0 col-md-8">
-
-                </div>
-
-                <div class="col-6 col-md-2">
-                    <button type="submit" class="btn btn-secondary">Ir atr&aacute;s</button>
-                </div>
-
-                <div class="col-6 col-md-2">
-                    <button type="submit" name="sigt" class="btn btn-warning">Siguiente</button>
                 </div>
 
             </div>
 
-        </div>
 
-    </form>
-</section>
-
+    </section>
+</form>
 
 <footer>
     <div class="container">

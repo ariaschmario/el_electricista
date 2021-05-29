@@ -130,6 +130,17 @@ class CorrienteEntrada(models.Model):
 class CircuitosRamales(models.Model):
     superId = models.CharField(max_length=15)
     slug = models.CharField(max_length=15, default=None, blank=True, null=True)
+    luminarias = models.CharField(max_length=25, default=None, blank=True, null=True)
+    tomas_aprox = models.CharField(max_length=25, default=None, blank=True, null=True)
+    luminarias_circuitos = models.CharField(max_length=25, default=None, blank=True, null=True)
+    tomas_aprox_circuitos = models.CharField(max_length=25, default=None, blank=True, null=True)
+    luminarias_notas = models.CharField(max_length=600, default=None, blank=True, null=True)
+    tomas_aprox_notas = models.CharField(max_length=600, default=None, blank=True, null=True)
+    calentadores_agua = models.CharField(max_length = 25, default = None, blank = True, null = True)
+    secadoras = models.CharField(max_length = 25, default = None, blank = True, null = True)
+    cocinas = models.CharField(max_length = 25, default = None, blank = True, null = True)
+    termoduchas = models.CharField(max_length = 25, default = None, blank = True, null = True)
+    aires_acondicionados = models.CharField(max_length = 600, default = None, blank = True, null = True)
     resultado = models.CharField(max_length=900, default=None, blank=True, null=True)
 
     def __str__(self):

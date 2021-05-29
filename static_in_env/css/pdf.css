@@ -58,9 +58,44 @@
 
 .titleboleta {
     font-family: 'Roboto', sans-serif;
-    font-size: 130%;
+    font-size: 140%;
     font-weight: 800;
     color: #00ade5;
+}
+
+.titleboleta-2 {
+    font-family: 'Roboto', sans-serif;
+    font-size: 140%;
+    font-weight: 800;
+    color: #3c91be;
+}
+
+.titleboleta-3 {
+    font-family: 'Roboto', sans-serif;
+    font-size: 140%;
+    font-weight: 800;
+    color: #25779f;
+}
+
+.titleboleta-4 {
+    font-family: 'Roboto', sans-serif;
+    font-size: 140%;
+    font-weight: 800;
+    color: #1a6a90;
+}
+
+.titleboleta-5 {
+    font-family: 'Roboto', sans-serif;
+    font-size: 140%;
+    font-weight: 800;
+    color: #045072;
+}
+
+.titleboleta-6 {
+    font-family: 'Roboto', sans-serif;
+    font-size: 140%;
+    font-weight: 800;
+    color: #0b3f51;
 }
 
 .subtitulo {
@@ -70,30 +105,75 @@
 }
 
 .cajatitulo {
-    border-radius: 11px 11px 11px 11px;
-    -moz-border-radius: 11px 11px 11px 11px;
-    -webkit-border-radius: 11px 11px 11px 11px;
     border: 0.8px #cccccc solid;
-    background-color: #f2f2f2;
+    background-color: #00ade5;
+    margin-top: 5%;
+}
+
+.cajatitulo-2 {
+    border: 0.8px #cccccc solid;
+    background-color: #3c91be;
+    margin-top: 5%;
+}
+
+.cajatitulo-3 {
+    border: 0.8px #cccccc solid;
+    background-color: #25779f;
+    margin-top: 5%;
+}
+
+.cajatitulo-4 {
+    border: 0.8px #cccccc solid;
+    background-color: #1a6a90;
+    margin-top: 5%;
+}
+
+.cajatitulo-5 {
+    border: 0.8px #cccccc solid;
+    background-color: #045072;
+    margin-top: 5%;
+}
+
+.cajatitulo-6 {
+    border: 0.8px #cccccc solid;
+    background-color: #0b3f51;
+    margin-top: 5%;
+}
+
+.caja_text {
+    border-radius: 5px 5px 5px 5px;
+    -moz-border-radius: 5px 5px 5px 5px;
+    -webkit-border-radius: 5px 5px 5px 5px;
+    border: 0.6px #999999 solid;
+    height: 95px;
 }
 
 .caja {
     border-radius: 5px 5px 5px 5px;
     -moz-border-radius: 5px 5px 5px 5px;
     -webkit-border-radius: 5px 5px 5px 5px;
-    border: 0.8px #999999 solid;
+    border: 0.6px #999999 solid;
 }
 
 .titulocaja {
   font-family: 'Roboto', sans-serif;
     font-size: 110%;
-    font-weight: 500; 
+    font-weight: 500;
+    color: white;
     margin-top: 2%;
     text-align: center;
 }
 
+.titulo_observ {
+  font-family: 'Roboto', sans-serif;
+    font-size: 95%;
+    font-weight: 500;
+    margin-top: 2%;
+    color: #4d4d4d;
+}
+
 .cajacontenido {
     font-family: 'Roboto', sans-serif;
-    font-size: 100%;
+    font-size: 110%;
     font-weight: 400;
 }

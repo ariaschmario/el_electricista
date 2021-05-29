@@ -94,11 +94,13 @@ class GeneralRecomendationsUpdateView(UpdateView):
         self.object.save()
         if 'sigt' in self.request.POST:
             me = pdfcrowd.HtmlToPdfClient('ariaschmario', os.getenv('PDFCROWD_PASSWORD'))
-            context = {'ticket': Ticket.objects.get(superId=self.kwargs['slug'])}
+            secundarios = CentroCargaSecundario.objects.filter(
+                principal = Ticket.objects.get(superId = self.kwargs['slug']).centro_carga)
+            context = {'ticket': Ticket.objects.get(superId=self.kwargs['slug']), 'secundarios': secundarios}
+
             x = render_to_string('pdf.html', context)
 
             me.setPageSize(u'Letter')
-            me.setOrientation(u'landscape')
             response = HttpResponse(content_type='application/pdf')
             me.convertStringToStream(x, response)
 

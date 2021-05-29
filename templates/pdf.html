@@ -60,1106 +60,1307 @@
     </div>
 </header>
 
-    <div class="container-fluid top">
 
-        <div class="row">
-            <div class="col-12">
-                <h1 class="titleboleta">Informaci&oacute;n Cliente</h1>
+<div class="container-fluid top">
+
+    <div class="row">
+        <div class="col-12">
+            <h1 class="titleboleta">Informaci&oacute;n Cliente</h1>
+        </div>
+
+        <div class="col-6">
+            <div class="row">
+                <div class="col-12 cajatitulo">
+                    <h1 class="titulocaja">Tipo de identificaci&oacute;n </h1>
+                </div>
+                <div class="col-12 caja">
+                    <h4 class="cajacontenido">{{ ticket.client.get_idType_display }}</h4>
+                </div>
             </div>
-            <div class="col-4">
-                <div class="row">
-                    <div class="col-12 cajatitulo">
-                        <h1 class="titulocaja">Tipo de identificaci&oacute;n </h1>
-                    </div>
+        </div>
+        <div class="col-6">
+            <div class="row">
+                <div class="col-12 cajatitulo">
+                    <h1 class="titulocaja">identificaci&oacute;n</h1>
+                </div>
+                {% if ticket.client.legalId %}
                     <div class="col-12 caja">
-                        <h4 class="cajacontenido">{{ ticket.client.get_idType_display }}</h4>
+                        <h4 class="cajacontenido">{{ ticket.client.legalId }}</h4>
                     </div>
+                {% endif %}
+            </div>
+        </div>
+
+        <div class="col-6">
+            <div class="row">
+
+
+                <div class="col-12 cajatitulo">
+                    <h1 class="titulocaja">Nombre y Apellido</h1>
+                </div>
+                {% if ticket.client.name %}
+                    <div class="col-12 caja">
+                        <h4 class="cajacontenido">{{ ticket.client.name }}</h4>
+                    </div>
+                {% endif %}
+
+            </div>
+        </div>
+
+        <div class="col-6">
+            <div class="row">
+
+
+                <div class="col-12 cajatitulo">
+                    <h1 class="titulocaja">Teléfono</h1>
+                </div>
+                {% if ticket.client.phoneNumber %}
+                    <div class="col-12 caja">
+                        <h4 class="cajacontenido">{{ ticket.client.phoneNumber }}</h4>
+                    </div>
+                {% endif %}
+
+            </div>
+        </div>
+
+        <div class="col-6">
+            <div class="row">
+
+
+                <div class="col-12 cajatitulo">
+                    <h1 class="titulocaja">Correo Electrónico</h1>
+                </div>
+                {% if ticket.client.email %}
+                    <div class="col-12 caja">
+                        <h4 class="cajacontenido">{{ ticket.client.email }}</h4>
+                    </div>
+                {% endif %}
+
+            </div>
+        </div>
+
+        <div class="col-6">
+            <div class="row">
+
+
+                <div class="col-12 cajatitulo">
+                    <h1 class="titulocaja">Dirección</h1>
+                </div>
+                {% if ticket.client.adress %}
+                    <div class="col-12 caja_text">
+                        <h4 class="cajacontenido">{{ ticket.client.adress }}</h4>
+                    </div>
+                {% endif %}
+
+            </div>
+        </div>
+
+    </div>
+
+</div>
+
+
+<div class="container-fluid mt-1">
+
+    <div class="row">
+        <div class="col-12">
+            <h1 class="titleboleta-2">Informaci&oacute;n General</h1>
+        </div>
+
+
+        <div class="col-6">
+            <div class="row">
+
+
+                <div class="col-12 cajatitulo-2">
+                    <h1 class="titulocaja">Tipo de Visita</h1>
+                </div>
+                <div class="col-12 caja">
+                    <h4 class="cajacontenido">{{ ticket.general_info.get_kind_visit_display }}</h4>
+                </div>
+
+
+            </div>
+        </div>
+
+        <div class="col-6">
+            <div class="row">
+
+
+                <div class="col-12 cajatitulo-2">
+                    <h1 class="titulocaja">Tipo de inmueble</h1>
+                </div>
+                <div class="col-12 caja">
+                    <h4 class="cajacontenido">{{ ticket.general_info.get_property_type_display }}</h4>
+                </div>
+
+
+            </div>
+        </div>
+
+        <div class="col-6">
+            <div class="row">
+
+
+                <div class="col-12 cajatitulo-2">
+                    <h1 class="titulocaja">Empresa sup. servicio eléctrico</h1>
+                </div>
+                <div class="col-12 caja">
+                    <h4 class="cajacontenido">{{ ticket.general_info.get_company_display }}</h4>
+                </div>
+                <div class="col-12 caja">
+                    <h4 class="cajacontenido">Otra: {% if ticket.general_info.another_company %}
+                        {{ ticket.general_info.another_company }}{% endif %}</h4>
+                </div>
+
+
+            </div>
+        </div>
+
+        <div class="col-6">
+            <div class="row">
+
+                <div class="col-12 cajatitulo-2">
+                    <h1 class="titulocaja">Generación solar</h1>
+                </div>
+                <div class="col-12 caja">
+                    <h4 class="cajacontenido">{{ ticket.general_info.get_solar_generation_display }}</h4>
+                </div>
+
+                <div class="col-12 caja">
+                    <h4 class="cajacontenido">Capacidad equipada:{% if ticket.general_info.solar_generation_capacity %}
+                        {{ ticket.general_info.solar_generation_capacity }} {% endif %}</h4>
                 </div>
             </div>
-            <div class="col-4">
-                <div class="row">
-                    <div class="col-12 cajatitulo">
-                        <h1 class="titulocaja">identificaci&oacute;n</h1>
-                    </div>
-                    {% if ticket.client.legalId %}
-                        <div class="col-12 caja">
-                            <h4 class="cajacontenido">{{ ticket.client.legalId }}</h4>
-                        </div>
-                    {% endif %}
+        </div>
+
+        <div class="col-6">
+            <div class="row">
+
+
+                <div class="col-12 cajatitulo-2">
+                    <h1 class="titulocaja">Tipo de tarifa</h1>
+                </div>
+                <div class="col-12 caja">
+                    <h4 class="cajacontenido">{{ ticket.general_info.get_rate_type_display }}</h4>
+                </div>
+
+                <div class="col-12 caja">
+                    <h4 class="cajacontenido">Otro: {% if ticket.general_info.another_rate_type %}
+                        {{ ticket.general_info.another_rate_type }}{% endif %}</h4>
                 </div>
             </div>
+        </div>
 
-            <div class="col-4">
-                <div class="row">
+        <div class="col-6">
+            <div class="row">
 
 
-                    <div class="col-12 cajatitulo">
-                        <h1 class="titulocaja">Nombre y Apellido</h1>
-                    </div>
-                    {% if ticket.client.name %}
-                        <div class="col-12 caja">
-                            <h4 class="cajacontenido">{{ ticket.client.name }}</h4>
-                        </div>
-                    {% endif %}
+                <div class="col-12 cajatitulo-2">
+                    <h1 class="titulocaja">NISE/Localización</h1>
+                </div>
 
+                <div class="col-12 caja">
+                    <h4 class="cajacontenido">{% if ticket.general_info.nise_or_location %}
+                        {{ ticket.general_info.nise_or_location }}{% endif %}</h4>
                 </div>
             </div>
+        </div>
 
+        <div class="col-6">
+            <div class="row">
+
+
+                <div class="col-12 cajatitulo-2">
+                    <h1 class="titulocaja">N&uacute;mero de medidor</h1>
+                </div>
+
+                <div class="col-12 caja">
+                    <h4 class="cajacontenido">
+                        {% if ticket.general_info.meter_number %}{{ ticket.general_info.meter_number }}{% endif %}</h4>
+                </div>
+
+
+            </div>
         </div>
 
     </div>
 
 
-    <div class="container-fluid top">
-
-        <div class="row">
+</div>
 
 
-            <div class="col-4">
-                <div class="row">
+<div class="container-fluid top">
 
-
-                    <div class="col-12 cajatitulo">
-                        <h1 class="titulocaja">Telefono</h1>
-                    </div>
-                    {% if ticket.client.phoneNumber %}
-                        <div class="col-12 caja">
-                            <h4 class="cajacontenido">{{ ticket.client.phoneNumber }}</h4>
-                        </div>
-                    {% endif %}
-
-                </div>
-            </div>
-
-            <div class="col-4">
-                <div class="row">
-
-
-                    <div class="col-12 cajatitulo">
-                        <h1 class="titulocaja">Correo Electrónico</h1>
-                    </div>
-                    {% if ticket.client.email %}
-                        <div class="col-12 caja">
-                            <h4 class="cajacontenido">{{ ticket.client.email }}</h4>
-                        </div>
-                    {% endif %}
-
-                </div>
-            </div>
-
-            <div class="col-4">
-                <div class="row">
-
-
-                    <div class="col-12 cajatitulo">
-                        <h1 class="titulocaja">Dirección</h1>
-                    </div>
-                    {% if ticket.client.adress %}
-                        <div class="col-12 caja">
-                            <h4 class="cajacontenido">{{ ticket.client.adress }}</h4>
-                        </div>
-                    {% endif %}
-
-                </div>
-            </div>
-
+    <div class="row">
+        <div class="col-12">
+            <h1 class="titleboleta-3">Equipo Acometida</h1>
         </div>
 
-    </div>
+
+        <div class="col-6">
+            <div class="row">
 
 
-    <div class="container-fluid top">
-
-        <div class="row">
-            <div class="col-12">
-                <h1 class="titleboleta">Informaci&oacute;n General</h1>
-            </div>
-
-
-            <div class="col-4">
-                <div class="row">
-
-
-                    <div class="col-12 cajatitulo">
-                        <h1 class="titulocaja">Tipo de Visita</h1>
-                    </div>
-                    <div class="col-12 caja">
-                        <h4 class="cajacontenido">{{ ticket.general_info.get_kind_visit_display }}</h4>
-                    </div>
-
-
+                <div class="col-12 cajatitulo-3">
+                    <h1 class="titulocaja">Bajante de acometída</h1>
                 </div>
-            </div>
-
-            <div class="col-4">
-                <div class="row">
-
-
-                    <div class="col-12 cajatitulo">
-                        <h1 class="titulocaja">Tipo de inmueble</h1>
-                    </div>
-                    <div class="col-12 caja">
-                        <h4 class="cajacontenido">{{ ticket.general_info.get_property_type_display }}</h4>
-                    </div>
-
-
+                <div class="col-12 caja">
+                    <h4 class="cajacontenido">{{ ticket.equipo_acometida.get_bajante_acometida_display }}</h4>
                 </div>
+
+
             </div>
-
-            <div class="col-4">
-                <div class="row">
-
-
-                    <div class="col-12 cajatitulo">
-                        <h1 class="titulocaja">Empresa sup. servicio eléctrico</h1>
-                    </div>
-                    <div class="col-12 caja">
-                        <h4 class="cajacontenido">{{ ticket.general_info.get_company_display }}</h4>
-                    </div>
-                    {% if ticket.general_info.another_company %}
-                        <div class="col-12 caja">
-                            <h4 class="cajacontenido">{{ ticket.general_info.another_company }}</h4>
-                        </div>
-                    {% endif %}
-
-
-                </div>
-            </div>
-
         </div>
 
-    </div>
+        <div class="col-6">
+            <div class="row">
 
-    <div class="container-fluid top">
 
-        <div class="row">
-
-            <div class="col-4">
-                <div class="row">
-
-                    <div class="col-12 cajatitulo">
-                        <h1 class="titulocaja">Generación solar</h1>
-                    </div>
-                    <div class="col-12 caja">
-                        <h4 class="cajacontenido">{{ ticket.general_info.get_solar_generation_display }}</h4>
-                    </div>
-                    {% if ticket.general_info.solar_generation_capacity %}
-                        <div class="col-12 caja">
-                            <h4 class="cajacontenido">Capacidad
-                                equipada: {{ ticket.general_info.solar_generation_capacity }}</h4>
-                        </div>
-                    {% endif %}
+                <div class="col-12 cajatitulo-3">
+                    <h1 class="titulocaja">Equipo de Medición</h1>
                 </div>
-            </div>
-
-            <div class="col-4">
-                <div class="row">
-
-
-                    <div class="col-12 cajatitulo">
-                        <h1 class="titulocaja">Tipo de tarifa</h1>
-                    </div>
-                    <div class="col-12 caja">
-                        <h4 class="cajacontenido">{{ ticket.general_info.get_rate_type_display }}</h4>
-                    </div>
-                    {% if ticket.general_info.another_rate_type %}
-                        <div class="col-12 caja">
-                            <h4 class="cajacontenido">{{ ticket.general_info.another_rate_type }}</h4>
-                        </div>
-                    {% endif %}
-
+                <div class="col-12 caja">
+                    <h4 class="cajacontenido">{{ ticket.equipo_acometida.get_equipo_medicion_display }}</h4>
                 </div>
-            </div>
 
-            <div class="col-4">
-                <div class="row">
-
-
-                    <div class="col-12 cajatitulo">
-                        <h1 class="titulocaja">NISE/Localización</h1>
-                    </div>
-                    {% if ticket.general_info.nise_or_location %}
-                        <div class="col-12 caja">
-                            <h4 class="cajacontenido">{{ ticket.general_info.nise_or_location }}</h4>
-                        </div>
-                    {% endif %}
-
+                <div class="col-12 caja">
+                    <h4 class="cajacontenido">Otro: {% if ticket.equipo_acometida.equipo_medicion_especifique %}
+                        {{ ticket.equipo_acometida.equipo_medicion_especifique }}{% endif %}</h4>
                 </div>
+
+
             </div>
         </div>
-    </div>
-</br></br></br></br>
-    <div class="container-fluid top">
 
-        <div class="row">
-            <div class="col-4 top">
-                <div class="row">
+        <div class="col-6">
+            <div class="row">
 
 
-                    <div class="col-12 cajatitulo">
-                        <h1 class="titulocaja">N&uacute;mero de medidor</h1>
-                    </div>
-                    {% if ticket.general_info.meter_number %}
-                        <div class="col-12 caja">
-                            <h4 class="cajacontenido">{{ ticket.general_info.meter_number }}</h4>
-                        </div>
-                    {% endif %}
-
+                <div class="col-12 cajatitulo-3">
+                    <h1 class="titulocaja">Estado del interruptor principal:</h1>
                 </div>
+                <div class="col-12 caja">
+                    <h4 class="cajacontenido">{{ ticket.equipo_acometida.get_estado_interruptor_display }}</h4>
+                </div>
+
+                <div class="col-12 caja_text">
+                    <h5 class="titulo_observ">Observación:</h5>
+                    <h4 class="cajacontenido">{% if ticket.equipo_acometida.estado_interruptor_especifique %}
+                        {{ ticket.equipo_acometida.estado_interruptor_especifique }}{% endif %}</h4>
+                </div>
+
+
             </div>
         </div>
-    </div>
 
 
-
-    <div class="container-fluid top">
-
-        <div class="row">
-            <div class="col-12">
-                <h1 class="titleboleta">Equipo Acometida</h1>
-            </div>
+        <div class="col-6">
+            <div class="row">
 
 
-            <div class="col-4">
-                <div class="row">
-
-
-                    <div class="col-12 cajatitulo">
-                        <h1 class="titulocaja">Bajante de acometída</h1>
-                    </div>
-                    <div class="col-12 caja">
-                        <h4 class="cajacontenido">{{ ticket.equipo_acometida.get_bajante_acometida_display }}</h4>
-                    </div>
-
-
+                <div class="col-12 cajatitulo-3">
+                    <h1 class="titulocaja">Estado de los alimentadores principales:</h1>
                 </div>
-            </div>
-
-            <div class="col-4">
-                <div class="row">
-
-
-                    <div class="col-12 cajatitulo">
-                        <h1 class="titulocaja">Equipo de Medición</h1>
-                    </div>
-                    <div class="col-12 caja">
-                        <h4 class="cajacontenido">{{ ticket.equipo_acometida.get_equipo_medicion_display }}</h4>
-                    </div>
-                    {% if ticket.equipo_acometida.equipo_medicion_especifique %}
-                        <div class="col-12 caja">
-                            <h4 class="cajacontenido">{{ ticket.equipo_acometida.equipo_medicion_especifique }}</h4>
-                        </div>
-                    {% endif %}
-
-
+                <div class="col-12 caja">
+                    <h4 class="cajacontenido">{{ ticket.equipo_acometida.get_estado_alimentadores_display }}</h4>
                 </div>
-            </div>
 
-            <div class="col-4">
-                <div class="row">
-
-
-                    <div class="col-12 cajatitulo">
-                        <h1 class="titulocaja">Estado del interruptor principal:</h1>
-                    </div>
-                    <div class="col-12 caja">
-                        <h4 class="cajacontenido">{{ ticket.equipo_acometida.get_estado_interruptor_display }}</h4>
-                    </div>
-                    {% if ticket.equipo_acometida.estado_interruptor_especifique %}
-                        <div class="col-12 caja">
-                            <h4 class="cajacontenido">{{ ticket.equipo_acometida.estado_interruptor_especifique }}</h4>
-                        </div>
-                    {% endif %}
-
+                <div class="col-12 caja_text">
+                    <h5 class="titulo_observ">Observación:</h5>
+                    <h4 class="cajacontenido">{% if ticket.equipo_acometida.estado_alimentadores_especifique %}
+                        {{ ticket.equipo_acometida.estado_alimentadores_especifique }}{% endif %}</h4>
                 </div>
-            </div>
 
+            </div>
         </div>
 
-    </div>
+        <div class="col-6">
+            <div class="row">
 
 
-    <div class="container-fluid top">
-
-        <div class="row">
-
-
-            <div class="col-4">
-                <div class="row">
-
-
-                    <div class="col-12 cajatitulo">
-                        <h1 class="titulocaja">Estado de los alimentadores principales:</h1>
-                    </div>
-                    <div class="col-12 caja">
-                        <h4 class="cajacontenido">{{ ticket.equipo_acometida.get_estado_alimentadores_display }}</h4>
-                    </div>
-                    {% if ticket.equipo_acometida.estado_alimentadores_especifique %}
-                        <div class="col-12 caja">
-                            <h4 class="cajacontenido">{{ ticket.equipo_acometida.estado_alimentadores_especifique }}</h4>
-                        </div>
-                    {% endif %}
+                <div class="col-12 cajatitulo-3">
+                    <h1 class="titulocaja">Calibre conductores:  </br>(F1, F2, F3, N, T)</h1>
                 </div>
-            </div>
 
-            <div class="col-4">
-                <div class="row">
+                <div class="col-12 caja">
+                    <div class="form-group top">
 
-
-                    <div class="col-12 cajatitulo">
-                        <h1 class="titulocaja">Calibre conductores:
-                            <br>(F1, F2, F3, N, T)</h1>
-                    </div>
-
-                    <div class="col-12 caja">
-                        <div class="form-group top">
-
-                            <div class="row">
-                                <div class="col-6">
-                                    <div class="input-group mb-2 mr-sm-2">
-                                        <div class="input-group-prepend">
-                                            <div class="input-group-text">F1</div>
-                                        </div>
-                                        <input type="text" class="form-control" 
-                                                {% if ticket.equipo_acometida.calibre_conductores_f1 %}
-                                               value="{{ ticket.equipo_acometida.calibre_conductores_f1 }}" {% endif %}>
+                        <div class="row">
+                            <div class="col-6">
+                                <div class="input-group mb-2 mr-sm-2">
+                                    <div class="input-group-prepend">
+                                        <div class="input-group-text">F1</div>
                                     </div>
+                                    <input type="text" class="form-control"
+                                            {% if ticket.equipo_acometida.calibre_conductores_f1 %}
+                                           value="{{ ticket.equipo_acometida.calibre_conductores_f1 }}" {% endif %}>
                                 </div>
-
-                                <div class="col-6">
-                                    <div class="input-group mb-2 mr-sm-2">
-                                        <div class="input-group-prepend">
-                                            <div class="input-group-text">F2</div>
-                                        </div>
-                                        <input type="text" class="form-control" 
-                                                {% if ticket.equipo_acometida.calibre_conductores_f2 %}
-                                               value="{{ ticket.equipo_acometida.calibre_conductores_f2 }}" {% endif %}>
-                                    </div>
-                                </div>
-
-                                <div class="col-6">
-                                    <div class="input-group mb-2 mr-sm-2">
-                                        <div class="input-group-prepend">
-                                            <div class="input-group-text">F3</div>
-                                        </div>
-                                        <input type="text" class="form-control" 
-                                                {% if ticket.equipo_acometida.calibre_conductores_f3 %}
-                                               value="{{ ticket.equipo_acometida.calibre_conductores_f3 }}" {% endif %}>
-                                    </div>
-                                </div>
-
-                                <div class="col-6">
-                                    <div class="input-group mb-2 mr-sm-2">
-                                        <div class="input-group-prepend">
-                                            <div class="input-group-text">N</div>
-                                        </div>
-                                        <input type="text" class="form-control" 
-                                                {% if ticket.equipo_acometida.calibre_conductores_n %}
-                                               value="{{ ticket.equipo_acometida.calibre_conductores_n }}" {% endif %}>
-                                    </div>
-                                </div>
-
-                                <div class="col-6">
-                                    <div class="input-group mb-2 mr-sm-2">
-                                        <div class="input-group-prepend">
-                                            <div class="input-group-text">T</div>
-                                        </div>
-                                        <input type="text" class="form-control" 
-                                                {% if ticket.equipo_acometida.calibre_conductores_t %}
-                                               value="{{ ticket.equipo_acometida.calibre_conductores_t }}" {% endif %}>
-                                    </div>
-                                </div>
-
                             </div>
 
-
-                        </div>
-
-                    </div>
-
-
-                </div>
-            </div>
-
-            <div class="col-4">
-                <div class="row">
-
-
-                    <div class="col-12 cajatitulo">
-                        <h1 class="titulocaja">Voltajes entrada:
-                            <br>(F1, F2, F3, F1+F2, F2+F3, F1+F3)</h1>
-                    </div>
-                    <div class="col-12 caja">
-                        <div class="form-group top">
-
-                            <div class="row">
-                                <div class="col-6">
-                                    <div class="input-group mb-2 mr-sm-2">
-                                        <div class="input-group-prepend">
-                                            <div class="input-group-text">F1</div>
-                                        </div>
-                                        <input type="text" class="form-control" 
-                                                {% if ticket.equipo_acometida.voltajes_entrada_f1 %}
-                                               value="{{ ticket.equipo_acometida.voltajes_entrada_f1 }}" {% endif %}>
+                            <div class="col-6">
+                                <div class="input-group mb-2 mr-sm-2">
+                                    <div class="input-group-prepend">
+                                        <div class="input-group-text">F2</div>
                                     </div>
+                                    <input type="text" class="form-control"
+                                            {% if ticket.equipo_acometida.calibre_conductores_f2 %}
+                                           value="{{ ticket.equipo_acometida.calibre_conductores_f2 }}" {% endif %}>
                                 </div>
-
-                                <div class="col-6">
-                                    <div class="input-group mb-2 mr-sm-2">
-                                        <div class="input-group-prepend">
-                                            <div class="input-group-text">F2</div>
-                                        </div>
-                                        <input type="text" class="form-control" 
-                                                {% if ticket.equipo_acometida.voltajes_entrada_f2 %}
-                                               value="{{ ticket.equipo_acometida.voltajes_entrada_f2 }}" {% endif %}>
-                                    </div>
-                                </div>
-
-                                <div class="col-6">
-                                    <div class="input-group mb-2 mr-sm-2">
-                                        <div class="input-group-prepend">
-                                            <div class="input-group-text">F3</div>
-                                        </div>
-                                        <input type="text" class="form-control" 
-                                                {% if ticket.equipo_acometida.voltajes_entrada_f3 %}
-                                               value="{{ ticket.equipo_acometida.voltajes_entrada_f3 }}" {% endif %}>
-                                    </div>
-                                </div>
-
-                                <div class="col-6">
-                                    <div class="input-group mb-2 mr-sm-2">
-                                        <div class="input-group-prepend">
-                                            <div class="input-group-text">F1+F2</div>
-                                        </div>
-                                        <input type="text" class="form-control" 
-                                                {% if ticket.equipo_acometida.voltajes_entrada_f1_f2 %}
-                                               value="{{ ticket.equipo_acometida.voltajes_entrada_f1_f2 }}" {% endif %}>
-                                    </div>
-                                </div>
-
-                                <div class="col-6">
-                                    <div class="input-group mb-2 mr-sm-2">
-                                        <div class="input-group-prepend">
-                                            <div class="input-group-text">F2+F3</div>
-                                        </div>
-                                        <input type="text" class="form-control" 
-                                                {% if ticket.equipo_acometida.voltajes_entrada_f2_f3 %}
-                                               value="{{ ticket.equipo_acometida.voltajes_entrada_f2_f3 }}" {% endif %}>
-                                    </div>
-                                </div>
-
-                                <div class="col-6">
-                                    <div class="input-group mb-2 mr-sm-2">
-                                        <div class="input-group-prepend">
-                                            <div class="input-group-text">F1+F3</div>
-                                        </div>
-                                        <input type="text" class="form-control" 
-                                                {% if ticket.equipo_acometida.voltajes_entrada_f1_f3 %}
-                                               value="{{ ticket.equipo_acometida.voltajes_entrada_f1_f3 }}" {% endif %}>
-                                    </div>
-                                </div>
-
                             </div>
 
-
-                        </div>
-
-                    </div>
-
-
-                </div>
-            </div>
-
-</br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br>
-            <div class="col-4 top">
-                <div class="row">
-
-
-                    <div class="col-12 cajatitulo">
-                        <h1 class="titulocaja">Corriente entrada: (F1, F2, F3,)</h1>
-                    </div>
-                    <div class="col-12 caja">
-                        <div class="form-group top">
-
-                            <div class="row">
-                                <div class="col-6">
-                                    <div class="input-group mb-2 mr-sm-2">
-                                        <div class="input-group-prepend">
-                                            <div class="input-group-text">F1</div>
-                                        </div>
-                                        <input type="text" class="form-control" 
-                                                {% if ticket.equipo_acometida.corriente_entrada_f1 %}
-                                               value="{{ ticket.equipo_acometida.corriente_entrada_f1 }}" {% endif %}>
+                            <div class="col-6">
+                                <div class="input-group mb-2 mr-sm-2">
+                                    <div class="input-group-prepend">
+                                        <div class="input-group-text">F3</div>
                                     </div>
+                                    <input type="text" class="form-control"
+                                            {% if ticket.equipo_acometida.calibre_conductores_f3 %}
+                                           value="{{ ticket.equipo_acometida.calibre_conductores_f3 }}" {% endif %}>
                                 </div>
-
-                                <div class="col-6">
-                                    <div class="input-group mb-2 mr-sm-2">
-                                        <div class="input-group-prepend">
-                                            <div class="input-group-text">F2</div>
-                                        </div>
-                                        <input type="text" class="form-control" 
-                                                {% if ticket.equipo_acometida.corriente_entrada_f2 %}
-                                               value="{{ ticket.equipo_acometida.corriente_entrada_f2 }}" {% endif %}>
-                                    </div>
-                                </div>
-
-                                <div class="col-6">
-                                    <div class="input-group mb-2 mr-sm-2">
-                                        <div class="input-group-prepend">
-                                            <div class="input-group-text">F3</div>
-                                        </div>
-                                        <input type="text" class="form-control" 
-                                                {% if ticket.equipo_acometida.corriente_entrada_f3 %}
-                                               value="{{ ticket.equipo_acometida.corriente_entrada_f3 }}" {% endif %}>
-                                    </div>
-                                </div>
-
                             </div>
 
+                            <div class="col-6">
+                                <div class="input-group mb-2 mr-sm-2">
+                                    <div class="input-group-prepend">
+                                        <div class="input-group-text">N</div>
+                                    </div>
+                                    <input type="text" class="form-control"
+                                            {% if ticket.equipo_acometida.calibre_conductores_n %}
+                                           value="{{ ticket.equipo_acometida.calibre_conductores_n }}" {% endif %}>
+                                </div>
+                            </div>
+
+                            <div class="col-6">
+                                <div class="input-group mb-2 mr-sm-2">
+                                    <div class="input-group-prepend">
+                                        <div class="input-group-text">T</div>
+                                    </div>
+                                    <input type="text" class="form-control"
+                                            {% if ticket.equipo_acometida.calibre_conductores_t %}
+                                           value="{{ ticket.equipo_acometida.calibre_conductores_t }}" {% endif %}>
+                                </div>
+                            </div>
 
                         </div>
 
-                    </div>
 
+                    </div>
 
                 </div>
+
+
             </div>
-
-            <div class="col-4 top">
-                <div class="row">
+        </div>
 
 
-                    <div class="col-12 cajatitulo">
-                        <h1 class="titulocaja">Estado de puesta a tierra:</h1>
-                    </div>
-                    <div class="col-12 caja">
-                        <h4 class="cajacontenido">{{ ticket.equipo_acometida.get_estado_puesta_display }}</h4>
-                    </div>
-                    {% if ticket.equipo_acometida.estado_puesta_especifique %}
-                        <div class="col-12 caja">
-                            <h4 class="cajacontenido">{{ ticket.equipo_acometida.estado_puesta_especifique }}</h4>
+        <div class="col-6">
+            <div class="row">
+
+
+                <div class="col-12 cajatitulo-3">
+                    <h1 class="titulocaja">Voltajes entrada:
+                        <br>(F1, F2, F3, F1+F2, F2+F3, F1+F3)</h1>
+                </div>
+                <div class="col-12 caja">
+                    <div class="form-group top">
+
+                        <div class="row">
+                            <div class="col-6">
+                                <div class="input-group mb-2 mr-sm-2">
+                                    <div class="input-group-prepend">
+                                        <div class="input-group-text">F1</div>
+                                    </div>
+                                    <input type="text" class="form-control"
+                                            {% if ticket.equipo_acometida.voltajes_entrada_f1 %}
+                                           value="{{ ticket.equipo_acometida.voltajes_entrada_f1 }}" {% endif %}>
+                                </div>
+                            </div>
+
+                            <div class="col-6">
+                                <div class="input-group mb-2 mr-sm-2">
+                                    <div class="input-group-prepend">
+                                        <div class="input-group-text">F2</div>
+                                    </div>
+                                    <input type="text" class="form-control"
+                                            {% if ticket.equipo_acometida.voltajes_entrada_f2 %}
+                                           value="{{ ticket.equipo_acometida.voltajes_entrada_f2 }}" {% endif %}>
+                                </div>
+                            </div>
+
+                            <div class="col-6">
+                                <div class="input-group mb-2 mr-sm-2">
+                                    <div class="input-group-prepend">
+                                        <div class="input-group-text">F3</div>
+                                    </div>
+                                    <input type="text" class="form-control"
+                                            {% if ticket.equipo_acometida.voltajes_entrada_f3 %}
+                                           value="{{ ticket.equipo_acometida.voltajes_entrada_f3 }}" {% endif %}>
+                                </div>
+                            </div>
+
+                            <div class="col-6">
+                                <div class="input-group mb-2 mr-sm-2">
+                                    <div class="input-group-prepend">
+                                        <div class="input-group-text">F1+F2</div>
+                                    </div>
+                                    <input type="text" class="form-control"
+                                            {% if ticket.equipo_acometida.voltajes_entrada_f1_f2 %}
+                                           value="{{ ticket.equipo_acometida.voltajes_entrada_f1_f2 }}" {% endif %}>
+                                </div>
+                            </div>
+
+                            <div class="col-6">
+                                <div class="input-group mb-2 mr-sm-2">
+                                    <div class="input-group-prepend">
+                                        <div class="input-group-text">F2+F3</div>
+                                    </div>
+                                    <input type="text" class="form-control"
+                                            {% if ticket.equipo_acometida.voltajes_entrada_f2_f3 %}
+                                           value="{{ ticket.equipo_acometida.voltajes_entrada_f2_f3 }}" {% endif %}>
+                                </div>
+                            </div>
+
+                            <div class="col-6">
+                                <div class="input-group mb-2 mr-sm-2">
+                                    <div class="input-group-prepend">
+                                        <div class="input-group-text">F1+F3</div>
+                                    </div>
+                                    <input type="text" class="form-control"
+                                            {% if ticket.equipo_acometida.voltajes_entrada_f1_f3 %}
+                                           value="{{ ticket.equipo_acometida.voltajes_entrada_f1_f3 }}" {% endif %}>
+                                </div>
+                            </div>
+
                         </div>
-                    {% endif %}
+
+
+                    </div>
+
                 </div>
+
+
             </div>
-
-            <div class="col-4 top">
-                <div class="row">
+        </div>
 
 
-                    <div class="col-12 cajatitulo">
-                        <h1 class="titulocaja">Estado neutro:</h1>
-                    </div>
-                    <div class="col-12 caja">
-                        <h4 class="cajacontenido">{{ ticket.equipo_acometida.get_estado_neutro_display }}</h4>
-                    </div>
-                    {% if ticket.equipo_acometida.estado_neutro_especifique %}
-                        <div class="col-12 caja">
-                            <h4 class="cajacontenido"> {{ ticket.equipo_acometida.estado_neutro_especifique }} </h4>
+        <div class="col-6">
+            <div class="row">
+
+
+                <div class="col-12 cajatitulo-3">
+                    <h1 class="titulocaja">Corriente entrada: (F1, F2, F3,)</h1>
+                </div>
+                <div class="col-12 caja">
+                    <div class="form-group top">
+
+                        <div class="row">
+                            <div class="col-6">
+                                <div class="input-group mb-2 mr-sm-2">
+                                    <div class="input-group-prepend">
+                                        <div class="input-group-text">F1</div>
+                                    </div>
+                                    <input type="text" class="form-control"
+                                            {% if ticket.equipo_acometida.corriente_entrada_f1 %}
+                                           value="{{ ticket.equipo_acometida.corriente_entrada_f1 }}" {% endif %}>
+                                </div>
+                            </div>
+
+                            <div class="col-6">
+                                <div class="input-group mb-2 mr-sm-2">
+                                    <div class="input-group-prepend">
+                                        <div class="input-group-text">F2</div>
+                                    </div>
+                                    <input type="text" class="form-control"
+                                            {% if ticket.equipo_acometida.corriente_entrada_f2 %}
+                                           value="{{ ticket.equipo_acometida.corriente_entrada_f2 }}" {% endif %}>
+                                </div>
+                            </div>
+
+                            <div class="col-6">
+                                <div class="input-group mb-2 mr-sm-2">
+                                    <div class="input-group-prepend">
+                                        <div class="input-group-text">F3</div>
+                                    </div>
+                                    <input type="text" class="form-control"
+                                            {% if ticket.equipo_acometida.corriente_entrada_f3 %}
+                                           value="{{ ticket.equipo_acometida.corriente_entrada_f3 }}" {% endif %}>
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="input-group mb-2 mr-sm-2">
+                                    <div class="input-group-prepend">
+                                        <div class="input-group-text">F3</div>
+                                    </div>
+                                    <input type="text" class="form-control"
+                                            {% if ticket.equipo_acometida.corriente_entrada_n %}
+                                           value="{{ ticket.equipo_acometida.corriente_entrada_n }}" {% endif %}>
+                                </div>
+                            </div>
+
                         </div>
-                    {% endif %}
-                </div>
-            </div>
-
-            <div class="col-4 top">
-                <div class="row">
 
 
-                    <div class="col-12 cajatitulo">
-                        <h1 class="titulocaja">Resultado equipo acometida:</h1>
                     </div>
-                    {% if ticket.equipo_acometida.resultado %}
-                        <div class="col-12 caja">
-                            <h4 class="cajacontenido">{{ ticket.equipo_acometida.resultado }} </h4>
-                        </div>
-                    {% endif %}
+
                 </div>
+
+
             </div>
+        </div>
+
+        <div class="col-6">
+            <div class="row">
+
+
+                <div class="col-12 cajatitulo-3">
+                    <h1 class="titulocaja">Estado de puesta a tierra:</h1>
+                </div>
+                <div class="col-12 caja">
+                    <h4 class="cajacontenido">{{ ticket.equipo_acometida.get_estado_puesta_display }}</h4>
+                </div>
+
+                <div class="col-12 caja_text">
+                    <h5 class="titulo_observ">Observación:</h5>
+                    <h4 class="cajacontenido">{% if ticket.equipo_acometida.estado_puesta_especifique %}
+                        {{ ticket.equipo_acometida.estado_puesta_especifique }}{% endif %}</h4>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="col-6">
+            <div class="row">
+
+
+                <div class="col-12 cajatitulo-3">
+                    <h1 class="titulocaja">Estado neutro:</h1>
+                </div>
+                <div class="col-12 caja">
+                    <h4 class="cajacontenido">{{ ticket.equipo_acometida.get_estado_neutro_display }}</h4>
+                </div>
+
+                <div class="col-12 caja_text">
+                    <h5 class="titulo_observ">Observación:</h5>
+                    <h4 class="cajacontenido">{% if ticket.equipo_acometida.estado_neutro_especifique %}
+                        {{ ticket.equipo_acometida.estado_neutro_especifique }}{% endif %}</h4>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="col-6">
+            <div class="row">
+
+
+                <div class="col-12 cajatitulo-3">
+                    <h1 class="titulocaja">Resultado equipo acometida:</h1>
+                </div>
+
+                <div class="col-12 caja_text">
+                    <h4 class="cajacontenido">{% if ticket.equipo_acometida.resultado %}
+                        {{ ticket.equipo_acometida.resultado }} {% endif %}</h4>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="col-12 mt-5">
+            <p class="cajacontenido"><strong>Notas de equipo de acometida:</strong></br>
+                <strong>1.</strong> Bajante de acometida comprende el tubo metálico con cables alimentadores del medidor
+                hacía el punto de
+                entrega del servicio (en instalaciones subterráneas el punto de entrega es en un registro de piso).</br>
+                <strong>2.</strong> Equipo de medición comprende la base y el wattometro de la empresa que vende
+                servicio eléctrico.</br>
+                <strong>3.</strong> El interruptor principal es el medio de desconexión principal, generalmente es un
+                breaker o bien
+                porta fusibles acordes a la capacidad de corriente máxima de los cables de acometida.</br>
+                <strong>4.</strong> Los alimentadores son los cables de FASES, NEUTRO Y TIERRA que van desde el breaker
+                principal hasta
+                la caja de breaker (centro de carga).</br>
+                <strong>5.</strong> Los voltajes de entrada residencial tienen un valor nominal de 120v por fase y 240v
+                entre fases,
+                estos pueden variar 5% más/menos. Existen conexión en edificios de apartamentos con voltaje de 120v por
+                fase y 208v entre fases.</br>
+                <strong>6.</strong> La potencia se cuantifica en WATTS (W) y su corriente se cuantifica en AMPERIOS
+                (A).</br>
+                <strong>7.</strong> La puesta tierra es una conexión de “drenaje eléctrico”, su función principal es
+                ofrecer un camino
+                seguro de descarga tan importante cómo los demás conductores de la acometida.</p>
         </div>
 
     </div>
 
-</br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br>
-    <div class="container-fluid top">
+
+</div>
+
+
+<div class="container-fluid" style="margin-top: 70%;">
+
+    <div class="row">
+        <div class="col-12">
+            <h1 class="titleboleta-4">Centro de Carga</h1>
+        </div>
+
+
+        <div class="col-6">
+            <div class="row">
+
+
+                <div class="col-12 cajatitulo-4">
+                    <h1 class="titulocaja">Marca y No. Catalago:</h1>
+                </div>
+
+                <div class="col-12 caja">
+                    <h4 class="cajacontenido">{% if ticket.centro_carga.marca_catalogo %}
+                        {{ ticket.centro_carga.marca_catalogo }}{% endif %}</h4>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="col-6">
+            <div class="row">
+
+
+                <div class="col-12 cajatitulo-4">
+                    <h1 class="titulocaja">Espacios Ocupados:</h1>
+                </div>
+
+                <div class="col-12 caja">
+                    <h4 class="cajacontenido">{% if ticket.centro_carga.espacios_ocupados %}
+                        {{ ticket.centro_carga.espacios_ocupados }}{% endif %} </h4>
+                </div>
+
+
+            </div>
+        </div>
+
+        <div class="col-6">
+            <div class="row">
+
+
+                <div class="col-12 cajatitulo-4">
+                    <h1 class="titulocaja">Estado general del tablero:</h1>
+                </div>
+                <div class="col-12 caja">
+                    <h4 class="cajacontenido">{{ ticket.centro_carga.get_estado_tablero_display }}</h4>
+                </div>
+
+                <div class="col-12 caja_text">
+                    <h5 class="titulo_observ">Observación:</h5>
+                    <h4 class="cajacontenido">{% if ticket.centro_carga.estado_tablero_especifique %}
+                        {{ ticket.centro_carga.estado_tablero_especifique }} {% endif %}</h4>
+                </div>
+
+            </div>
+        </div>
+
+
+        <div class="col-6">
+            <div class="row">
+
+
+                <div class="col-12 cajatitulo-4">
+                    <h1 class="titulocaja">Ubicación:</h1>
+                </div>
+                <div class="col-12 caja">
+                    <h4 class="cajacontenido">{{ ticket.centro_carga.get_ubicacion_display }}</h4>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-6">
+            <div class="row">
+
+
+                <div class="col-12 cajatitulo-4">
+                    <h1 class="titulocaja">Canalización:</h1>
+                </div>
+                <div class="col-12 caja">
+                    <h4 class="cajacontenido">{{ ticket.centro_carga.get_canalizacion_display }}</h4>
+                </div>
+
+                <div class="col-12 caja_text">
+                    <h5 class="titulo_observ">Observación:</h5>
+                    <h4 class="cajacontenido">{% if ticket.centro_carga.canalizacion_especifique %}
+                        {{ ticket.centro_carga.canalizacion_especifique }}{% endif %}</h4>
+                </div>
+
+
+                <div class="col-12 caja_text">
+                    <h5 class="titulo_observ">Distancia:</h5>
+                    <h4 class="cajacontenido">{% if ticket.centro_carga.canalizacion_distancia %}
+                        {{ ticket.centro_carga.canalizacion_distancia }} {% endif %}</h4>
+                </div>
+
+
+            </div>
+        </div>
+
+        <div class="col-6">
+            <div class="row">
+
+
+                <div class="col-12 cajatitulo-4">
+                    <h1 class="titulocaja">Condición general de los tableros:</h1>
+                </div>
+                <div class="col-12 caja">
+                    <h4 class="cajacontenido">{{ ticket.centro_carga.get_estado_tablero_display }}</h4>
+                </div>
+
+                <div class="col-12 caja_text">
+                    <h5 class="titulo_observ">Observación:</h5>
+                    <h4 class="cajacontenido">{% if ticket.centro_carga.estado_tablero_especifique %}
+                        {{ ticket.centro_carga.estado_tablero_especifique }} {% endif %}</h4>
+                </div>
+
+
+            </div>
+        </div>
+
+        <div class="col-6">
+            <div class="row">
+
+
+                <div class="col-12 cajatitulo-4">
+                    <h1 class="titulocaja">Puesta a tierra:</h1>
+                </div>
+                <div class="col-12 caja">
+                    <h4 class="cajacontenido">{{ ticket.centro_carga.get_estado_puesta_display }}</h4>
+                </div>
+
+                <div class="col-12 caja_text">
+                    <h5 class="titulo_observ">Observación:</h5>
+                    <h4 class="cajacontenido">{% if ticket.centro_carga.estado_puesta_especifique %}
+                        {{ ticket.centro_carga.estado_puesta_especifique }} {% endif %}</h4>
+                </div>
+
+
+            </div>
+        </div>
+        <div class="col-6">
+            <div class="row">
+
+
+                <div class="col-12 cajatitulo-4">
+                    <h1 class="titulocaja">Prueba de carga:
+                        (F1, F2, F3, N)</h1>
+                </div>
+                <div class="col-12 caja">
+                    <div class="form-group top">
+
+                        <div class="row">
+                            <div class="col-6">
+                                <div class="input-group mb-2 mr-sm-2">
+                                    <div class="input-group-prepend">
+                                        <div class="input-group-text">F1-v</div>
+                                    </div>
+                                    <input type="text" class="form-control"
+                                            {% if ticket.centro_carga.prueba_carga_f1_v %}
+                                           value="{{ ticket.centro_carga.prueba_carga_f1_v }}" {% endif %}>
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="input-group mb-2 mr-sm-2">
+                                    <div class="input-group-prepend">
+                                        <div class="input-group-text">F1-A</div>
+                                    </div>
+                                    <input type="text" class="form-control"
+                                            {% if ticket.centro_carga.prueba_carga_f1_a %}
+                                           value="{{ ticket.centro_carga.prueba_carga_f1_a }}" {% endif %}>
+                                </div>
+                            </div>
+
+                            <div class="col-6">
+                                <div class="input-group mb-2 mr-sm-2">
+                                    <div class="input-group-prepend">
+                                        <div class="input-group-text">F2-v</div>
+                                    </div>
+                                    <input type="text" class="form-control"
+                                            {% if ticket.centro_carga.prueba_carga_f2_v %}
+                                           value="{{ ticket.centro_carga.prueba_carga_f2_v }}" {% endif %}>
+                                </div>
+                            </div>
+
+                            <div class="col-6">
+                                <div class="input-group mb-2 mr-sm-2">
+                                    <div class="input-group-prepend">
+                                        <div class="input-group-text">F2-A</div>
+                                    </div>
+                                    <input type="text" class="form-control"
+                                            {% if ticket.centro_carga.prueba_carga_f2_a %}
+                                           value="{{ ticket.centro_carga.prueba_carga_f2_a }}" {% endif %}>
+                                </div>
+                            </div>
+
+                            <div class="col-6">
+                                <div class="input-group mb-2 mr-sm-2">
+                                    <div class="input-group-prepend">
+                                        <div class="input-group-text">F3-v</div>
+                                    </div>
+                                    <input type="text" class="form-control"
+                                            {% if ticket.centro_carga.prueba_carga_f3_v %}
+                                           value="{{ ticket.centro_carga.prueba_carga_f3_v }}" {% endif %}>
+                                </div>
+                            </div>
+
+                            <div class="col-6">
+                                <div class="input-group mb-2 mr-sm-2">
+                                    <div class="input-group-prepend">
+                                        <div class="input-group-text">F3-A</div>
+                                    </div>
+                                    <input type="text" class="form-control"
+                                            {% if ticket.centro_carga.prueba_carga_f3_a %}
+                                           value="{{ ticket.centro_carga.prueba_carga_f3_a }}" {% endif %}>
+                                </div>
+                            </div>
+
+                            <div class="col-6">
+                                <div class="input-group mb-2 mr-sm-2">
+                                    <div class="input-group-prepend">
+                                        <div class="input-group-text">N</div>
+                                    </div>
+                                    <input type="text" class="form-control"
+                                            {% if ticket.centro_carga.prueba_carga_n_a %}
+                                           value="{{ ticket.centro_carga.prueba_carga_n_a }}" {% endif %}>
+                                </div>
+                            </div>
+
+                        </div>
+
+
+                    </div>
+
+                </div>
+
+                <div class="col-12 caja">
+                    <h4 class="cajacontenido">Nota:
+                        {% if ticket.centro_carga.nota %}{{ ticket.centro_carga.nota }}{% endif %} </h4>
+                </div>
+
+
+            </div>
+        </div>
+        <div class="col-12" style="margin-top: 12%">
+            <div class="row">
+
+
+                <div class="col-12 cajatitulo-4">
+                    <h1 class="titulocaja">Resultado centro de carga principal:</h1>
+                </div>
+
+                <div class="col-12 caja_text">
+                    <h4 class="cajacontenido">
+                        {% if ticket.centro_carga.resultado %}{{ ticket.centro_carga.resultado }} {% endif %}</h4>
+                </div>
+
+
+            </div>
+        </div>
+
+        <div class="col-12 mt-3">
+            <p class="cajacontenido">
+                <strong>Notas de Centro de Carga:</strong></br>
+                <strong>1.</strong> El tablero eléctrico debe presentar al menos 3 aspectos importantes considerados en
+                esta revisión:
+            </p>
+            <ul class="ml-3">
+                <li>
+                    Buena ubicación para manipulación y acceso rápido en caso de emergencia, además esta ubicación
+                    debe garantizar la integridad del centro de carga lejos de espacios húmedos o en presencia de
+                    agentes químicos, así como lejos de materiales flamables.
+                </li>
+
+                <li>
+                    Cantidad de circuitos (breakers) acorde a las necesidades de la casa cumpliendo su respectiva
+                    normativa de aplicación por tipo de ampacidad y tecnología de seguridad.
+                </li>
+                <li>
+                    Correcto balance de cargas.
+                </li>
+            </ul>
+
+            <p class="cajacontenido">
+                <strong>2.</strong> La prueba de carga es una medición del comportamiento en los valores de voltaje en
+                presencia de alto
+                porcentaje de corriente creando un escenario de fatiga eléctrica para determinar su comportamiento.
+            </p>
+        </div>
+
+    </div>
+
+</div>
+
+
+
+{% for item in secundarios %}
+    <div class="container-fluid" style="margin-top: 63%">
 
         <div class="row">
             <div class="col-12">
-                <h1 class="titleboleta">Centro de Carga</h1>
+                <h1 class="subtitulo">Centro de Carga Secundario</h1>
             </div>
 
 
-            <div class="col-4">
+            <div class="col-6">
                 <div class="row">
 
 
-                    <div class="col-12 cajatitulo">
+                    <div class="col-12 cajatitulo-4">
                         <h1 class="titulocaja">Marca y No. Catalago:</h1>
                     </div>
-                    {% if ticket.centro_carga.marca_catalogo %}
-                        <div class="col-12 caja">
-                            <h4 class="cajacontenido">{{ ticket.centro_carga.marca_catalogo }}</h4>
-                        </div>
-                    {% endif %}
+
+                    <div class="col-12 caja">
+                        <h4 class="cajacontenido">{% if item.marca_catalogo %}{{ item.marca_catalogo }}{% endif %}</h4>
+                    </div>
+
                 </div>
             </div>
 
-            <div class="col-4">
+            <div class="col-6">
                 <div class="row">
 
 
-                    <div class="col-12 cajatitulo">
+                    <div class="col-12 cajatitulo-4">
                         <h1 class="titulocaja">Espacios Ocupados:</h1>
                     </div>
-                    {% if ticket.centro_carga.espacios_ocupados %}
-                        <div class="col-12 caja">
-                            <h4 class="cajacontenido">{{ ticket.centro_carga.espacios_ocupados }} </h4>
-                        </div>
-                    {% endif %}
 
+                    <div class="col-12 caja">
+                        <h4 class="cajacontenido">
+                            {% if item.espacios_ocupados %}{{ item.espacios_ocupados }} {% endif %}</h4>
+                    </div>
                 </div>
             </div>
 
-            <div class="col-4">
+            <div class="col-6">
                 <div class="row">
 
 
-                    <div class="col-12 cajatitulo">
+                    <div class="col-12 cajatitulo-4">
                         <h1 class="titulocaja">Estado general del tablero:</h1>
                     </div>
                     <div class="col-12 caja">
-                        <h4 class="cajacontenido">{{ ticket.centro_carga.get_estado_tablero_display }}</h4>
+                        <h4 class="cajacontenido">{{ item.get_estado_tablero_display }}</h4>
                     </div>
-                    {% if ticket.centro_carga.estado_tablero_especifique %}
-                        <div class="col-12 caja">
-                            <h4 class="cajacontenido"> {{ ticket.centro_carga.estado_tablero_especifique }} </h4>
-                        </div>
-                    {% endif %}
+
+                    <div class="col-12 caja_text">
+                        <h5 class="titulo_observ">Observación:</h5>
+                        <h4 class="cajacontenido">{% if item.estado_tablero_especifique %}
+                            {{ item.estado_tablero_especifique }}{% endif %} </h4>
+                    </div>
+
                 </div>
             </div>
 
-        </div>
-
-    </div>
-
-
-    <div class="container-fluid top">
-
-        <div class="row">
-
-
-            <div class="col-4">
+            <div class="col-6">
                 <div class="row">
 
 
-                    <div class="col-12 cajatitulo">
+                    <div class="col-12 cajatitulo-4">
                         <h1 class="titulocaja">Ubicación:</h1>
                     </div>
                     <div class="col-12 caja">
-                        <h4 class="cajacontenido">{{ ticket.centro_carga.get_ubicacion_display }}</h4>
+                        <h4 class="cajacontenido">{{ item.get_ubicacion_display }}</h4>
                     </div>
                 </div>
             </div>
 
-            <div class="col-4">
+            <div class="col-6">
                 <div class="row">
 
 
-                    <div class="col-12 cajatitulo">
+                    <div class="col-12 cajatitulo-4">
                         <h1 class="titulocaja">Canalización:</h1>
                     </div>
                     <div class="col-12 caja">
-                        <h4 class="cajacontenido">{{ ticket.centro_carga.get_canalizacion_display }}</h4>
+                        <h4 class="cajacontenido">{{ item.get_canalizacion_display }}</h4>
                     </div>
-                    {% if ticket.centro_carga.canalizacion_especifique %}
-                        <div class="col-12 caja">
-                            <h4 class="cajacontenido">{{ ticket.centro_carga.canalizacion_especifique }}</h4>
-                        </div>
-                    {% endif %}
-                    {% if ticket.centro_carga.canalizacion_distancia %}
-                        <div class="col-12 caja">
-                            <h4 class="cajacontenido"> {{ ticket.centro_carga.canalizacion_distancia }} </h4>
-                        </div>
-                    {% endif %}
+
+                    <div class="col-12 caja_text">
+                        <h5 class="titulo_observ">Observación:</h5>
+                        <h4 class="cajacontenido">
+                            {% if item.canalizacion_especifique %}{{ item.canalizacion_especifique }}{% endif %}</h4>
+                    </div>
+
+
+                    <div class="col-12 caja_text">
+                        <h5 class="titulo_observ">Distancia:</h5>
+                        <h4 class="cajacontenido">
+                            {% if item.canalizacion_distancia %}{{ item.canalizacion_distancia }}{% endif %} </h4>
+                    </div>
+
 
                 </div>
             </div>
 
-            <div class="col-4">
+            <div class="col-6">
                 <div class="row">
 
 
-                    <div class="col-12 cajatitulo">
+                    <div class="col-12 cajatitulo-4">
                         <h1 class="titulocaja">Condición general de los tableros:</h1>
                     </div>
                     <div class="col-12 caja">
-                        <h4 class="cajacontenido">{{ ticket.centro_carga.get_estado_tablero_display }}</h4>
+                        <h4 class="cajacontenido">{{ item.get_estado_tablero_display }}</h4>
                     </div>
-                    {% if ticket.centro_carga.estado_tablero_especifique %}
-                        <div class="col-12 caja">
-                            <h4 class="cajacontenido">{{ ticket.centro_carga.estado_tablero_especifique }} </h4>
-                        </div>
-                    {% endif %}
+
+                    <div class="col-12 caja_text">
+                        <h5 class="titulo_observ">Observación:</h5>
+                        <h4 class="cajacontenido">{% if item.estado_tablero_especifique %}
+                            {{ item.estado_tablero_especifique }}{% endif %} </h4>
+                    </div>
+
 
                 </div>
             </div>
 
-        </div>
-
-    </div>
-
-
-    <div class="container-fluid top">
-        <div class="row">
-            <div class="col-4">
+            <div class="col-6">
                 <div class="row">
 
 
-                    <div class="col-12 cajatitulo">
+                    <div class="col-12 cajatitulo-4">
                         <h1 class="titulocaja">Puesta a tierra:</h1>
                     </div>
                     <div class="col-12 caja">
-                        <h4 class="cajacontenido">{{ ticket.centro_carga.get_estado_puesta_display }}</h4>
+                        <h4 class="cajacontenido">{{ item.get_estado_puesta_display }}</h4>
                     </div>
-                    {% if ticket.centro_carga.estado_puesta_especifique %}
-                        <div class="col-12 caja">
-                            <h4 class="cajacontenido"> {{ ticket.centro_carga.estado_puesta_especifique }} </h4>
-                        </div>
-                    {% endif %}
-
-                </div>
-            </div>
-            <div class="col-4">
-                <div class="row">
-
-
-                    <div class="col-12 cajatitulo">
-                        <h1 class="titulocaja">Prueba de carga:
-                            (F1, F2, F3, N)</h1>
-                    </div>
-                    <div class="col-12 caja">
-                        <div class="form-group top">
-
-                            <div class="row">
-                                <div class="col-6">
-                                    <div class="input-group mb-2 mr-sm-2">
-                                        <div class="input-group-prepend">
-                                            <div class="input-group-text">F1-v</div>
-                                        </div>
-                                        <input type="text" class="form-control" 
-                                                {% if ticket.centro_carga.prueba_carga_f1_v %}
-                                               value="{{ ticket.centro_carga.prueba_carga_f1_v }}" {% endif %}>
-                                    </div>
-                                </div>
-                                <div class="col-6">
-                                    <div class="input-group mb-2 mr-sm-2">
-                                        <div class="input-group-prepend">
-                                            <div class="input-group-text">F1-A</div>
-                                        </div>
-                                        <input type="text" class="form-control" 
-                                                {% if ticket.centro_carga.prueba_carga_f1_a %}
-                                               value="{{ ticket.centro_carga.prueba_carga_f1_a }}" {% endif %}>
-                                    </div>
-                                </div>
-
-                                <div class="col-6">
-                                    <div class="input-group mb-2 mr-sm-2">
-                                        <div class="input-group-prepend">
-                                            <div class="input-group-text">F2-v</div>
-                                        </div>
-                                        <input type="text" class="form-control" 
-                                                {% if ticket.centro_carga.prueba_carga_f2_v %}
-                                               value="{{ ticket.centro_carga.prueba_carga_f2_v }}" {% endif %}>
-                                    </div>
-                                </div>
-
-                                <div class="col-6">
-                                    <div class="input-group mb-2 mr-sm-2">
-                                        <div class="input-group-prepend">
-                                            <div class="input-group-text">F2-A</div>
-                                        </div>
-                                        <input type="text" class="form-control" 
-                                                {% if ticket.centro_carga.prueba_carga_f2_a %}
-                                               value="{{ ticket.centro_carga.prueba_carga_f2_a }}" {% endif %}>
-                                    </div>
-                                </div>
-
-                                <div class="col-6">
-                                    <div class="input-group mb-2 mr-sm-2">
-                                        <div class="input-group-prepend">
-                                            <div class="input-group-text">F3-v</div>
-                                        </div>
-                                        <input type="text" class="form-control" 
-                                                {% if ticket.centro_carga.prueba_carga_f3_v %}
-                                               value="{{ ticket.centro_carga.prueba_carga_f3_v }}" {% endif %}>
-                                    </div>
-                                </div>
-
-                                <div class="col-6">
-                                    <div class="input-group mb-2 mr-sm-2">
-                                        <div class="input-group-prepend">
-                                            <div class="input-group-text">F3-A</div>
-                                        </div>
-                                        <input type="text" class="form-control" 
-                                                {% if ticket.centro_carga.prueba_carga_f3_a %}
-                                               value="{{ ticket.centro_carga.prueba_carga_f3_a }}" {% endif %}>
-                                    </div>
-                                </div>
-
-                                <div class="col-6">
-                                    <div class="input-group mb-2 mr-sm-2">
-                                        <div class="input-group-prepend">
-                                            <div class="input-group-text">N</div>
-                                        </div>
-                                        <input type="text" class="form-control" 
-                                                {% if ticket.centro_carga.prueba_carga_n_a %}
-                                               value="{{ ticket.centro_carga.prueba_carga_n_a }}" {% endif %}>
-                                    </div>
-                                </div>
-
-                            </div>
-
-
-                        </div>
-
-                    </div>
-                    {% if ticket.centro_carga.nota %}
-                        <div class="col-12 caja">
-                            <h4 class="cajacontenido"> {{ ticket.centro_carga.nota }} </h4>
-                        </div>
-                    {% endif %}
-
-
-                </div>
-            </div>
-            <div class="col-4">
-                <div class="row">
-
-
-                    <div class="col-12 cajatitulo">
-                        <h1 class="titulocaja">Resultado centro de carga principal:</h1>
-                    </div>
-                    {% if ticket.centro_carga.resultado %}
-                        <div class="col-12 caja">
-                            <h4 class="cajacontenido">{{ ticket.centro_carga.resultado }} </h4>
-                        </div>
-                    {% endif %}
-
-                </div>
-            </div>
-        </div>
-
-    </div>
-
-    {% for item in secundarios %}
-        <div class="container-fluid top">
-
-            <div class="row">
-                <div class="col-12">
-                    <h1 class="subtitulo">Centro de Carga Secundario</h1>
-                </div>
-
-
-                <div class="col-4">
-                    <div class="row">
-
-
-                        <div class="col-12 cajatitulo">
-                            <h1 class="titulocaja">Marca y No. Catalago:</h1>
-                        </div>
-                        {% if item.marca_catalogo %}
-                            <div class="col-12 caja">
-                                <h4 class="cajacontenido">{{ item.marca_catalogo }}</h4>
-                            </div>
-                        {% endif %}
-                    </div>
-                </div>
-
-                <div class="col-4">
-                    <div class="row">
-
-
-                        <div class="col-12 cajatitulo">
-                            <h1 class="titulocaja">Espacios Ocupados:</h1>
-                        </div>
-                        {% if item.espacios_ocupados %}
-                            <div class="col-12 caja">
-                                <h4 class="cajacontenido">{{ item.espacios_ocupados }} </h4>
-                            </div>
-                        {% endif %}
-
-                    </div>
-                </div>
-
-                <div class="col-4">
-                    <div class="row">
-
-
-                        <div class="col-12 cajatitulo">
-                            <h1 class="titulocaja">Estado general del tablero:</h1>
-                        </div>
-                        <div class="col-12 caja">
-                            <h4 class="cajacontenido">{{ item.get_estado_tablero_display }}</h4>
-                        </div>
-                        {% if item.estado_tablero_especifique %}
-                            <div class="col-12 caja">
-                                <h4 class="cajacontenido"> {{ item.estado_tablero_especifique }} </h4>
-                            </div>
-                        {% endif %}
-                    </div>
-                </div>
-
-            </div>
-
-        </div>
-
-
-        <div class="container-fluid top">
-
-            <div class="row">
-
-
-                <div class="col-4">
-                    <div class="row">
-
-
-                        <div class="col-12 cajatitulo">
-                            <h1 class="titulocaja">Ubicación:</h1>
-                        </div>
-                        <div class="col-12 caja">
-                            <h4 class="cajacontenido">{{ item.get_ubicacion_display }}</h4>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-4">
-                    <div class="row">
-
-
-                        <div class="col-12 cajatitulo">
-                            <h1 class="titulocaja">Canalización:</h1>
-                        </div>
-                        <div class="col-12 caja">
-                            <h4 class="cajacontenido">{{ item.get_canalizacion_display }}</h4>
-                        </div>
-                        {% if item.canalizacion_especifique %}
-                            <div class="col-12 caja">
-                                <h4 class="cajacontenido">{{ item.canalizacion_especifique }}</h4>
-                            </div>
-                        {% endif %}
-                        {% if item.canalizacion_distancia %}
-                            <div class="col-12 caja">
-                                <h4 class="cajacontenido"> {{ item.canalizacion_distancia }} </h4>
-                            </div>
-                        {% endif %}
-
-                    </div>
-                </div>
-
-                <div class="col-4">
-                    <div class="row">
-
-
-                        <div class="col-12 cajatitulo">
-                            <h1 class="titulocaja">Condición general de los tableros:</h1>
-                        </div>
-                        <div class="col-12 caja">
-                            <h4 class="cajacontenido">{{ item.get_estado_tablero_display }}</h4>
-                        </div>
-                        {% if item.estado_tablero_especifique %}
-                            <div class="col-12 caja">
-                                <h4 class="cajacontenido">{{ item.estado_tablero_especifique }} </h4>
-                            </div>
-                        {% endif %}
-
-                    </div>
-                </div>
-
-            </div>
-
-        </div>
-
-
-        <div class="container-fluid top">
-            <div class="row">
-                <div class="col-4">
-                    <div class="row">
-
-
-                        <div class="col-12 cajatitulo">
-                            <h1 class="titulocaja">Puesta a tierra:</h1>
-                        </div>
-                        <div class="col-12 caja">
-                            <h4 class="cajacontenido">{{ item.get_estado_puesta_display }}</h4>
-                        </div>
-                        {% if item.estado_puesta_especifique %}
-                            <div class="col-12 caja">
-                                <h4 class="cajacontenido"> {{ item.estado_puesta_especifique }} </h4>
-                            </div>
-                        {% endif %}
-
+                    <div class="col-12 caja_text">
+                        <h5 class="titulo_observ">Observación:</h5>
+                        <h4 class="cajacontenido">{% if item.estado_puesta_especifique %}
+                            {{ item.estado_puesta_especifique }}{% endif %} </h4>
                     </div>
                 </div>
             </div>
-
-        </div>
-    {% endfor %}
-
-
-</br></br></br></br></br></br></br></br>
-    <div class="container-fluid top">
-
-        <div class="row">
-            <div class="col-12">
-                <h1 class="titleboleta">Circuitos Ramales</h1>
-            </div>
-
-
-            <div class="col-4">
-
-
-                    <div class="col-12 cajatitulo">
-                        <h1 class="titulocaja">Resultado circutos ramales:</h1>
-                    </div>
-                    {% if ticket.circuitos_ramales.resultado %}
-                        <div class="col-12 caja">
-                            <h4 class="cajacontenido"> {{ ticket.circuitos_ramales.resultado }} </h4>
-                        </div>
-                    {% endif %}
-
-                </div>
-            </div>
-
 
         </div>
 
     </div>
+{% endfor %}
 
-    <div class="container-fluid top">
 
-        <div class="row">
-            <div class="col-12">
-                <h1 class="titleboleta">Recomendaciones Generales</h1>
+
+<div class="container-fluid" style="margin-top: 63%">
+
+    <div class="row">
+        <div class="col-12">
+            <h1 class="titleboleta-5">Circuitos Ramales</h1>
+        </div>
+
+
+        <div class="col-12">
+            <h5 class="mt-3">Iluminación</h5>
+        </div>
+
+
+        <div class="col-3 mt-2">
+            <div class="col-12 cajatitulo-5">
+                <h1 class="titulocaja">Luminarias:</h1>
             </div>
 
+            <div class="col-12 caja">
+                <h4 class="cajacontenido">{% if ticket.circuitos_ramales.luminarias %}
+                    {{ ticket.circuitos_ramales.luminarias }} {% endif %}</h4>
+            </div>
+        </div>
+        <div class="col-3 mt-2">
+            <div class="col-12 cajatitulo-5">
+                <h1 class="titulocaja">Circuitos:</h1>
+            </div>
 
-            <div class="col-4">
-                <div class="row">
+            <div class="col-12 caja">
+                <h4 class="cajacontenido">{% if ticket.circuitos_ramales.luminarias_circuitos %}
+                    {{ ticket.circuitos_ramales.luminarias_circuitos }} {% endif %}</h4>
+            </div>
+        </div>
+        <div class="col-6">
+            <div class="col-12 cajatitulo-5">
+                <h1 class="titulocaja">Notas y recomendaciones:</h1>
+            </div>
+
+            <div class="col-12 caja_text">
+                <h4 class="cajacontenido">{% if ticket.circuitos_ramales.luminarias_notas %}
+                    {{ ticket.circuitos_ramales.luminarias_notas }} {% endif %}</h4>
+            </div>
+        </div>
+
+        <div class="col-12">
+            <h5 class="mt-3">Tomacorrientes</h5>
+        </div>
 
 
-                    <div class="col-12 cajatitulo">
-                        <h1 class="titulocaja">Recomendaciones</h1>
-                    </div>
-                    {% if ticket.general_recomendations.result %}
-                        <div class="col-12 caja">
-                            <h4 class="cajacontenido">{{ ticket.general_recomendations.result }} </h4>
-                        </div>
-                    {% endif %}
-                </div>
+        <div class="col-3 mt-2">
+            <div class="col-12 cajatitulo-5">
+                <h1 class="titulocaja">Tomas aprox:</h1>
+            </div>
+
+            <div class="col-12 caja">
+                <h4 class="cajacontenido">{% if ticket.circuitos_ramales.tomas_aprox %}
+                    {{ ticket.circuitos_ramales.tomas_aprox }} {% endif %}</h4>
+            </div>
+        </div>
+        <div class="col-3  mt-2">
+            <div class="col-12 cajatitulo-5">
+                <h1 class="titulocaja">Circuitos:</h1>
+            </div>
+
+            <div class="col-12 caja">
+                <h4 class="cajacontenido">{% if ticket.circuitos_ramales.tomas_aprox_circuitos %}
+                    {{ ticket.circuitos_ramales.tomas_aprox_circuitos }} {% endif %}</h4>
+            </div>
+        </div>
+        <div class="col-6">
+            <div class="col-12 cajatitulo-5">
+                <h1 class="titulocaja">Notas y recomendaciones:</h1>
+            </div>
+
+            <div class="col-12 caja_text">
+                <h4 class="cajacontenido">{% if ticket.circuitos_ramales.tomas_aprox_notas %}
+                    {{ ticket.circuitos_ramales.tomas_aprox_notas }} {% endif %}</h4>
+            </div>
+        </div>
+
+
+        <div class="col-12">
+            <h5 class="mt-3">Tomacorrientes Carga Mayores</h5>
+        </div>
+
+
+        <div class="col-3">
+            <div class="col-12 cajatitulo-5">
+                <h1 class="titulocaja">Calentadores:</h1>
+            </div>
+
+            <div class="col-12 caja">
+                <h4 class="cajacontenido">{% if ticket.circuitos_ramales.calentadores_agua %}
+                    {{ ticket.circuitos_ramales.calentadores_agua }} {% endif %}</h4>
+            </div>
+        </div>
+        <div class="col-3">
+            <div class="col-12 cajatitulo-5">
+                <h1 class="titulocaja">Secadoras:</h1>
+            </div>
+
+            <div class="col-12 caja">
+                <h4 class="cajacontenido">{% if ticket.circuitos_ramales.secadoras %}
+                    {{ ticket.circuitos_ramales.secadoras }} {% endif %}</h4>
+            </div>
+        </div>
+        <div class="col-3">
+            <div class="col-12 cajatitulo-5">
+                <h1 class="titulocaja">Cocinas:</h1>
+            </div>
+
+            <div class="col-12 caja">
+                <h4 class="cajacontenido">{% if ticket.circuitos_ramales.cocinas %}
+                    {{ ticket.circuitos_ramales.cocinas }} {% endif %}</h4>
+            </div>
+        </div>
+        <div class="col-3">
+            <div class="col-12 cajatitulo-5">
+                <h1 class="titulocaja">Termoduchas:</h1>
+            </div>
+
+            <div class="col-12 caja">
+                <h4 class="cajacontenido">{% if ticket.circuitos_ramales.termoduchas %}
+                    {{ ticket.circuitos_ramales.termoduchas }} {% endif %}</h4>
+            </div>
+        </div>
+        <div class="col-3 mt-2">
+            <div class="col-12 cajatitulo-5">
+                <h1 class="titulocaja">A/C:</h1>
+            </div>
+
+            <div class="col-12 caja">
+                <h4 class="cajacontenido">{% if ticket.circuitos_ramales.aires_acondicionados %}
+                    {{ ticket.circuitos_ramales.aires_acondicionados }} {% endif %}</h4>
+            </div>
+        </div>
+        <div class="col-6">
+            <div class="col-12 cajatitulo-5">
+                <h1 class="titulocaja">Notas y Recomendaciones:</h1>
+            </div>
+
+            <div class="col-12 caja_text">
+                <h4 class="cajacontenido">{% if ticket.circuitos_ramales.resultado %}
+                    {{ ticket.circuitos_ramales.resultado }} {% endif %}</h4>
             </div>
         </div>
     </div>
+</div>
 
+
+<div class="container-fluid" style="margin-top: 65%">
+
+    <div class="row">
+        <div class="col-12">
+            <h1 class="titleboleta-6">Recomendaciones Generales</h1>
+        </div>
+
+
+        <div class="col-12">
+            <div class="row">
+
+
+                <div class="col-12 cajatitulo-6">
+                    <h1 class="titulocaja">Recomendaciones</h1>
+                </div>
+
+                <div class="col-12 caja_text">
+                    <h4 class="cajacontenido">{% if ticket.general_recomendations.result %}
+                        {{ ticket.general_recomendations.result }}{% endif %} </h4>
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="col-12 mt-5 mb-2">
+            <p class="cajacontenido"><strong>Terminología:</strong></p>
+            <ul class="ml-3">
+                <li>
+                    <strong>Puntos calientes o recalentados:</strong> Presencia de cables, empalmes o bornes con
+                    cambio de color y
+                    pérdida de sus cualidades de conducción eléctrica.
+                </li>
+
+                <li>
+                    <strong>Capacidad de corriente inadecuada:</strong> BREAKER, CABLES o TOMAS no aptos para la
+                    potencia o amperios de la carga o artefacto eléctrico.
+                </li>
+
+                <li>
+                    <strong>Canalización:</strong> Tubería, canaleta o medio de protección de cableado.
+                </li>
+
+                <li>
+                    <strong>Ampacidad:</strong> Capacidad de corriente medida en AMPERIOS.
+                </li>
+                <li>
+                    <strong>Ohmios:</strong> Unidad de medición de la capacidad de conducción eléctrica (resistencia
+                    de un conductor)
+                </li>
+
+                <li>
+                    <strong>Potencia:</strong> La potencia eléctrica es la proporción por unidad de tiempo, o ritmo,
+                    con la cual la energía eléctrica es consumida por un artefacto eléctrico, es decir, la cantidad
+                    de energía eléctrica.
+                </li>
+            </ul>
+        </div>
+
+        <div class="col-12 mt-5">
+            <h1 class="titulo_observ">El Electricista recomienda</h1>
+            <div class="row">
+                <div class="col-4">
+                    <img class="logoboleta" src="{% static 'img/logoPatrocinador.jpeg' %}">
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+</div>
 
 </section>
 

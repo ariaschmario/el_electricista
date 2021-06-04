@@ -156,7 +156,7 @@
                                         <div class="form-group">
                                             {{ form.email.errors }}
                                             <label for="{{ form.email.id_for_label }}">Correo Electr&oacute;nico</label>
-                                            <input type="email" {% if form.legalId.value %} value="{{ form.email.value }}" {% endif %} class="form-control" id="{{ form.email.id_for_label }}" name="{{ form.email.html_name }}" maxlength="25" required placeholder="">
+                                            <input type="email" {% if form.legalId.value %} value="{{ form.email.value }}" {% endif %} class="form-control" id="{{ form.email.id_for_label }}" name="{{ form.email.html_name }}" maxlength="60" required placeholder="">
                                           </div>
                                     </div>
                                     <div class="col-12 col-md-6 col-xl-4">

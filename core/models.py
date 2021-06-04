@@ -76,7 +76,7 @@ class Client(models.Model):
     idType = models.CharField(choices=LABEL_CHOICES, max_length=1, default='o')
     name = models.CharField(max_length=25)
     phoneNumber = models.CharField(max_length=15)
-    email = models.CharField(max_length=25)
+    email = models.CharField(max_length=59)
     adress = models.CharField(max_length=200)
 
     def __str__(self):
